@@ -31,7 +31,7 @@ const Login = () => {
                   <i class="fas fa-user"></i>
                 </span>
               </div>
-              <input type="text" class="form-control" placeholder="username" />
+              <input type="text" class="form-control" placeholder="Username" required />
             </div>
             <br></br>
             <div class="input-group form-group">
@@ -43,7 +43,8 @@ const Login = () => {
               <input
                 type="password"
                 class="form-control"
-                placeholder="password"
+                placeholder="Password"
+                required
               />
             </div>
             <br></br>

@@ -19,7 +19,7 @@ export default class Signup extends React.Component {
     this.changeEmail = this.changeEmail.bind(this);
     this.changePassword = this.changePassword.bind(this);
     this.changeRepassword = this.changeRepassword.bind(this);
-    console.log(this);
+    // console.log(this);
   }
 
   changeName = (event) => {
@@ -39,35 +39,36 @@ export default class Signup extends React.Component {
     let x = true;
     if(this.state.password===null && this.state.user===null && this.state.repassword===null && this.state.email===null){
       this.setState({
-        passworderror: "This field is required",
-        repassworderror: "This field is required",
-        nameError: "This field is required",
-        emailError: "This field is required",
+        passworderror: "Please fill out this field.",
+        repassworderror: "Please fill out this field.",
+        nameError: "Please fill out this field.",
+        emailError: "Please fill out this field.",
       });
       x = false;
     }
     if(this.state.user===null){
       this.setState({
-        nameError: "This field is required",
+        nameError: "Please fill out this field.",
       });
       x = false;
     }
-  //! Check this length error
     if(this.state.user!==null){
       if (this.state.user.length < 5) {
         this.setState({ nameError: "Name must be 5 characters long!" });
       }
       x = false;
     }
-    if (this.state.password.length < 8) {
-      this.setState({
-        passworderror: "Password must be 8 character long!",
-      });
-      x = false;
-    }
+    if(this.state.password!==null){
+      if (this.state.password.length < 8) {
+        this.setState({
+          passworderror: "Password must be 8 character long!",
+        });
+        x = false;
+      }
+  }
     if(this.state.password==='' || this.state.password===null){
       this.setState({
-        passworderror: "This field is required",
+        passworderror: "Please fill out this field.",
       });
       x = false;
     }
@@ -75,15 +76,6 @@ export default class Signup extends React.Component {
       this.setState({ repassworderror: "Password does not match" });
       x = false;
     }
-    if (
-      this.state.user.length === 0 &&
-      this.state.email.length === 0 &&
-      this.state.repassword.length === 0
-    ) {
-      console.log("Enter Data");
-      x = false;
-    }
-
     else {
       return x;
     }
@@ -139,7 +131,9 @@ export default class Signup extends React.Component {
                   onChange={this.changeName}
                 />
               </div>
-                <p style={{color:"red"}}>{this.state.nameError}</p>
+              <b>
+              <p style={{color:"red"}}>{this.state.nameError}</p>
+              </b>
               <div className="input-group form-group">
                 <div className="input-group-prepend">
                   <span className="input-group-text">
@@ -154,7 +148,9 @@ export default class Signup extends React.Component {
                   onChange={this.changeEmail}
                 />
               </div>
+              <b>
               <p style={{color:"red"}}>{this.state.emailError}</p>
+              </b>
               <div className="input-group form-group">
                 <div className="input-group-prepend">
                   <span className="input-group-text">
