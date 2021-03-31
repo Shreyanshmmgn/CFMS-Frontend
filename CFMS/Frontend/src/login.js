@@ -33,6 +33,7 @@ const Login = () => {
               </div>
               <input type="text" class="form-control" placeholder="username" />
             </div>
+            <br></br>
             <div class="input-group form-group">
               <div class="input-group-prepend">
                 <span class="input-group-text">
@@ -45,10 +46,12 @@ const Login = () => {
                 placeholder="password"
               />
             </div>
+            <br></br>
             <div class="row align-items-center remember">
               <input type="checkbox" />
               Remember Me
             </div>
+            <br></br>
             <div class="form-group">
               <input
                 type="submit"

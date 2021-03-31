@@ -11,6 +11,7 @@ export default class Signup extends React.Component {
       password: null,
       repassword: null,
       nameError: "",
+      emailError:"",
       passworderror: "",
       repassworderror: "",
     };
@@ -36,13 +37,37 @@ export default class Signup extends React.Component {
 
   valid = () => {
     let x = true;
-    if (this.state.user.length < 5) {
-      this.setState({ nameError: "Name must be 5 characters long!" });
+    if(this.state.password===null && this.state.user===null && this.state.repassword===null && this.state.email===null){
+      this.setState({
+        passworderror: "This field is required",
+        repassworderror: "This field is required",
+        nameError: "This field is required",
+        emailError: "This field is required",
+      });
+      x = false;
+    }
+    if(this.state.user===null){
+      this.setState({
+        nameError: "This field is required",
+      });
+      x = false;
+    }
+  //! Check this length error
+    if(this.state.user!==null){
+      if (this.state.user.length < 5) {
+        this.setState({ nameError: "Name must be 5 characters long!" });
+      }
       x = false;
     }
     if (this.state.password.length < 8) {
       this.setState({
         passworderror: "Password must be 8 character long!",
+      });
+      x = false;
+    }
+    if(this.state.password==='' || this.state.password===null){
+      this.setState({
+        passworderror: "This field is required",
       });
       x = false;
     }
@@ -57,7 +82,9 @@ export default class Signup extends React.Component {
     ) {
       console.log("Enter Data");
       x = false;
-    } else {
+    }
+
+    else {
       return x;
     }
   };
@@ -112,9 +139,7 @@ export default class Signup extends React.Component {
                   onChange={this.changeName}
                 />
               </div>
-              <b>
-                <p>{this.state.nameError}</p>
-              </b>
+                <p style={{color:"red"}}>{this.state.nameError}</p>
               <div className="input-group form-group">
                 <div className="input-group-prepend">
                   <span className="input-group-text">
@@ -129,6 +154,7 @@ export default class Signup extends React.Component {
                   onChange={this.changeEmail}
                 />
               </div>
+              <p style={{color:"red"}}>{this.state.emailError}</p>
               <div className="input-group form-group">
                 <div className="input-group-prepend">
                   <span className="input-group-text">
@@ -144,7 +170,7 @@ export default class Signup extends React.Component {
                 />
               </div>
               <b>
-                <p>{this.state.passworderror}</p>
+                <p style={{color:"red"}}>{this.state.passworderror}</p>
               </b>
               <div className="input-group form-group">
                 <div className="input-group-prepend">
@@ -161,7 +187,7 @@ export default class Signup extends React.Component {
                 />
               </div>
               <b>
-                <p>{this.state.repassworderror}</p>
+                <p style={{color:'red'}}>{this.state.repassworderror}</p>
               </b>
               <div className="form-group">
                 <input
