@@ -7,7 +7,7 @@ const Home = () => {
         <div className="container">
           <div className="logo float-left">
             <a href="index.html">
-              <img src="assets/img/logo.png" alt="" className="img-fluid" />
+              <img src="./assets/img/logo.png" alt="" className="img-fluid" />
             </a>
           </div>
           <nav className="main-nav float-right d-none d-lg-block">
@@ -76,10 +76,10 @@ const Home = () => {
       <section id="intro" className="clearfix">
         <div className="container" data-aos="fade-up">
           <div className="intro-img" data-aos="zoom-out" data-aos-delay="200">
-            <img src="assets/img/intro-img.svg" alt="" className="img-fluid" />
+            <img src="./assets/img/intro-img.svg" alt="" className="img-fluid" />
           </div>
 
-          <div className="intro-info" data-aos="zoom-in" data-aos-delay="100">
+          <div className="intro-info" data-aos="zoom-in" data-aos-delay="">
             <h2>
               We provide
               <br />
@@ -843,7 +843,7 @@ const Home = () => {
 
                   <div className="testimonial-item">
                     <img
-                      src="assets/img/testimonial-5.jpg"
+                      src="./assets/img/testimonial-5.jpg"
                       className="testimonial-img"
                       alt=""
                     />
@@ -1308,7 +1308,7 @@ const Home = () => {
       </a>
 
       {/* <!-- Vendor JS Files --> */}
-      {/* <script src="assets/vendor/jquery/jquery.min.js"></script>
+      <script src="assets/vendor/jquery/jquery.min.js"></script>
       <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
       <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
       <script src="assets/vendor/php-email-form/validate.js"></script>
@@ -1319,7 +1319,7 @@ const Home = () => {
       <script src="assets/vendor/venobox/venobox.min.js"></script>
       <script src="assets/vendor/aos/aos.js"></script>
 
-      <script src="assets/js/main.js"></script> */}
+      <script src="assets/js/main.js"></script>
     </div>
   );
 };
