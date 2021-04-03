@@ -7,7 +7,7 @@ const Home = () => {
         <div className="container">
           <div className="logo float-left">
             <a href="index.html">
-              <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fappsonwindows.com%2Fapk%2F4360145%2F&psig=AOvVaw3pmzaS44M5rmcqzeVNslHt&ust=1617347131163000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNiN-PK93O8CFQAAAAAdAAAAABAj" alt="" className="img-fluid" />
+              <img src="assets/img/logo.png" alt="" className="img-fluid" />
             </a>
           </div>
           <nav className="main-nav float-right d-none d-lg-block">
