@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect,
+} from "react-router-dom";
 import Login from "./login";
 import axios from "axios";
 
@@ -64,8 +69,8 @@ export default class Signup extends React.Component {
       if (this.state.user.length < 5) {
         this.setState({ nameError: "Name must be 5 characters long!" });
         x = false;
+        console.log("False 3");
       }
-      console.log("False 3");
     }
     if (this.state.password !== null) {
       if (this.state.password.length < 2) {
@@ -103,7 +108,6 @@ export default class Signup extends React.Component {
         email: this.state.email,
         password: this.state.password,
       };
-      console.log("Registered Data :", regeisterData);
       axios
         .post("http://localhost:5000/signup", regeisterData)
         .then((res) => console.log(res.data));
@@ -113,10 +117,9 @@ export default class Signup extends React.Component {
         email: "",
         password: "",
       });
+      window.location.href = "/Login";
 
-      console.warn(this.state);
       alert("Registered successfully");
-      <Route path="/Login" component={Login} />;
     }
   };
 

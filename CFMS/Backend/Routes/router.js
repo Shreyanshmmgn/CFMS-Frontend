@@ -7,9 +7,7 @@ router.get("/", (req, res) => {
   res.send("Routing workss!! lets get started");
 });
 router.post("/signup", (req, res) => {
-  console.log("accepted !");
   const { fullName, email, password } = req.body;
-  console.log(fullName);
   // if (fullName && email && password) {
   const signedUpUser = new signUpTemplate({
     fullName: fullName,
@@ -29,5 +27,6 @@ router.post("/signup", (req, res) => {
   //   res.send("Incopmplete info!!!");
   // }
 });
+router.get("/login", (req, res) => {});
 
 module.exports = router;

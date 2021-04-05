@@ -3,6 +3,7 @@ import Component1 from "./login-signup";
 import Home from "./Homepage";
 
 function App() {
+  console.clear();
   return <Component1 />;
 }
 
