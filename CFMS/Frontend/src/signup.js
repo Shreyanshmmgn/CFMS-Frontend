@@ -104,7 +104,7 @@ export default class Signup extends React.Component {
     });
     if (this.valid()) {
       const regeisterData = {
-        fullName: this.state.user,
+        userName: this.state.user,
         email: this.state.email,
         password: this.state.password,
       };

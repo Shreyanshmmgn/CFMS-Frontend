@@ -1,8 +1,29 @@
-import React from "react";
-import Signup from './signup'
-import {Link, Route} from 'react-router-dom'
-const Login = () => {
+import React, { useState } from "react";
+import Signup from "./signup";
+import { Link, Route } from "react-router-dom";
+import axios from "axios";
+import dashBoard from "./dashBoard";
 
+const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const submitData = (event) => {
+    event.preventDefault();
+    const givenData = {
+      email: email,
+      password: password,
+    };
+    axios.post("http://localhost:5000/login", givenData).then((res) => {
+      if (res.status === 200) {
+        console.log(res.status);
+        console.log("Login Successfull");
+      } else if (res.status === 401) {
+        console.log("Wrong Password enter");
+      }
+    });
+    //! window.location = "/"; To change to some page
+  };
+  
   return (
     <div class="basic">
       <div class="left-img">
@@ -24,14 +45,20 @@ const Login = () => {
           </div>
         </div>
         <div class="card-body">
-          <form action="">
+          <form action="" onSubmit={submitData}>
             <div class="input-group form-group">
               <div class="input-group-prepend">
                 <span class="input-group-text">
                   <i class="fas fa-user"></i>
                 </span>
               </div>
-              <input type="text" class="form-control" placeholder="Username" required />
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Email"
+                required
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </div>
             <br></br>
             <div class="input-group form-group">
@@ -45,6 +72,7 @@ const Login = () => {
                 class="form-control"
                 placeholder="Password"
                 required
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
             <br></br>
@@ -68,11 +96,11 @@ const Login = () => {
               <b>Don't have an account?</b>
             </h5>
             &nbsp;&nbsp;
-              <h5>
-                <b>
-                  <Link to="/Signup">Signup</Link>
-                </b>
-              </h5>
+            <h5>
+              <b>
+                <Link to="/Signup">Signup</Link>
+              </b>
+            </h5>
           </div>
           <div class="d-flex justify-content-center">
             <h5>

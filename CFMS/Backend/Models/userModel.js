@@ -3,15 +3,20 @@ const mongoose = require("mongoose");
 const schema = mongoose.Schema;
 
 const signUpTemplate = new schema({
-  fullName: {
+  userName: {
     type: String,
     required: true,
   },
   email: {
     type: String,
     required: true,
+    unique: true,
   },
-  password: {
+  hash: {
+    type: String,
+    required: true,
+  },
+  salt: {
     type: String,
     required: true,
   },

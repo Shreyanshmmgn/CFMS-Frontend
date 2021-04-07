@@ -1,20 +1,26 @@
+// Creating express application
 const express = require("express");
-const mongoose = require("mongoose");
-const dotenv = require("dotenv");
-const routerPath = require("./Routes/router");
-const cors = require("cors");
-dotenv.config();
 const app = express();
 
-mongoose.connect(
-  process.env.DATABASE_ACCESS,
-  { useNewUrlParser: true, useUnifiedTopology: true },
-  () => {
-    console.log("database coneected!");
-  }
-);
-app.use(cors());
+// Middleware to parse Json
 app.use(express.json());
+// Middleware to parse incoming urlencoded payloads
+app.use(express.urlencoded({ extended: true }));
+
+// Dotenv to let us access enviourmnet variable
+const dotenv = require("dotenv");
+dotenv.config();
+
+// To let us make req for one site to another and one localhost to another
+const cors = require("cors");
+app.use(cors());
+
+// Incluing database
+require("./Database/database");
+
+// Including all the routes
+const routerPath = require("./Routes/router");
 app.use(("/", routerPath));
 
-app.listen(5000, () => console.log("                    Server is running!"));
+// Server will be listing to port : 5000
+app.listen(5000, () => console.log("  Server is running at port : 5000"));
