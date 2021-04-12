@@ -1,7 +1,6 @@
 
 html,body{
     font-family: 'Numans', sans-serif;
-    
     }
     .basic{
     height: 100%; 
@@ -10,7 +9,7 @@ html,body{
     justify-content: space-evenly;
     flex-direction: row;
     flex-wrap: wrap;
-    background: linear-gradient(-20deg, #e5d4ff, #ffbdd5, #8fe1ff, #c1fff0);
+    background: linear-gradient(-20deg, #e5d4ff, #e8dcff, #98c1ff, #b08ffc);
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
     
@@ -37,8 +36,8 @@ html,body{
         width: 700px;
         margin-left: 0px;
     }
-    .card{
-    height: 580px;
+    #signn .card{
+    height: 650px;
     margin-top: 100px;
     margin-bottom: 0px;
     width: 480px;
@@ -48,7 +47,7 @@ html,body{
     .social_icon span{
     font-size: 60px;
     margin-left: 10px;
-    color: #FFC312;
+    color: #2f55ff;
     }
     
     .social_icon span:hover{
@@ -68,7 +67,7 @@ html,body{
     
     .input-group-prepend span{
     width: 50px;
-    background-color: #FFC312;
+    background-color: #2f55ff;
     color: black;
     border:0 !important;
     }
@@ -92,7 +91,7 @@ html,body{
     
     .login_btn{
     color: black;
-    background-color: #FFC312;
+    background-color: #2f55ff;
     width: 100px;
     }
     
@@ -101,7 +100,7 @@ html,body{
     background-color: white;
     }
     .card-footer b{
-        color: #FFC312;
+        color: #ffffff;
         
     
     }

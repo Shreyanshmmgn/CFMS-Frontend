@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import '../css/Signup.css'
 
 export default class Signup extends React.Component {
   constructor() {
@@ -37,28 +38,7 @@ export default class Signup extends React.Component {
 
   valid = () => {
     let x = true;
-    if (
-      this.state.password === null &&
-      this.state.user === null &&
-      this.state.repassword === null &&
-      this.state.email === null
-    ) {
-      this.setState({
-        passworderror: "Please fill out this field.",
-        repassworderror: "Please fill out this field.",
-        nameError: "Please fill out this field.",
-        emailError: "Please fill out this field.",
-      });
-      x = false;
-      console.log("False 1");
-    }
-    if (this.state.user === null) {
-      this.setState({
-        nameError: "Please fill out this field.",
-      });
-      x = false;
-      console.log("False 2");
-    }
+    
     if (this.state.user !== null) {
       if (this.state.user.length < 5) {
         this.setState({ nameError: "Name must be 5 characters long!" });
@@ -74,13 +54,6 @@ export default class Signup extends React.Component {
         x = false;
         console.log("False 4");
       }
-    }
-    if (this.state.password === "" || this.state.password === null) {
-      this.setState({
-        passworderror: "Please fill out this field.",
-      });
-      x = false;
-      console.log("False 5");
     }
     if (this.state.password !== this.state.repassword) {
       this.setState({ repassworderror: "Password does not match" });
@@ -121,7 +94,7 @@ export default class Signup extends React.Component {
   // data-toggle="modal"
   render() {
     return (
-      <div className="basic">
+      <div id="signn" className="basic">
         <div id="myModal" class="modal">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -191,10 +164,11 @@ export default class Signup extends React.Component {
                   className="form-control"
                   placeholder="Enter Full Name"
                   onChange={this.changeName}
+                  required
                 />
               </div>
               <b>
-                <p style={{ color: "red" }}>{this.state.nameError}</p>
+                <p style={{ color: "black" }}>{this.state.nameError}</p>
               </b>
               <div className="input-group form-group">
                 <div className="input-group-prepend">
@@ -208,10 +182,11 @@ export default class Signup extends React.Component {
                   name="email"
                   placeholder="Enter Email"
                   onChange={this.changeEmail}
+                  required
                 />
               </div>
               <b>
-                <p style={{ color: "red" }}>{this.state.emailError}</p>
+                <p style={{ color: "black" }}>{this.state.emailError}</p>
               </b>
               <div className="input-group form-group">
                 <div className="input-group-prepend">
@@ -225,10 +200,11 @@ export default class Signup extends React.Component {
                   name="password"
                   placeholder="Enter Password"
                   onChange={this.changePassword}
+                  required
                 />
               </div>
               <b>
-                <p style={{ color: "red" }}>{this.state.passworderror}</p>
+                <p style={{ color: "black" }}>{this.state.passworderror}</p>
               </b>
               <div className="input-group form-group">
                 <div className="input-group-prepend">
@@ -242,10 +218,11 @@ export default class Signup extends React.Component {
                   name="repassword"
                   placeholder="Enter Confirm Password"
                   onChange={this.changeRepassword}
+                  required
                 />
               </div>
               <b>
-                <p style={{ color: "red" }}>{this.state.repassworderror}</p>
+                <p style={{ color: "black" }}>{this.state.repassworderror}</p>
               </b>
               <div className="form-group">
                 <input
