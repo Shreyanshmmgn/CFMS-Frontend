@@ -1,10 +1,9 @@
 import "./css/App.css";
-import LoginSignup from "./Login-Signup/login-signup";
-import Home from "./Homepage";
+import RouterSetup from "./router";
 
 function App() {
   console.clear();
-  return <LoginSignup />;
+  return <RouterSetup />;
 }
 
 export default App;

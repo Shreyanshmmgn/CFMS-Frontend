@@ -111,18 +111,55 @@ export default class Signup extends React.Component {
         email: "",
         password: "",
       });
-      window.location.href = "/Login";
-
-      alert("Registered successfully");
+      var modal = document.getElementById("myModal");
+      modal.style.display = "block";
+      setTimeout(() => {
+        window.location.href = "/Login";
+      }, 4000);
     }
   };
-
+  // data-toggle="modal"
   render() {
     return (
       <div className="basic">
-        <div className="left-img">
-          <img src="https://foreman.chitmonks.com/assets/img/login-img.png" />
+        <div id="myModal" class="modal">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5
+                  class="modal-title p-3 mb-2 bg-success text-white"
+                  id="exampleModalLongTitle"
+                >
+                  Please Verify your email !!!
+                </h5>
+                {/* <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button> */}
+              </div>
+              <div class="modal-footer">
+                {/* <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button> */}
+              </div>
+            </div>
+          </div>
         </div>
+        <div className="left-img">
+          <img
+            src="https://foreman.chitmonks.com/assets/img/login-img.png"
+            alt=" "
+          />
+        </div>
+
         <div className="card">
           <div className="card-header">
             <b>

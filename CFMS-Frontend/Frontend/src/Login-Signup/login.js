@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Login = () => {
@@ -103,7 +103,7 @@ const Login = () => {
           <div class="d-flex justify-content-center">
             <h5>
               <b>
-                <a href="#">Forgot your password?</a>
+                <Link to="/forgotPassword">Forgot Password</Link>
               </b>
             </h5>
           </div>
