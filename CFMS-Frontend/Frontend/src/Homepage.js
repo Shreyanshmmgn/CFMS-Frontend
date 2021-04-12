@@ -1,9 +1,8 @@
 import React from "react";
-import "./css/Home";
+import "./css/Home.css";
 import image from "./pics/MM.jpg";
 import image1 from "./pics/unnamed.png";
 import image2 from "./pics/standard.png";
-
 
 const Home = () => {
   return (
@@ -42,10 +41,14 @@ const Home = () => {
 
       {/* <!-- ======= Intro Section ======= --> */}
       <section id="intro" className="clearfix">
-        <div style={{justifyContent: "center"}}className="container" data-aos="fade-up">
+        <div
+          style={{ justifyContent: "center" }}
+          className="container"
+          data-aos="fade-up"
+        >
           <div className="intro-img" data-aos="zoom-out" data-aos-delay="200">
             <img
-              style={{ height: "450px"}}
+              style={{ height: "450px" }}
               src={image1}
               alt=""
               className="img-fluid"
@@ -54,21 +57,24 @@ const Home = () => {
 
           <div className="intro-info" data-aos="zoom-in" data-aos-delay="">
             <h3>
-            Building Citizen Centric,
+              Building Citizen Centric,
               <br />
               Financially Inclusive Bharat
               <br />
-              <br/>
-              <span>A Decentralized, Distributed, Consensus Driven ChitStack.</span>
-              </h3>
-             
-              <h5 style={{color: 'white'}}>Creating, Empowering and Enabling next-generation Chit Funds</h5>
-            
+              <br />
+              <span>
+                A Decentralized, Distributed, Consensus Driven ChitStack.
+              </span>
+            </h3>
+
+            <h5 style={{ color: "white" }}>
+              Creating, Empowering and Enabling next-generation Chit Funds
+            </h5>
+
             <div>
               <a href="#about" className="btn-get-started scrollto">
                 Get Started
               </a>
-              
             </div>
           </div>
         </div>
@@ -78,31 +84,40 @@ const Home = () => {
         <section id="about">
           <div className="container" data-aos="fade-up">
             <header className="section-header">
-              <b><h3>About Us</h3></b>
+              <b>
+                <h3>About Us</h3>
+              </b>
             </header>
             <div className="row about-extra">
               <div className="col-lg-6" data-aos="fade-right">
-                <img style={{height: '370px', width :'70%'}}
+                <img
+                  style={{ height: "370px", width: "70%" }}
                   src={image2}
                   className="img-fluid"
                   alt=""
                 />
               </div>
               <div className="col-lg-6 pt-5 pt-lg-0" data-aos="fade-left">
-                <h3>
-                No.1 Chit fund Software in India
-                </h3>
+                <h3>No.1 Chit fund Software in India</h3>
                 <h5>
-                 On this platform, we are building India’s largest blockchain network for Savings and Borrowings. We synergize Chit Fund Companies, Regulators, Subscribers, Banks, Service providers, EcoSystem enablers to drive the largest trusted network of Savers and Borrowers platform. Our ecosystem will stand for three things <b>Trust, Efficiency and Inclusion.</b>
-                 <br/>
-                 <br/>
-                 We are building the next generation systems where the trust is programmed across all the participating members in the network.
+                  On this platform, we are building India’s largest blockchain
+                  network for Savings and Borrowings. We synergize Chit Fund
+                  Companies, Regulators, Subscribers, Banks, Service providers,
+                  EcoSystem enablers to drive the largest trusted network of
+                  Savers and Borrowers platform. Our ecosystem will stand for
+                  three things <b>Trust, Efficiency and Inclusion.</b>
+                  <br />
+                  <br />
+                  We are building the next generation systems where the trust is
+                  programmed across all the participating members in the
+                  network.
                 </h5>
               </div>
             </div>
             <div className="row about-extra">
               <div className="col-lg-6 order-1 order-lg-2" data-aos="fade-left">
-                <img style={{height: '450px', width: '600px'}}
+                <img
+                  style={{ height: "450px", width: "600px" }}
                   src="https://lh3.googleusercontent.com/proxy/qYEcSx7YeFvaeRpUpmqE_DwsmKjVqkObsrhjjRin90JJ9SO1h63lea2JNyZFgouXX3p9Opud2xwkXOVDepqQ_muiN4NMOfk2ow6QzJY"
                   className="img-fluid"
                   alt=""
@@ -112,20 +127,28 @@ const Home = () => {
                 className="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1"
                 data-aos="fade-right"
               >
-                <h3>
-                How Chit Fund Helps?
-                </h3>
+                <h3>How Chit Fund Helps?</h3>
                 <p>
-                Chit Funds have the advantage both for serving a need and as an investment. Money can be readily drawn in an emergency or could be continued as an investment.
+                  Chit Funds have the advantage both for serving a need and as
+                  an investment. Money can be readily drawn in an emergency or
+                  could be continued as an investment.
                 </p>
                 <p>
-                Interest rate is determined by the subscribers themselves, based on mutual decisions and varies from auction to auction.
+                  Interest rate is determined by the subscribers themselves,
+                  based on mutual decisions and varies from auction to auction.
                 </p>
                 <p>
-                Chit fund is a saving cum borrowing instrument, which is unique when compared to other financial systems. When you invest in chits you get more return as compared to other Financial Intermediaries and when you borrow you pay less interest?
+                  Chit fund is a saving cum borrowing instrument, which is
+                  unique when compared to other financial systems. When you
+                  invest in chits you get more return as compared to other
+                  Financial Intermediaries and when you borrow you pay less
+                  interest?
                 </p>
                 <p>
-                Chit funds can be relied upon to satisfy personal needs. Unlike other financial institutions, you can draw upon your chit fund for any purpose – marriages, religious functions, medical expenses, children’s education, etc.
+                  Chit funds can be relied upon to satisfy personal needs.
+                  Unlike other financial institutions, you can draw upon your
+                  chit fund for any purpose – marriages, religious functions,
+                  medical expenses, children’s education, etc.
                 </p>
               </div>
             </div>
@@ -1066,10 +1089,11 @@ const Home = () => {
             <div className="row">
               <div className="col-lg-4 col-md-6 footer-info">
                 <h3>CHITFUND</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                      ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.
                 </p>
               </div>
 

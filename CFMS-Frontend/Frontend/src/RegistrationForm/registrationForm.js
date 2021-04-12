@@ -1,48 +1,146 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import "./register.css";
+
+let defaultValues = {
+  name: "",
+  email: "",
+  phoneNumber: "",
+  currentAddress: "",
+  permanentAdress: "",
+  state: "",
+  pincode: "",
+  dob: "",
+  martialStatus: "",
+  occupation: "",
+  monthlyIncome: "",
+  gender: "",
+  picture: null,
+};
+
 const RegistrationForm = () => {
+  const [submited, setSubmited] = useState(false);
+  const [values, setValues] = useState(defaultValues);
+  const submitData = (e) => {
+    e.preventDefault();
+    var selectedState = document.getElementById("allStates");
+    var sState = selectedState.options[selectedState.selectedIndex].text;
+
+    var sG = document.getElementById("gender");
+    var selectedGender = sG.options[sG.selectedIndex].text;
+
+    var sMS = document.getElementById("mStatus");
+    var selectedSMartialStatus = sMS.options[sMS.selectedIndex].text;
+
+    console.log(sState, selectedGender);
+
+    setValues((values) => ({
+      ...values,
+      state: sState,
+      gender: selectedGender,
+      martialStatus: selectedSMartialStatus,
+    }));
+
+    console.log(values);
+    axios.post("", values);
+    setSubmited(true);
+  };
   return (
     <>
-      <div class="container">
-        <div class="title">Registration</div>
-        <div class="content">
-          <form action="#">
-            <div class="user-details">
-              <div class="input-box">
-                <span class="details">Full Name</span>
-                <input type="text" placeholder="Enter your name" required />
+      <div className="container">
+        <div className="title">
+          Registration Form :
+          {submited ? (
+            <h3>Data submited Cheers</h3>
+          ) : (
+            <h3>Pleaase enter data</h3>
+          )}
+        </div>
+        <div className="content">
+          <form onSubmit={submitData}>
+            <div className="user-details">
+              <div className="input-box">
+                <span className="details">Full Name</span>
+                <input
+                  type="text"
+                  placeholder="Enter your name"
+                  required
+                  onChange={(event) => {
+                    event.persist();
+                    setValues((values) => ({
+                      ...values,
+                      name: event.target.value,
+                    }));
+                  }}
+                />
               </div>
-              <div class="input-box">
-                <span class="details">Username</span>
-                <input type="text" placeholder="Enter your username" required />
+              <div className="input-box">
+                <span className="details">Email</span>
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  required
+                  onChange={(event) => {
+                    event.persist();
+                    setValues((values) => ({
+                      ...values,
+                      email: event.target.value,
+                    }));
+                  }}
+                />
               </div>
-              <div class="input-box">
-                <span class="details">Email</span>
-                <input type="email" placeholder="Enter your email" required />
-              </div>
-              <div class="input-box">
-                <span class="details">Phone Number</span>
+              <div className="input-box">
+                <span className="details">Phone Number</span>
                 <input
                   type="text"
                   placeholder="Phone Number"
-                  maxlength="10" 
+                  maxLength="10"
                   pattern="[7-9]{1}[0-9]{9}"
                   title="Phone number with 7-9 and remaing 9 digit with 0-9"
                   required
+                  onChange={(event) => {
+                    event.persist();
+                    setValues((values) => ({
+                      ...values,
+                      phoneNumber: event.target.value,
+                    }));
+                  }}
                 />
               </div>
-              <div class="input-box">
-                <span class="details">Current Address</span>
-                <input type="text" placeholder="Enter your address" required />
+              <div className="input-box">
+                <span className="details">Current Address</span>
+                <input
+                  type="text"
+                  placeholder="Enter your address"
+                  required
+                  onChange={(event) => {
+                    event.persist();
+                    setValues((values) => ({
+                      ...values,
+                      currentAddress: event.target.value,
+                    }));
+                  }}
+                />
               </div>
-              <div class="input-box">
-                <span class="details">Permanent Address</span>
-                <input type="text" placeholder="Enter your address" required />
+              <div className="input-box">
+                <span className="details">Permanent Address</span>
+                <input
+                  type="text"
+                  placeholder="Enter your address"
+                  required
+                  onChange={(event) => {
+                    event.persist();
+                    setValues((values) => ({
+                      ...values,
+                      permanentAdress: event.target.value,
+                    }));
+                  }}
+                />
               </div>
 
-              <div class="input-box">
-                <span class="details">State</span>
-                <select name="state">
+              <div className="input-box">
+                <span className="details">State</span>
+                <select name="state" id="allStates">
                   <option value="Andhra Pradesh">Andhra Pradesh</option>
                   <option value="Andaman and Nicobar Islands">
                     Andaman and Nicobar Islands
@@ -85,23 +183,42 @@ const RegistrationForm = () => {
                   <option value="West Bengal">West Bengal</option>
                 </select>
               </div>
-              <div class="input-box">
-                <span class="details">Pincode</span>
+              <div className="input-box">
+                <span className="details">Pincode</span>
                 <input
                   type="text"
                   placeholder="Enter your Pincodecode"
                   pattern="[0-9]{6}"
                   title="Please enter 6 digit code"
                   required
+                  onChange={(event) => {
+                    event.persist();
+                    setValues((values) => ({
+                      ...values,
+                      pincode: event.target.value,
+                    }));
+                  }}
                 />
               </div>
-              <div class="input-box">
-                <span class="details">DOB</span>
-                <input type="date" id="birthday" name="birthday" required/>
+              <div className="input-box">
+                <span className="details">DOB</span>
+                <input
+                  type="date"
+                  id="birthday"
+                  name="birthday"
+                  required
+                  onChange={(event) => {
+                    event.persist();
+                    setValues((values) => ({
+                      ...values,
+                      dob: event.target.value,
+                    }));
+                  }}
+                />
               </div>
-              <div class="input-box">
-                <span class="details">Martial Status</span>
-                <select name="Martial Status">
+              <div className="input-box">
+                <span className="details">Martial Status</span>
+                <select name="Martial Status" id="mStatus">
                   <option value="Married">Married</option>
                   <option value="Single">Single</option>
                   <option value="Divorced">Divorced</option>
@@ -109,29 +226,65 @@ const RegistrationForm = () => {
                   <option value="Widowed">Widowed</option>
                 </select>
               </div>
-              <div class="input-box">
-                  <span class="details">Occupation</span>
-                  <input type="text" name="Occupation" placeholder="Occupation" required/>
+              <div className="input-box">
+                <span className="details">Occupation</span>
+                <input
+                  type="text"
+                  name="Occupation"
+                  placeholder="Occupation"
+                  required
+                  onChange={(event) => {
+                    event.persist();
+                    setValues((values) => ({
+                      ...values,
+                      occupation: event.target.value,
+                    }));
+                  }}
+                />
               </div>
-              <div class="input-box">
-                  <span class="details">Monthly Income</span>
-                  <input type="text" name="Monthly Income" placeholder="Enter Monthly Income" required/>
+              <div className="input-box">
+                <span className="details">Monthly Income</span>
+                <input
+                  type="text"
+                  name="Monthly Income"
+                  placeholder="Enter Monthly Income"
+                  required
+                  onChange={(event) => {
+                    event.persist();
+                    setValues((values) => ({
+                      ...values,
+                      monthlyIncome: event.target.value,
+                    }));
+                  }}
+                />
               </div>
-              <div class="input-box">
-                <span class="details">Gender</span>
-                <select name="Martial Status">
+              <div className="input-box">
+                <span className="details">Gender</span>
+                <select name="Martial Status" id="gender">
                   <option value="Married">Male</option>
                   <option value="Single">Female</option>
                   <option value="Divorced">Prefer not to say</option>
                 </select>
               </div>
-              <div class="input-box">
-                <span class="details">Upload your photo</span>
-                <input type="file" class="form-control-file"></input>
+              <div className="input-box">
+                <span className="details">Upload your photo</span>
+                <input
+                  type="file"
+                  className="form-control-file"
+                  // value={FormData.picture}
+                  onChange={(event) => {
+                    event.persist();
+                    setValues((values) => ({
+                      ...values,
+                      picture: event.target.files[0],
+                    }));
+                  }}
+                ></input>
+                <img src="" alt="upload-image" />
               </div>
-              </div>
-            <div class="button">
-              <input type="submit" value="Register" />
+            </div>
+            <div className="button">
+              <input type="submit" />
             </div>
           </form>
         </div>
