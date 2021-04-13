@@ -32,7 +32,7 @@ const Login = () => {
       <div class="card">
         <div class="card-header">
           <h2>Partner Login</h2>
-          <div class="d-flex justify-content-end social_icon">
+          {/* <div class="d-flex justify-content-end social_icon">
             <span>
               <i class="fab fa-facebook-square"></i>
             </span>
@@ -42,7 +42,7 @@ const Login = () => {
             <span>
               <i class="fab fa-twitter-square"></i>
             </span>
-          </div>
+          </div> */}
         </div>
         <div class="card-body">
           <form action="" onSubmit={submitData}>

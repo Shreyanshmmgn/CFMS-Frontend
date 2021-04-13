@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import '../css/Signup.css'
 
+
 export default class Signup extends React.Component {
   constructor() {
     super();
@@ -138,7 +139,7 @@ export default class Signup extends React.Component {
             <b>
               <h2>Sign Up</h2>
             </b>
-            <div className="d-flex justify-content-end social_icon">
+            {/* <div className="d-flex justify-content-end social_icon">
               <span>
                 <i className="fab fa-facebook-square"></i>
               </span>
@@ -148,7 +149,7 @@ export default class Signup extends React.Component {
               <span>
                 <i className="fab fa-twitter-square"></i>
               </span>
-            </div>
+            </div> */}
           </div>
           <div className="card-body">
             <form onSubmit={this.submitData}>
