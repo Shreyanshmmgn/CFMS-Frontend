@@ -3,25 +3,26 @@ import "./register.css";
 const RegistrationForm = () => {
   return (
     <>
-      <div class="container">
-        <div class="title">Registration</div>
-        <div class="content">
+    <div className="back">
+      <div className="container1">
+        <div className="title">Registration</div>
+        <div className="content">
           <form action="#">
-            <div class="user-details">
-              <div class="input-box">
-                <span class="details">Full Name</span>
+            <div className="user-details">
+              <div className="input-box">
+                <span className="details">Full Name</span>
                 <input type="text" placeholder="Enter your name" required />
               </div>
-              <div class="input-box">
-                <span class="details">Username</span>
-                <input type="text" placeholder="Enter your username" required />
+              <div className="input-box">
+                <span className="details">Upload your photo</span>
+                <input type="file" className="form-control-file"></input>
               </div>
-              <div class="input-box">
-                <span class="details">Email</span>
+              <div className="input-box">
+                <span className="details">Email</span>
                 <input type="email" placeholder="Enter your email" required />
               </div>
-              <div class="input-box">
-                <span class="details">Phone Number</span>
+              <div className="input-box">
+                <span className="details">Phone Number</span>
                 <input
                   type="text"
                   placeholder="Phone Number"
@@ -31,17 +32,17 @@ const RegistrationForm = () => {
                   required
                 />
               </div>
-              <div class="input-box">
-                <span class="details">Current Address</span>
+              <div className="input-box">
+                <span className="details">Current Address</span>
                 <input type="text" placeholder="Enter your address" required />
               </div>
-              <div class="input-box">
-                <span class="details">Permanent Address</span>
+              <div className="input-box">
+                <span className="details">Permanent Address</span>
                 <input type="text" placeholder="Enter your address" required />
               </div>
 
-              <div class="input-box">
-                <span class="details">State</span>
+              <div className="input-box">
+                <span className="details">State</span>
                 <select name="state">
                   <option value="Andhra Pradesh">Andhra Pradesh</option>
                   <option value="Andaman and Nicobar Islands">
@@ -85,8 +86,8 @@ const RegistrationForm = () => {
                   <option value="West Bengal">West Bengal</option>
                 </select>
               </div>
-              <div class="input-box">
-                <span class="details">Pincode</span>
+              <div className="input-box">
+                <span className="details">Pincode</span>
                 <input
                   type="text"
                   placeholder="Enter your Pincodecode"
@@ -95,12 +96,12 @@ const RegistrationForm = () => {
                   required
                 />
               </div>
-              <div class="input-box">
-                <span class="details">DOB</span>
+              <div className="input-box">
+                <span className="details">DOB</span>
                 <input type="date" id="birthday" name="birthday" required/>
               </div>
-              <div class="input-box">
-                <span class="details">Martial Status</span>
+              <div className="input-box">
+                <span className="details">Martial Status</span>
                 <select name="Martial Status">
                   <option value="Married">Married</option>
                   <option value="Single">Single</option>
@@ -109,33 +110,30 @@ const RegistrationForm = () => {
                   <option value="Widowed">Widowed</option>
                 </select>
               </div>
-              <div class="input-box">
-                  <span class="details">Occupation</span>
+              <div className="input-box">
+                  <span className="details">Occupation</span>
                   <input type="text" name="Occupation" placeholder="Occupation" required/>
               </div>
-              <div class="input-box">
-                  <span class="details">Monthly Income</span>
+              <div className="input-box">
+                  <span className="details">Monthly Income</span>
                   <input type="text" name="Monthly Income" placeholder="Enter Monthly Income" required/>
               </div>
-              <div class="input-box">
-                <span class="details">Gender</span>
+              <div className="input-box">
+                <span className="details">Gender</span>
                 <select name="Martial Status">
                   <option value="Married">Male</option>
                   <option value="Single">Female</option>
                   <option value="Divorced">Prefer not to say</option>
                 </select>
               </div>
-              <div class="input-box">
-                <span class="details">Upload your photo</span>
-                <input type="file" class="form-control-file"></input>
               </div>
-              </div>
-            <div class="button">
+            <div className="button">
               <input type="submit" value="Register" />
             </div>
           </form>
         </div>
       </div>
+    </div>
     </>
   );
 };
