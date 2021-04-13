@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import '../css/Signup.css'
-
+import "../css/Signup.css";
 
 export default class Signup extends React.Component {
   constructor() {
@@ -39,7 +38,7 @@ export default class Signup extends React.Component {
 
   valid = () => {
     let x = true;
-    
+
     if (this.state.user !== null) {
       if (this.state.user.length < 5) {
         this.setState({ nameError: "Name must be 5 characters long!" });
@@ -48,7 +47,7 @@ export default class Signup extends React.Component {
       }
     }
     if (this.state.password !== null) {
-      if (this.state.password.length < 2) {
+      if (this.state.password.length < 8) {
         this.setState({
           passworderror: "Password must be 8 character long!",
         });

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import { BrowserRouter as Route } from "react-router-dom";
+import RegistrationForm from "../RegistrationForm/registrationForm.js";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import "../css/Login.css"
-
+import "../css/Login.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -17,6 +18,9 @@ const Login = () => {
       if (res.status === 200) {
         console.log(res.status);
         console.log("Login Successfull");
+        setTimeout(() => {
+          window.location.href = "/registrationForm";
+        }, 4000);
       } else if (res.status === 401) {
         console.log("Wrong Password enter");
       }
