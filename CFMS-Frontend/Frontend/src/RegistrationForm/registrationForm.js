@@ -42,7 +42,16 @@ const RegistrationForm = () => {
     }));
 
     console.log(values);
-    axios.post("", values);
+    axios
+      .post(`http://localhost:5000/signup/registration`, values)
+      .then((res) => {
+        if (res.status === 200) {
+          console.log("Registration Done !!");
+          // Redirect to dashboard
+        } else {
+          // Somthing went wrong try again
+        }
+      });
     setSubmited(true);
   };
   return (
