@@ -42,14 +42,14 @@ const RegistrationForm = () => {
     }));
 
     console.log(values);
-    axios.post(`http://localhost:5000/registration`, values).then((res) => {
-      if (res.status === 200) {
-        console.log("Registration Done !!");
-        // Redirect to dashboard
-      } else {
-        // Somthing went wrong try again
-      }
-    });
+    // axios.post(`http://localhost:5000/registration`, values).then((res) => {
+    //   if (res.status === 200) {
+    //     console.log("Registration Done !!");
+    //     // Redirect to dashboard
+    //   } else {
+    //     // Somthing went wrong try again
+    //   }
+    // });
     setSubmited(true);
   };
   return (
@@ -66,7 +66,7 @@ const RegistrationForm = () => {
         <div className="content">
           <form onSubmit={submitData}>
             <div className="user-details">
-              <div className="input-box">
+              {/* <div className="input-box">
                 <span className="details">Full Name</span>
                 <input
                   type="text"
@@ -272,7 +272,7 @@ const RegistrationForm = () => {
                   <option value="Single">Female</option>
                   <option value="Divorced">Prefer not to say</option>
                 </select>
-              </div>
+              </div> */}
               <div className="input-box">
                 <span className="details">Upload your photo</span>
                 <input
