@@ -23,23 +23,23 @@ const RegistrationForm = () => {
   const [values, setValues] = useState(defaultValues);
   const submitData = (e) => {
     e.preventDefault();
-    var selectedState = document.getElementById("allStates");
-    var sState = selectedState.options[selectedState.selectedIndex].text;
+    // var selectedState = document.getElementById("allStates");
+    // var sState = selectedState.options[selectedState.selectedIndex].text;
 
-    var sG = document.getElementById("gender");
-    var selectedGender = sG.options[sG.selectedIndex].text;
+    // var sG = document.getElementById("gender");
+    // var selectedGender = sG.options[sG.selectedIndex].text;
 
-    var sMS = document.getElementById("mStatus");
-    var selectedSMartialStatus = sMS.options[sMS.selectedIndex].text;
+    // var sMS = document.getElementById("mStatus");
+    // var selectedSMartialStatus = sMS.options[sMS.selectedIndex].text;
 
-    console.log(sState, selectedGender);
+    // console.log(sState, selectedGender);
 
-    setValues((values) => ({
-      ...values,
-      state: sState,
-      gender: selectedGender,
-      martialStatus: selectedSMartialStatus,
-    }));
+    // setValues((values) => ({
+    //   ...values,
+    //   state: sState,
+    //   gender: selectedGender,
+    //   martialStatus: selectedSMartialStatus,
+    // }));
 
     console.log(values);
     // axios.post(`http://localhost:5000/registration`, values).then((res) => {
@@ -274,22 +274,22 @@ const RegistrationForm = () => {
                 </select>
               </div> */}
               <div className="input-box">
-                <span className="details">Upload your photo</span>
-                <input
-                  type="file"
-                  className="form-control-file"
-                  // value={FormData.picture}
-                  onChange={(event) => {
-                    event.persist();
-                    setValues((values) => ({
-                      ...values,
-                      picture: event.target.files[0],
-                    }));
-                  }}
-                ></input>
-                <img src="" alt="upload-image" />
+                {/* <img src="" alt="upload-image" /> */}
               </div>
             </div>
+            <span className="details">Upload your photo</span>
+            <input
+              type="file"
+              className="form-control-file"
+              // value={FormData.picture}
+              onChange={(event) => {
+                event.persist();
+                setValues((values) => ({
+                  ...values,
+                  picture: event.target.files[0],
+                }));
+              }}
+            ></input>
             <div className="button">
               <input type="submit" />
             </div>
