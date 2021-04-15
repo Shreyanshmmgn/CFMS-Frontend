@@ -10,7 +10,7 @@ html,body{
     justify-content: space-evenly;
     flex-direction: row;
     flex-wrap: wrap;
-    background: linear-gradient(-30deg, #c59fff, #d9c4ff, #98c1ff, #b08ffc);
+    background: linear-gradient(-30deg, #f2eaff, #85b6ff, #b08ffc);
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
     

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { BrowserRouter as Route } from "react-router-dom";
 import RegistrationForm from "../RegistrationForm/registrationForm.js";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -109,7 +108,7 @@ const Login = () => {
           <div class="d-flex justify-content-center">
             <h5>
               <b>
-                <Link to="/forgotPassword">Forgot Password</Link>
+                <Link to="/forgotPassword">Forgot Password ?</Link>
               </b>
             </h5>
           </div>

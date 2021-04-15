@@ -3,9 +3,9 @@ import "./css/Home.css";
 import image from "./pics/logo.jpg";
 import image1 from "./pics/unnamed.png";
 import image2 from "./pics/standard.png";
-import image3 from "./pics/shyam.jpg";
+import image3 from "./pics/pp.jpeg";
 import image4 from "./pics/shreyansh.jpg";
-import image5 from "./pics/team-1.jpg";
+import image5 from "./pics/yogi.jpeg";
 import image6 from "./pics/team-3.jpg";
 import image7 from "./pics/coins.png";
 
@@ -329,8 +329,8 @@ const Home = () => {
           </div>
         </section>
           <div class="photo">
-            <img style ={{ paddingLeft:'200px', width: '50%'}} src="https://moneyexcel.com/wp-content/uploads/2016/08/chit-funds.jpg"/>
-            <img style ={{float :"right", height : "460px", paddingRight:'200px', paddingTop: '30px'}}src="http://moneypotchitfunds.com/assets/system_design/images/about%20us.png"/>
+            <img style ={{ paddingLeft:'200px', width: '50%', paddingBottom: '5px'}} src="https://moneyexcel.com/wp-content/uploads/2016/08/chit-funds.jpg"/>
+            <img style ={{float :"right", height : "500px", paddingRight:'200px', paddingTop: '30px'}}src="http://moneypotchitfunds.com/assets/system_design/images/about%20us.png"/>
           </div>
         {/* <!-- ======= Team Section ======= --> */}
         <section id="team">
@@ -380,10 +380,10 @@ const Home = () => {
                 data-aos-delay="300"
               >
                 <div className="member">
-                  <img src={image5} className="img-fluid" alt="" />
+                  <img style={{height :'275px', width: '320px'}}src={image5} className="img-fluid" alt="" />
                   <div className="member-info">
                     <div className="member-info-content">
-                      <h4>William Anderson</h4>
+                      <h4>Yogesh Beniwal</h4>
                       <span>CTO</span>
                     </div>
                   </div>

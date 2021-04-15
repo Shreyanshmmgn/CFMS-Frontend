@@ -5,20 +5,20 @@
   box-sizing: border-box;
   font-family: 'Poppins',sans-serif;
 }
-.back{
+.back1{
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding-top: 10px;
   background: linear-gradient(135deg, #71b7e6, #9b59b6);
 }
 .container1{
-  max-width: 700px;
-  max-height: 1000px;
+  max-width: 800px;
+  max-height: 800px;
   width: 100%;
   background-color: #fff;
-  padding: 30px 25px 60px 30px;
+  padding: 8px 8px 8px 8px;
   
   border-radius: 5px;
   box-shadow: 0 5px 10px rgba(0,0,0,0.15);
@@ -102,14 +102,18 @@ form .input-box span.details{
    display: none;
  }
  form .button{
-   height: 45px;
-   margin: 35px 0
+   height: 35px;
+   padding-top: 0px;
+   margin-top: 0px;
+   /* margin: 35px 2px 2px 20px */
  }
  form .button input{
    height: 100%;
    width: 100%;
    border-radius: 5px;
    border: none;
+   padding-left: 30px;
+  padding-right: 30px;
    color: #fff;
    font-size: 18px;
    font-weight: 500;
@@ -122,11 +126,17 @@ form .input-box span.details{
   
   background: linear-gradient(-135deg, #71b7e6, #9b59b6);
   }
- @media(max-width: 584px){
+  
+ /* @media(max-width: 584px){
  .container1{
   max-width: 100%;
   max-height: 100%;
-}
+} */
+@media(max-width: 1200px){
+  .container1{
+   max-width: 100%;
+   max-height: 100%;
+ }
 form .user-details .input-box{
     margin-bottom: 15px;
     width: 100%;

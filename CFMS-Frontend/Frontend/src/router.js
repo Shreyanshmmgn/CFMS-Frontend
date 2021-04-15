@@ -9,7 +9,7 @@ import Error from "./Error";
 import ForgotPassword from "./Login-Signup/forgotPassword";
 import RegistrationForm from "./RegistrationForm/registrationForm.js";
 import ChangePassword from "./Login-Signup/changePassword";
-import Data from "./showdata"
+import Data from "./RegistrationForm/showdata"
 
 const AllRouter = () => {
   return (
