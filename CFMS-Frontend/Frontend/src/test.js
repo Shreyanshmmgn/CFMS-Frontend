@@ -14,6 +14,10 @@ class App extends Component {
     this.setState({ selectedFile: event.target.files[0] });
   };
 
+
+
+
+  
   // On file upload (click the upload button)
   onFileUpload = () => {
     // Create an object of formData
@@ -34,38 +38,39 @@ class App extends Component {
     axios.post("api/uploadfile", formData);
   };
 
+
+
+
+
+
   // File content to be displayed after
   // file upload is complete
   fileData = () => {
-    if (this.state.selectedFile) {
-      return (
-        <div>
-          <h2>File Details:</h2>
-
-          <p>File Name: {this.state.selectedFile.name}</p>
-
-          <p>File Type: {this.state.selectedFile.type}</p>
-
-          <p>
-            Last Modified:{" "}
-            {this.state.selectedFile.lastModifiedDate.toDateString()}
-          </p>
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          <br />
-          <h4>Choose before Pressing the Upload button</h4>
-        </div>
-      );
-    }
+    // if (this.state.selectedFile) {
+    //   return (
+    //     <div>
+    //       <h2>File Details:</h2>
+    //       <p>File Name: {this.state.selectedFile.name}</p>
+    //       <p>File Type: {this.state.selectedFile.type}</p>
+    //       <p>
+    //         Last Modified:{" "}
+    //         {this.state.selectedFile.lastModifiedDate.toDateString()}
+    //       </p>
+    //     </div>
+    //   );
+    // } else {
+    //   return (
+    //     <div>
+    //       <br />
+    //       <h4>Choose before Pressing the Upload button</h4>
+    //     </div>
+    //   );
+    // }
   };
 
   render() {
     return (
       <div>
-        <h1>GeeksforGeeks</h1>
         <h3>File Upload using React!</h3>
         <div>
           <input type="file" onChange={this.onFileChange} />

@@ -26,7 +26,10 @@ const Login = () => {
   return (
     <div class="basic">
       <div class="left-img">
-        <img src="https://www.chitmonks.com/assets/images/about.png" />
+        <img
+          src="https://www.chitmonks.com/assets/images/about.png"
+          alt="CFMS"
+        />
       </div>
       <div class="card">
         <div class="card-header">

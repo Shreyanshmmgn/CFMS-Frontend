@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import React from "react";
+//*--------------------------------------------------------------------------------------------*
 
 import Home from "./Homepage";
 import Login from "./Login-Signup/login";
@@ -9,6 +10,9 @@ import Error from "./Error";
 import ForgotPassword from "./Login-Signup/forgotPassword";
 import RegistrationForm from "./RegistrationForm/registrationForm.js";
 import ChangePassword from "./Login-Signup/changePassword";
+import Test from "./test";
+
+//*--------------------------------------------------------------------------------------------*
 
 const AllRouter = () => {
   return (
@@ -38,6 +42,9 @@ const AllRouter = () => {
         <Route exact path="/changePassword/:email">
           <ChangePassword />
         </Route>
+        <Route exact path="/test">
+          <Test />
+        </Route>
         <Route path="*">
           <Error />
         </Route>
@@ -45,5 +52,6 @@ const AllRouter = () => {
     </Router>
   );
 };
+//*--------------------------------------------------------------------------------------------*
 
 export default AllRouter;

@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import axios from "axios";
 import "./register.css";
+//*--------------------------------------------------------------------------------------------*
 
 let defaultValues = {
   name: "",
@@ -15,43 +16,70 @@ let defaultValues = {
   occupation: "",
   monthlyIncome: "",
   gender: "",
-  picture: null,
 };
+//*--------------------------------------------------------------------------------------------*
 
 const RegistrationForm = () => {
   const [submited, setSubmited] = useState(false);
   const [values, setValues] = useState(defaultValues);
-  const submitData = (e) => {
-    e.preventDefault();
-    // var selectedState = document.getElementById("allStates");
-    // var sState = selectedState.options[selectedState.selectedIndex].text;
+  const [image, setImage] = useState(null);
 
-    // var sG = document.getElementById("gender");
-    // var selectedGender = sG.options[sG.selectedIndex].text;
+  //*--------------------------------------------------------------------------------------------*
 
-    // var sMS = document.getElementById("mStatus");
-    // var selectedSMartialStatus = sMS.options[sMS.selectedIndex].text;
-
-    // console.log(sState, selectedGender);
-
-    // setValues((values) => ({
-    //   ...values,
-    //   state: sState,
-    //   gender: selectedGender,
-    //   martialStatus: selectedSMartialStatus,
-    // }));
-
-    console.log(values);
-    // axios.post(`http://localhost:5000/registration`, values).then((res) => {
-    //   if (res.status === 200) {
-    //     console.log("Registration Done !!");
-    //     // Redirect to dashboard
-    //   } else {
-    //     // Somthing went wrong try again
-    //   }
-    // });
-    setSubmited(true);
+  const imageUpload = (event) => {
+    event.persist();
+    setImage(event.target.files[0]);
   };
+
+  const submitData = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+
+    var selectedState = document.getElementById("allStates");
+    var sState = selectedState.options[selectedState.selectedIndex].text;
+
+    var sG = document.getElementById("gender");
+    var selectedGender = sG.options[sG.selectedIndex].text;
+
+    var sMS = document.getElementById("mStatus");
+    var selectedSMartialStatus = sMS.options[sMS.selectedIndex].text;
+
+    setValues((values) => ({
+      ...values,
+      state: sState,
+      gender: selectedGender,
+      martialStatus: selectedSMartialStatus,
+    }));
+
+    for (var key in values) {
+      formData.append(key, values[key]);
+    }
+    // Adding data to form data
+    formData.append("image", image);
+
+    console.log("Form Data : ", formData.get("name"));
+
+    try {
+      await axios
+        .post(`http://localhost:5000/registration`, formData, {
+          headers: {
+            "Content-Type": "mutlipart/form-data",
+          },
+        })
+        .then((res) => {
+          if (res.status === 200) {
+            console.log("Data saveed successfully");
+
+            // Redirect to dashboard
+          } else {
+            // Somthing went wrong try again
+          }
+        });
+      setSubmited(true);
+    } catch (error) {}
+  };
+  //*--------------------------------------------------------------------------------------------*
+
   return (
     <>
       <div className="container">
@@ -64,9 +92,9 @@ const RegistrationForm = () => {
           )}
         </div>
         <div className="content">
-          <form onSubmit={submitData}>
+          <form onSubmit={submitData} encType="multipart/form/data">
             <div className="user-details">
-              {/* <div className="input-box">
+              <div className="input-box">
                 <span className="details">Full Name</span>
                 <input
                   type="text"
@@ -272,9 +300,6 @@ const RegistrationForm = () => {
                   <option value="Single">Female</option>
                   <option value="Divorced">Prefer not to say</option>
                 </select>
-              </div> */}
-              <div className="input-box">
-                {/* <img src="" alt="upload-image" /> */}
               </div>
             </div>
             <span className="details">Upload your photo</span>
@@ -282,13 +307,8 @@ const RegistrationForm = () => {
               type="file"
               className="form-control-file"
               // value={FormData.picture}
-              onChange={(event) => {
-                event.persist();
-                setValues((values) => ({
-                  ...values,
-                  picture: event.target.files[0],
-                }));
-              }}
+              onChange={imageUpload}
+              name="image"
             ></input>
             <div className="button">
               <input type="submit" />
