@@ -17,11 +17,13 @@ const Verified = () => {
   return (
     <div>
       {loading ? (
-        <div>
-          <h3>Loadinnnnnnggg..........</h3>{" "}
-        </div>
+
+        <div class="loader"></div>
+
       ) : (
-        <h3>Verified Successfully </h3>
+        <div className="vs">
+        <span className="tick"> &#10004;<h1 className="successfully">Verified Successfully</h1></span>
+        </div>
       )}
     </div>
   );
