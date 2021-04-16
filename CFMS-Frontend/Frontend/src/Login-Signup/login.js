@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import RegistrationForm from "../RegistrationForm/registrationForm.js";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "../css/Login.css";
@@ -16,6 +17,9 @@ const Login = () => {
       if (res.status === 200) {
         console.log(res.status);
         console.log("Login Successfull");
+        setTimeout(() => {
+          window.location.href = "/registrationForm";
+        }, 4000);
       } else if (res.status === 401) {
         console.log("Wrong Password enter");
       }
@@ -34,7 +38,7 @@ const Login = () => {
       <div class="card">
         <div class="card-header">
           <h2>Partner Login</h2>
-          <div class="d-flex justify-content-end social_icon">
+          {/* <div class="d-flex justify-content-end social_icon">
             <span>
               <i class="fab fa-facebook-square"></i>
             </span>
@@ -44,7 +48,7 @@ const Login = () => {
             <span>
               <i class="fab fa-twitter-square"></i>
             </span>
-          </div>
+          </div> */}
         </div>
         <div class="card-body">
           <form action="" onSubmit={submitData}>
@@ -107,7 +111,7 @@ const Login = () => {
           <div class="d-flex justify-content-center">
             <h5>
               <b>
-                <Link to="/forgotPassword">Forgot Password</Link>
+                <Link to="/forgotPassword">Forgot Password ?</Link>
               </b>
             </h5>
           </div>

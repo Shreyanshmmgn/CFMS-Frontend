@@ -10,9 +10,7 @@ import Error from "./Error";
 import ForgotPassword from "./Login-Signup/forgotPassword";
 import RegistrationForm from "./RegistrationForm/registrationForm.js";
 import ChangePassword from "./Login-Signup/changePassword";
-import Test from "./test";
-
-//*--------------------------------------------------------------------------------------------*
+import Data from "./RegistrationForm/showdata"
 
 const AllRouter = () => {
   return (
@@ -42,8 +40,8 @@ const AllRouter = () => {
         <Route exact path="/changePassword/:email">
           <ChangePassword />
         </Route>
-        <Route exact path="/test">
-          <Test />
+        <Route exact path="/data">
+          <Data />
         </Route>
         <Route path="*">
           <Error />

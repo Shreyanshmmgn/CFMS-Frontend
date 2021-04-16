@@ -1,6 +1,8 @@
 // import { useState } from "babel-plugin-react-html-attrs";
 import axios from "axios";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import "../css/forgotpass.css";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -11,48 +13,75 @@ const ForgotPassword = () => {
     const data = { email };
     axios.post("http://localhost:5000/forgotPassword", data).then((res) => {
       if (res.status === 200) {
-        console.log("Password change link sent");
+        document.getElementById("pp").innerHTML = "Password link sent";
       } else {
         setIdCorrect(false);
       }
     });
   };
+  
 
   return (
-    <div>
-      {idCorrect ? (
-        <h3>Enter your registered email ID !</h3>
-      ) : (
-        <h3>Wrong Id entered </h3>
-      )}
-      {/* <form action="submit" onSubmit={submitData}>
-        <input
-          type="email"
-          id="inputField"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <button>Submit</button>
-      </form> */}
-      <form onSubmit={submitData}>
-        <div class="form-group">
-          <input
-            type="email"
-            class="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            placeholder="Enter Email Id "
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-          <small id="emailHelp" class="form-text text-muted">
-            If not varified varify you email id first
-          </small>
+    <div className="basic1">
+      <div className="card1">
+        <div className="card-header">
+          <b><h4>
+            Forgot Password
+          </h4>
+          </b>
         </div>
-        <button type="submit" class="btn btn-primary" id="sub-button">
-          Submit
-        </button>
-      </form>
+        <h2 id="pp">
+        </h2>
+        <div className="card-body">
+          <form action="" onSubmit={submitData}>
+            <div className="input-group form-group">
+              <div className="input-group-prepend">
+                <span className="input-group-text">
+                  <i className="fas fa-user"></i>
+                </span>
+              </div>
+              <input
+                type="email"
+                className="form-control"
+                placeholder="Enter valid Email"
+                required
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+              />
+            </div>
+            {idCorrect ? (
+              <h3></h3>
+            ) : (
+              <h4>Entered Wrong ID </h4>
+            )}
+            <h4 id="pp"></h4>
+            
+            <div className="form-group">
+              <input
+                type="submit"
+                value="Submit"
+                className="btn float-right login_btn"
+              />
+            </div>
+          </form>
+        </div>
+        <br/>
+        <br/>
+        <div className="card-footer">
+          <div className="d-flex justify-content-center links">
+            <h5>
+              <b>Back to</b>
+              &nbsp;&nbsp;
+              <b>
+                <Link style={{ color: "#051972", paddingTop: '30px' }} to="/Signup">
+                  Login
+                </Link>
+              </b>
+            </h5>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

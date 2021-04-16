@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useParams } from "react-router";
+import "../css/changePassword.css"
 
 const ChangePassword = () => {
   const [password, setPassword] = useState("");
@@ -31,62 +32,53 @@ const ChangePassword = () => {
 
   return (
     <div>
-      {/* <form action="submit" onSubmit={submitData}>
-        <h3 class="p-3 mb-2 bg-light text-dark">Password : </h3>
-        <input
-          type="text"
-          id="inputField"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <br />
-        <h3 class="p-3 mb-2 bg-light text-dark">Enter Password again : </h3>
-        <input
-          type="password"
-          id="inputField"
-          onChange={(e) => setSPassword(e.target.value)}
-        />
-        <button>Submit</button>
-      </form>
-      <h1>Forgot Password</h1> */}
-      <div>
-        {match ? (
-          <h2>Change your password !! </h2>
-        ) : (
-          <h2>Password does not match !! </h2>
-        )}
-        <form onSubmit={submitData}>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Password </label>
-            <input
-              type="text"
-              class="form-control"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
-              placeholder="Enter password"
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
-            />
-            <small id="emailHelp" class="form-text text-muted">
-              Enter a strong password
-            </small>
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1"> ReEnter same Password</label>
-            <input
-              type="password"
-              class="form-control"
-              id="exampleInputPassword1"
-              placeholder="Password"
-              onChange={(e) => {
-                setSPassword(e.target.value);
-              }}
-            />
-          </div>
-          <button type="submit" class="btn btn-primary" id="sub-button">
-            Submit
-          </button>
-        </form>
+      <div className="card2">
+        <div className="card-header">
+          <h2>Change your password</h2>
+        </div>
+        <div className="card-body">
+          <form action="" onSubmit={submitData}>
+            <div className="input-group form-group">
+              <div className="input-group-prepend">
+                <span className="input-group-text">
+                  <i className="fas fa-user"></i>
+                </span>
+              </div>
+              <input
+                type="password"
+                className="form-control"
+                placeholder="Enter Strong Password"
+                required
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <br></br>
+            <div className="input-group form-group">
+              <div className="input-group-prepend">
+                <span className="input-group-text">
+                  <i className="fas fa-key"></i>
+                </span>
+              </div>
+              <input
+                type="password"
+                className="form-control"
+                placeholder="Confirm Password"
+                required
+                onChange={(e) => setSPassword(e.target.value)}
+              />
+            </div>
+            <br></br>
+            {match ? <h2></h2> : <h2>Password does not match !! </h2>}
+           
+            <div className="form-group">
+              <input
+                type="submit"
+                value="Submit"
+                className="btn float-right login_btn"
+              />
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );

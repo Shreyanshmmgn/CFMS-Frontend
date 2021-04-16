@@ -1,8 +1,13 @@
 import React from "react";
 import "./css/Home.css";
-import image from "./pics/MM.jpg";
+import image from "./pics/logo.jpg";
 import image1 from "./pics/unnamed.png";
 import image2 from "./pics/standard.png";
+import image3 from "./pics/pp.jpeg";
+import image4 from "./pics/shreyansh.jpg";
+import image5 from "./pics/yogi.jpeg";
+import image6 from "./pics/team-3.jpg";
+import image7 from "./pics/coins.png";
 
 const Home = () => {
   return (
@@ -10,22 +15,23 @@ const Home = () => {
       <header id="header" className="fixed-top">
         <nav>
           <img src={image} />
+          <h7><b>कमिटी करो</b></h7>
           <input type="checkbox" id="check" />
           <label for="check" class="checkbtn">
             <i class="fas fa-bars"></i>
           </label>
           <ul>
             <li>
-              <a href="/Home">Home</a>
+              <a href="#">Home</a>
             </li>
             <li>
-              <a href="#">About</a>
+              <a href="#about" className="btn-get-started scrollto">About</a>
             </li>
             <li>
-              <a href="#">Services</a>
+              <a href="#team" className="btn-get-started scrollto">Stakeholders</a>
             </li>
             <li>
-              <a href="#">Contact</a>
+              <a href="#contact" className="btn-get-started scrollto">Contact</a>
             </li>
             <li>
               <a href="#">Feedback</a>
@@ -72,7 +78,7 @@ const Home = () => {
             </h5>
 
             <div>
-              <a href="#about" className="btn-get-started scrollto">
+              <a href="#" className="btn-get-started scrollto">
                 Get Started
               </a>
             </div>
@@ -118,7 +124,7 @@ const Home = () => {
               <div className="col-lg-6 order-1 order-lg-2" data-aos="fade-left">
                 <img
                   style={{ height: "450px", width: "600px" }}
-                  src="https://lh3.googleusercontent.com/proxy/qYEcSx7YeFvaeRpUpmqE_DwsmKjVqkObsrhjjRin90JJ9SO1h63lea2JNyZFgouXX3p9Opud2xwkXOVDepqQ_muiN4NMOfk2ow6QzJY"
+                  src={image7}
                   className="img-fluid"
                   alt=""
                 />
@@ -156,7 +162,7 @@ const Home = () => {
         </section>
 
         {/* <!-- ======= Services Section ======= --> */}
-        <section id="services" className="section-bg">
+        {/* <section id="services" className="section-bg">
           <div className="container" data-aos="fade-up">
             <header className="section-header">
               <h3>Services</h3>
@@ -295,488 +301,42 @@ const Home = () => {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* <!-- ======= Why Us Section ======= --> */}
         <section id="why-us">
           <div className="container" data-aos="fade-up">
             <header className="section-header">
               <h3>Why choose us?</h3>
-              <p>
-                Laudem latine persequeris id sed, ex fabulas delectus quo. No
-                vel partiendo abhorreant vituperatoribus.
-              </p>
-            </header>
-
-            <div className="row row-eq-height justify-content-center">
-              <div className="col-lg-4 mb-4">
-                <div className="card" data-aos="zoom-in" data-aos-delay="100">
-                  <i className="fa fa-diamond"></i>
-                  <div className="card-body">
-                    <h5 className="card-title">Corporis dolorem</h5>
-                    <p className="card-text">
-                      Deleniti optio et nisi dolorem debitis. Aliquam nobis est
-                      temporibus sunt ab inventore officiis aut voluptatibus.
-                    </p>
-                    <a href="#" className="readmore">
-                      Read more{" "}
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-lg-4 mb-4">
-                <div className="card" data-aos="zoom-in" data-aos-delay="200">
-                  <i className="fa fa-language"></i>
-                  <div className="card-body">
-                    <h5 className="card-title">Voluptates dolores</h5>
-                    <p className="card-text">
-                      Voluptates nihil et quis omnis et eaque omnis sint aut.
-                      Ducimus dolorum aspernatur.
-                    </p>
-                    <a href="#" className="readmore">
-                      Read more{" "}
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-lg-4 mb-4">
-                <div className="card" data-aos="zoom-in" data-aos-delay="300">
-                  <i className="fa fa-object-group"></i>
-                  <div className="card-body">
-                    <h5 className="card-title">Eum ut aspernatur</h5>
-                    <p className="card-text">
-                      Autem quod nesciunt eos ea aut amet laboriosam ab. Eos
-                      quis porro in non nemo ex.{" "}
-                    </p>
-                    <a href="#" className="readmore">
-                      Read more{" "}
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div
-              className="row counters"
-              data-aos="fade-up"
-              data-aos-delay="100"
-            >
-              <div className="col-lg-3 col-6 text-center">
-                <span data-toggle="counter-up">274</span>
-                <p>Clients</p>
-              </div>
-
-              <div className="col-lg-3 col-6 text-center">
-                <span data-toggle="counter-up">421</span>
-                <p>Projects</p>
-              </div>
-
-              <div className="col-lg-3 col-6 text-center">
-                <span data-toggle="counter-up">1,364</span>
-                <p>Hours Of Support</p>
-              </div>
-
-              <div className="col-lg-3 col-6 text-center">
-                <span data-toggle="counter-up">18</span>
-                <p>Hard Workers</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* <!-- ======= Portfolio Section ======= --> */}
-        {/* <section id="portfolio" className="clearfix">
-          <div className="container" data-aos="fade-up">
-            <header className="section-header">
-              <h3 className="section-title">Our Portfolio</h3>
-            </header>
-            <div className="row" data-aos="fade-up" data-aos-delay="100">
-              <div className="col-lg-12">
-                <ul id="portfolio-flters">
-                  <li data-filter="*" className="filter-active">
-                    All
-                  </li>
-                  <li data-filter=".filter-app">App</li>
-                  <li data-filter=".filter-card">Card</li>
-                  <li data-filter=".filter-web">Web</li>
+              <br />
+              <h4>
+                <ul style={{ color: "whitesmoke" }}>
+                  <li>{">"} Automate the process of maintaing ledgers.</li>
+                  <li>{">"} The required information can be retrieved easily</li>
+                  <li>{">"} The details can be stored in the storage systems permanently</li>
+                  <li>{">"} Time will not be wasted in the calculations. </li>
+                  <li>{">"} Reports can be generated. </li>
+                  <li>{">"} Wastage of manpower is reduced</li>
+                  <li>{">"} More Transparancy </li>
+                  <li>{">"} More Transparancy </li>
+                  <li>{">"} Large volume of records to process</li>
+                  <li>{">"} Less time and High speed</li>
+                  <li>{">"} People can create and maintain there own Chit Funds chain</li>
                 </ul>
-              </div>
-            </div>
-
-            <div
-              className="row portfolio-container"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <div className="col-lg-4 col-md-6 portfolio-item filter-app">
-                <div className="portfolio-wrap">
-                  <img
-                    src="./pics/portfolio/app1.jpg"
-                    className="img-fluid"
-                    alt=""
-                  />
-                  <div className="portfolio-info">
-                    <h4>
-                      <a href="portfolio-details.html">App 1</a>
-                    </h4>
-                    <p>App</p>
-                  </div>
-                  <a
-                    href="./pics/portfolio/app1.jpg"
-                    data-gall="portfolioGallery"
-                    title="App 1"
-                    className="venobox link-preview"
-                  >
-                    <i className="ion ion-eye"></i>
-                  </a>
-                  <a
-                    href="portfolio-details.html"
-                    className="link-details"
-                    title="More Details"
-                  >
-                    <i className="ion ion-android-open"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div className="portfolio-wrap">
-              <img
-                src="./pics/portfolio/web3.jpg"
-                className="img-fluid"
-                alt=""
-              />
-              <div className="portfolio-info">
-                <h4>
-                  <a href="portfolio-details.html">Web 3</a>
                 </h4>
-                <p>Web</p>
-              </div>
-              <a
-                href="./pics/portfolio/web3.jpg"
-                className="venobox link-preview"
-                data-gall="portfolioGallery"
-                title="Web 3"
-              >
-                <i className="ion ion-eye"></i>
-              </a>
-              <a
-                href="portfolio-details.html"
-                className="link-details"
-                title="More Details"
-              >
-                <i className="ion ion-android-open"></i>
-              </a>
-            </div>
-          </div>
-
-          <div className="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div className="portfolio-wrap">
-              <img
-                src="./pics/portfolio/app2.jpg"
-                className="img-fluid"
-                alt=""
-              />
-              <div className="portfolio-info">
-                <h4>
-                  <a href="portfolio-details.html">App 2</a>
-                </h4>
-                <p>App</p>
-                <div>
-                  <a
-                    href="./pics/portfolio/app2.jpg"
-                    className="venobox link-preview"
-                    data-gall="portfolioGallery"
-                    title="App 2"
-                  >
-                    <i className="ion ion-eye"></i>
-                  </a>
-                  <a
-                    href="portfolio-details.html"
-                    className="link-details"
-                    title="More Details"
-                  >
-                    <i className="ion ion-android-open"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div className="portfolio-wrap">
-              <img
-                src="./pics/portfolio/card2.jpg"
-                className="img-fluid"
-                alt=""
-              />
-              <div className="portfolio-info">
-                <h4>
-                  <a href="portfolio-details.html">Card 2</a>
-                </h4>
-                <p>Card</p>
-                <div>
-                  <a
-                    href="./pics/portfolio/card2.jpg"
-                    className="venobox link-preview"
-                    data-gall="portfolioGallery"
-                    title="Card 2"
-                  >
-                    <i className="ion ion-eye"></i>
-                  </a>
-                  <a
-                    href="portfolio-details.html"
-                    className="link-details"
-                    title="More Details"
-                  >
-                    <i className="ion ion-android-open"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div className="portfolio-wrap">
-              <img
-                src="./pics/portfolio/web2.jpg"
-                className="img-fluid"
-                alt=""
-              />
-              <div className="portfolio-info">
-                <h4>
-                  <a href="portfolio-details.html">Web 2</a>
-                </h4>
-                <p>Web</p>
-                <div>
-                  <a
-                    href="./pics/portfolio/web2.jpg"
-                    className="venobox link-preview"
-                    data-gall="portfolioGallery"
-                    title="Web 2"
-                  >
-                    <i className="ion ion-eye"></i>
-                  </a>
-                  <a
-                    href="portfolio-details.html"
-                    className="link-details"
-                    title="More Details"
-                  >
-                    <i className="ion ion-android-open"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div className="portfolio-wrap">
-              <img
-                src="./pics/portfolio/app3.jpg"
-                className="img-fluid"
-                alt=""
-              />
-              <div className="portfolio-info">
-                <h4>
-                  <a href="portfolio-details.html">App 3</a>
-                </h4>
-                <p>App</p>
-                <div>
-                  <a
-                    href="./pics/portfolio/app3.jpg"
-                    className="venobox link-preview"
-                    data-gall="portfolioGallery"
-                    title="App 3"
-                  >
-                    <i className="ion ion-eye"></i>
-                  </a>
-                  <a
-                    href="portfolio-details.html"
-                    className="link-details"
-                    title="More Details"
-                  >
-                    <i className="ion ion-android-open"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div className="portfolio-wrap">
-              <img
-                src="./pics/portfolio/card1.jpg"
-                className="img-fluid"
-                alt=""
-              />
-              <div className="portfolio-info">
-                <h4>
-                  <a href="portfolio-details.html">Card 1</a>
-                </h4>
-                <p>Card</p>
-                <div>
-                  <a
-                    href="./pics/portfolio/card1.jpg"
-                    className="venobox link-preview"
-                    data-gall="portfolioGallery"
-                    title="Card 1"
-                  >
-                    <i className="ion ion-eye"></i>
-                  </a>
-                  <a
-                    href="portfolio-details.html"
-                    className="link-details"
-                    title="More Details"
-                  >
-                    <i className="ion ion-android-open"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div className="portfolio-wrap">
-              <img
-                src="./pics/portfolio/card3.jpg"
-                className="img-fluid"
-                alt=""
-              />
-              <div className="portfolio-info">
-                <h4>
-                  <a href="portfolio-details.html">Card 3</a>
-                </h4>
-                <p>Card</p>
-                <div>
-                  <a
-                    href="./pics/portfolio/card3.jpg"
-                    className="venobox link-preview"
-                    data-gall="portfolioGallery"
-                    title="Card 3"
-                  >
-                    <i className="ion ion-eye"></i>
-                  </a>
-                  <a
-                    href="portfolio-details.html"
-                    className="link-details"
-                    title="More Details"
-                  >
-                    <i className="ion ion-android-open"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div className="portfolio-wrap">
-              <img
-                src="./pics/portfolio/web1.jpg"
-                className="img-fluid"
-                alt=""
-              />
-              <div className="portfolio-info">
-                <h4>
-                  <a href="portfolio-details.html">Web 1</a>
-                </h4>
-                <p>Web</p>
-              </div>
-              <a
-                href="./pics/portfolio/web1.jpg"
-                className="venobox link-preview"
-                data-gall="portfolioGallery"
-                title="Web 1"
-              >
-                <i className="ion ion-eye"></i>
-              </a>
-              <a
-                href="portfolio-details.html"
-                className="link-details"
-                title="More Details"
-              >
-                <i className="ion ion-android-open"></i>
-              </a>
-            </div>
-          </div>
-        </section> */}
-
-        {/* <!-- ======= Testimonials Section ======= --> */}
-        <section id="testimonials" className="section-bg">
-          <div className="container" data-aso="zoom-in">
-            <header className="section-header">
-              <h3>Testimonials</h3>
             </header>
-
-            <div className="row justify-content-center">
-              <div className="col-lg-8">
-                <div className="owl-carousel testimonials-carousel">
-                  <div className="testimonial-item">
-                    <img
-                      src="./pics/testimonial-1.jpg"
-                      className="testimonial-img"
-                      alt=""
-                    />
-                    <h3>Shreyansh Mamgain</h3>
-                    <h4>Ceo &amp; Founder</h4>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                      ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                  </div>
-
-                  <div className="testimonial-item">
-                    <img
-                      src="./pics/testimonial-2.jpg"
-                      className="testimonial-img"
-                      alt=""
-                    />
-                    <h3>Shyam Yadav</h3>
-                    <h4>Designer</h4>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                      ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                  </div>
-
-                  <div className="testimonial-item">
-                    <img
-                      src="././pics/testimonial-5.jpg"
-                      className="testimonial-img"
-                      alt=""
-                    />
-                    <h3>Rohit Kaushik</h3>
-                    <h4>Entrepreneur</h4>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                      ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </section>
-
+          <div class="photo">
+            <img style ={{ paddingLeft:'200px', width: '50%', paddingBottom: '5px'}} src="https://moneyexcel.com/wp-content/uploads/2016/08/chit-funds.jpg"/>
+            <img style ={{float :"right", height : "500px", paddingRight:'200px', paddingTop: '30px'}}src="http://moneypotchitfunds.com/assets/system_design/images/about%20us.png"/>
+          </div>
         {/* <!-- ======= Team Section ======= --> */}
         <section id="team">
           <div className="container" data-aos="fade-up">
             <div className="section-header">
-              <h3>Team</h3>
-              <p>
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque
-              </p>
+              <h3>Our Team</h3>
             </div>
-
             <div className="row">
               <div
                 className="col-lg-3 col-md-6"
@@ -784,216 +344,64 @@ const Home = () => {
                 data-aos-delay="100"
               >
                 <div className="member">
-                  <img src="./pics/team-1.jpg" className="img-fluid" alt="" />
+                  <img src={image3} className="img-fluid" alt="" />
                   <div className="member-info">
                     <div className="member-info-content">
-                      <h4>Walter White</h4>
-                      <span>Chief Executive Officer</span>
-                      <div className="social">
-                        <a href="">
-                          <i className="fa fa-twitter"></i>
-                        </a>
-                        <a href="">
-                          <i className="fa fa-facebook"></i>
-                        </a>
-                        <a href="">
-                          <i className="fa fa-google-plus"></i>
-                        </a>
-                        <a href="">
-                          <i className="fa fa-linkedin"></i>
-                        </a>
-                      </div>
+                      <h4>Shyam Yadav</h4>
+                      <span>Designer</span>
                     </div>
                   </div>
                 </div>
               </div>
-
               <div
                 className="col-lg-3 col-md-6"
                 data-aos="zoom-out"
                 data-aos-delay="200"
               >
                 <div className="member">
-                  <img src="./pics/team-2.jpg" className="img-fluid" alt="" />
+                  <img
+                    style={{ height: "265px" }}
+                    src={image4}
+                    className="img-fluid"
+                    alt=""
+                  />
                   <div className="member-info">
                     <div className="member-info-content">
-                      <h4>Sarah Jhonson</h4>
-                      <span>Product Manager</span>
-                      <div className="social">
-                        <a href="">
-                          <i className="fa fa-twitter"></i>
-                        </a>
-                        <a href="">
-                          <i className="fa fa-facebook"></i>
-                        </a>
-                        <a href="">
-                          <i className="fa fa-google-plus"></i>
-                        </a>
-                        <a href="">
-                          <i className="fa fa-linkedin"></i>
-                        </a>
-                      </div>
+                      <h4>Shreyansh Mamgain</h4>
+                      <span>Ceo &amp; Founder</span>
                     </div>
                   </div>
                 </div>
               </div>
-
               <div
                 className="col-lg-3 col-md-6"
                 data-aos="zoom-out"
                 data-aos-delay="300"
               >
                 <div className="member">
-                  <img src="./pics/team-3.jpg" className="img-fluid" alt="" />
+                  <img style={{height :'275px', width: '320px'}}src={image5} className="img-fluid" alt="" />
                   <div className="member-info">
                     <div className="member-info-content">
-                      <h4>William Anderson</h4>
+                      <h4>Yogesh Beniwal</h4>
                       <span>CTO</span>
-                      <div className="social">
-                        <a href="">
-                          <i className="fa fa-twitter"></i>
-                        </a>
-                        <a href="">
-                          <i className="fa fa-facebook"></i>
-                        </a>
-                        <a href="">
-                          <i className="fa fa-google-plus"></i>
-                        </a>
-                        <a href="">
-                          <i className="fa fa-linkedin"></i>
-                        </a>
-                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-
               <div
                 className="col-lg-3 col-md-6"
                 data-aos="zoom-out"
-                data-aos-delay="400"
+                data-aos-delay="40"
               >
                 <div className="member">
-                  <img src="./pics/team-4.jpg" className="img-fluid" alt="" />
+                  <img src={image6} className="img-fluid" alt="" />
                   <div className="member-info">
                     <div className="member-info-content">
                       <h4>Amanda Jepson</h4>
                       <span>Accountant</span>
-                      <div className="social">
-                        <a href="">
-                          <i className="fa fa-twitter"></i>
-                        </a>
-                        <a href="">
-                          <i className="fa fa-facebook"></i>
-                        </a>
-                        <a href="">
-                          <i className="fa fa-google-plus"></i>
-                        </a>
-                        <a href="">
-                          <i className="fa fa-linkedin"></i>
-                        </a>
-                      </div>
+                      <div className="social"></div>
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* <!-- ======= Clients Section ======= --> */}
-        <section id="clients" className="section-bg">
-          <div className="container" data-aos="fade-up">
-            <div className="section-header">
-              <h3>Our CLients</h3>
-              <p>
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque dere santome nida.
-              </p>
-            </div>
-
-            <div
-              className="row no-gutters clients-wrap clearfix"
-              data-aos="zoom-in"
-              data-aos-delay="100"
-            >
-              <div className="col-lg-3 col-md-4 col-xs-6">
-                <div className="client-logo">
-                  <img
-                    src="./pics/clients/client-1.png"
-                    className="img-fluid"
-                    alt=""
-                  />
-                </div>
-              </div>
-
-              <div className="col-lg-3 col-md-4 col-xs-6">
-                <div className="client-logo">
-                  <img
-                    src="./pics/clients/client-2.png"
-                    className="img-fluid"
-                    alt=""
-                  />
-                </div>
-              </div>
-
-              <div className="col-lg-3 col-md-4 col-xs-6">
-                <div className="client-logo">
-                  <img
-                    src="./pics/clients/client-3.png"
-                    className="img-fluid"
-                    alt=""
-                  />
-                </div>
-              </div>
-
-              <div className="col-lg-3 col-md-4 col-xs-6">
-                <div className="client-logo">
-                  <img
-                    src="./pics/clients/client-4.png"
-                    className="img-fluid"
-                    alt=""
-                  />
-                </div>
-              </div>
-
-              <div className="col-lg-3 col-md-4 col-xs-6">
-                <div className="client-logo">
-                  <img
-                    src="./pics/clients/client-5.png"
-                    className="img-fluid"
-                    alt=""
-                  />
-                </div>
-              </div>
-
-              <div className="col-lg-3 col-md-4 col-xs-6">
-                <div className="client-logo">
-                  <img
-                    src="./pics/clients/client-6.png"
-                    className="img-fluid"
-                    alt=""
-                  />
-                </div>
-              </div>
-
-              <div className="col-lg-3 col-md-4 col-xs-6">
-                <div className="client-logo">
-                  <img
-                    src="./pics/clients/client-7.png"
-                    className="img-fluid"
-                    alt=""
-                  />
-                </div>
-              </div>
-
-              <div className="col-lg-3 col-md-4 col-xs-6">
-                <div className="client-logo">
-                  <img
-                    src="./pics/clients/client-8.png"
-                    className="img-fluid"
-                    alt=""
-                  />
                 </div>
               </div>
             </div>
@@ -1006,7 +414,7 @@ const Home = () => {
             <div className="section-header">
               <h3>Contact Us</h3>
             </div>
-            <div style={{ paddingLeft: "630px" }} className="row">
+            <div style={{ paddingLeft: "650px" }} className="row">
               <div className="form">
                 <form
                   action="forms/contact.php"
@@ -1088,13 +496,16 @@ const Home = () => {
           <div className="container">
             <div className="row">
               <div className="col-lg-4 col-md-6 footer-info">
-                <h3>CHITFUND</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
+                <h3>कमिटी करो</h3>
+                <h6>
+                  Chit funds can be relied upon to satisfy personal needs.
+                  Unlike other financial institutions, you can draw upon your
+                  chit fund for any purpose – marriages, religious functions,
+                  medical expenses, children’s education, etc.
+                  We are building the next generation systems where the trust is
+                  programmed across all the participating members in the
+                  network.
+                </h6>
               </div>
 
               <div className="col-lg-2 col-md-6 footer-links">
@@ -1151,10 +562,10 @@ const Home = () => {
 
         <div className="container">
           <div className="copyright">
-            &copy; Copyright <strong>ChitFund</strong>. All Rights Reserved
+            &copy; Copyright <strong>कमिटी करो</strong>. All Rights Reserved
           </div>
           <div className="credits">
-            <h4>Designed by ChitFund</h4>
+            <h4>Designed by कमिटी करो</h4>
           </div>
         </div>
       </footer>
