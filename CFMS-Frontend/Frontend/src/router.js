@@ -10,7 +10,8 @@ import Error from "./Error";
 import ForgotPassword from "./Login-Signup/forgotPassword";
 import RegistrationForm from "./RegistrationForm/registrationForm.js";
 import ChangePassword from "./Login-Signup/changePassword";
-import Data from "./RegistrationForm/showdata"
+import Data from "./RegistrationForm/showdata";
+import Dashboard from "./Dashboard/dashBoard";
 
 const AllRouter = () => {
   return (
@@ -42,6 +43,9 @@ const AllRouter = () => {
         </Route>
         <Route exact path="/data">
           <Data />
+        </Route>
+        <Route exact path="/dashBoard">
+          <Dashboard />
         </Route>
         <Route path="*">
           <Error />

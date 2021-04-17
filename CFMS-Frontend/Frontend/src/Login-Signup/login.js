@@ -7,23 +7,38 @@ import "../css/Login.css";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  // const [loginSucces, setLoginSuccess] = useState(false);
+
   const submitData = (event) => {
     event.preventDefault();
     const givenData = {
       email: email,
       password: password,
     };
-    axios.post("http://localhost:5000/login", givenData).then((res) => {
-      if (res.status === 200) {
-        console.log(res.status);
-        console.log("Login Successfull");
-        setTimeout(() => {
-          window.location.href = "/registrationForm";
-        }, 4000);
-      } else if (res.status === 401) {
-        console.log("Wrong Password enter");
-      }
-    });
+
+    axios
+      .post("http://localhost:5000/login", givenData)
+      .then((res) => {
+        console.log(res);
+        if (res.status === 200) {
+          if (!res.data.userRegistered) {
+            setTimeout(() => {
+              window.location.href = "/registrationForm";
+            }, 4000);
+          } else {
+            setTimeout(() => {
+              window.location.href = "/dashBoard";
+            }, 4000);
+          }
+          document.getElementById("wrong-password").innerHTML =
+            "Login Successfull !!";
+        }
+      })
+      .catch((err) => {
+        document.getElementById("wrong-password").innerHTML =
+          "Wrong Credentials !!";
+      });
+
     //! window.location = "/"; To change to some page
   };
 
@@ -38,17 +53,6 @@ const Login = () => {
       <div class="card">
         <div class="card-header">
           <h2>Partner Login</h2>
-          {/* <div class="d-flex justify-content-end social_icon">
-            <span>
-              <i class="fab fa-facebook-square"></i>
-            </span>
-            <span>
-              <i class="fab fa-google-plus-square"></i>
-            </span>
-            <span>
-              <i class="fab fa-twitter-square"></i>
-            </span>
-          </div> */}
         </div>
         <div class="card-body">
           <form action="" onSubmit={submitData}>
@@ -86,6 +90,7 @@ const Login = () => {
               <input type="checkbox" />
               Remember Me
             </div>
+            <h3 id="wrong-password"></h3>
             <br></br>
             <div class="form-group">
               <input
