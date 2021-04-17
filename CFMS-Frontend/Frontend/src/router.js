@@ -11,7 +11,7 @@ import ForgotPassword from "./Login-Signup/forgotPassword";
 import RegistrationForm from "./RegistrationForm/registrationForm.js";
 import ChangePassword from "./Login-Signup/changePassword";
 import Data from "./RegistrationForm/showdata";
-import Dashboard from "./Dashboard/dashBoard";
+import MainHomePage from "./Mainhomepage/Mainhomepage";
 
 const AllRouter = () => {
   return (
@@ -20,7 +20,7 @@ const AllRouter = () => {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/Verified">
+        <Route exact path="/verified">
           <Verified />
         </Route>
         <Route exact path="/Login">
@@ -44,8 +44,8 @@ const AllRouter = () => {
         <Route exact path="/data">
           <Data />
         </Route>
-        <Route exact path="/dashBoard">
-          <Dashboard />
+        <Route exact path="/mainHomePage">
+          <MainHomePage />
         </Route>
         <Route path="*">
           <Error />

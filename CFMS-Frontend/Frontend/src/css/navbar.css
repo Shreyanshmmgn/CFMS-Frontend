@@ -1,0 +1,130 @@
+
+
+.main-div1{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0px;
+}
+
+
+.avatar{
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 5px;
+    margin-left: 30px;
+    margin-right: 100px;
+    margin-top: 30px;
+}
+
+.bell,.wallet{
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin: 10px;
+    display: block;
+    margin-left: 50px;
+    margin-top: 40px;
+}
+
+.bell{
+    margin-left: 40px;
+}
+
+.search-bar{
+    width: 800px;
+    height: 70px;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+    outline: none;
+    text-justify: auto;
+}
+
+
+
+   .navbar1{
+    background: rgb(241, 241, 241);
+    height: 70px;
+    width: 100%;
+    padding-top: 0px;
+  }
+   .navbar1 ul{
+    float: right;
+    margin-right: 30px;
+  } 
+   .navbar1 ul li{
+    display: inline-block;
+    line-height: 60px;
+    margin: 0 2px;
+    
+  }
+   .navbar1 ul li a{
+    color: rgb(12, 10, 133);
+    font-size: 17px;
+    font-weight: bold;
+    padding: 10px 110px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    padding-top: 0px;
+    
+  }
+  a.active1,a:hover{
+    
+    transition: .5s;
+  } 
+   .checkbtn{
+    font-size: 30px;
+    color: rgb(12, 10, 133);
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+  }
+  #check{
+    display: none;
+  } 
+
+   @media (max-width: 952px){
+    .navbar1 img{
+      padding-left: 180px;
+    }
+    .navbar1 ul li a{
+      font-size: 16px;
+    }
+  }
+  @media (max-width: 858px){
+    .checkbtn{
+      display: block;
+    }
+    ul{
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      background: #6d8caa;
+      top: 80px;
+      left: -100%;
+      text-align: center;
+      transition: all .5s;
+    }
+     .navbar1 ul li{
+      display: block;
+      margin: 50px 0;
+      line-height: 30px;
+    }
+    .navbar1 ul li a{
+      font-size: 20px;
+    }
+    a:hover,a.active{
+      background: none;
+      color: #0082e6;
+    }
+    #check:checked ~ ul{
+      left: 0;
+    }
+  } 
+ 
