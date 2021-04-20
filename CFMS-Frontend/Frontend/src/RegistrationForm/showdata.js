@@ -21,7 +21,7 @@ let defaultValues = {
     occupation: "",
     monthlyIncome: "",
     gender: "",
-    image: null,
+    imageUrl: "",
   },
 };
 
@@ -44,13 +44,13 @@ const Data = () => {
     console.log(window.location.href + "/registrationForm");
   };
   const [data, setData] = useState(false);
-  const [imageSrc, setImgSrc] = useState(null);
+  // const [imageSrc, setImgSrc] = useState(null);
   const fetchData = async () => {
     await axios.post(`http://localhost:5000/sendUserData`).then((res) => {
       if (res.status === 200) {
         defaultValues = res.data;
-        let img = `http://localhost:5000/${res.data.userData.image}`;
-        setImgSrc(img);
+        // let img = `http://localhost:5000/${res.data.userData.image}`;
+        // setImgSrc(img);
         setData(true);
       } else {
         // Somthing went wrong try again
@@ -83,7 +83,10 @@ const Data = () => {
                     <span> {defaultValues.userData.email}</span>
                   </div>
                   <div>
-                    <img src={imageSrc} alt="User Image" />
+                    <img
+                      src={defaultValues.userData.imageUrl}
+                      alt="User Image"
+                    />
                   </div>
                   <div className="input-box">
                     <h5>

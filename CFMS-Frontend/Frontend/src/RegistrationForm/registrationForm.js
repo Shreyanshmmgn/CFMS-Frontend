@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { storage } from "../Firebase/firebase";
 import axios from "axios";
 import "./register.css";
+import { waitFor } from "@testing-library/dom";
 //*--------------------------------------------------------------------------------------------*
 
 let defaultValues = {
@@ -35,9 +36,35 @@ const RegistrationForm = () => {
   };
 
   const submitData = async (e) => {
+    console.log("Image : ", image);
     e.preventDefault();
     const formData = new FormData();
+    const uploadTask = storage.ref(`/images/${image.name}`).put(image);
 
+    //initiates the firebase side uploading
+    uploadTask.on(
+      "state_changed",
+      (snapShot) => {
+        //takes a snap shot of the process as it is happening
+        console.log(snapShot);
+      },
+      (err) => {
+        //catches the errors
+        console.log(err);
+      },
+      async () => {
+        // gets the functions from storage refences the image storage in firebase by the children
+        // gets the download url then sets the image from firebase as the value for the imgUrl key:
+        await storage
+          .ref("images")
+          .child(image.name)
+          .getDownloadURL()
+          .then((url) => {
+            setImageAsUrl(url);
+          });
+      }
+    );
+    console.log("Image Url : ", imageAsUrl);
     // var selectedState = document.getElementById("allStates");
     // var sState = selectedState.options[selectedState.selectedIndex].text;
 
@@ -58,30 +85,32 @@ const RegistrationForm = () => {
       formData.append(key, values[key]);
     }
     // Adding data to form data
-    formData.append("image", image);
+    formData.append("imageUrl", imageAsUrl);
 
-    console.log("Form Data : ", formData.get("name"));
+    console.log("Form Data : ", formData.get("imageUrl"));
 
-    // try {
-    //   await axios
-    //     .post(`http://localhost:5000/registration`, formData, {
-    //       headers: {
-    //         "Content-Type": "mutlipart/form-data",
-    //       },
-    //     })
-    //     .then((res) => {
-    //       if (res.status === 200) {
-    //         console.log("Data saveed successfully");
-    //         setTimeout(() => {
-    //           window.location.href = "/data";
-    //         }, 4000);
-    //         // Redirect to dashboard
-    //       } else {
-    //         // Somthing went wrong try again
-    //       }
-    //     });
-    //   setSubmited(true);
-    // } catch (error) {}
+    try {
+      await axios
+        .post(`http://localhost:5000/registration`, formData, {
+          headers: {
+            "Content-Type": "mutlipart/form-data",
+          },
+        })
+        .then((res) => {
+          if (res.status === 200) {
+            console.log("Data saveed successfully");
+            setTimeout(() => {
+              window.location.href = "/data";
+            }, 4000);
+            // Redirect to dashboard
+          } else {
+            window.location.href = "/registrationForm";
+          }
+        });
+      setSubmited(true);
+    } catch (error) {
+      // error.send("Some Error occured please try again");
+    }
   };
   //*--------------------------------------------------------------------------------------------*
 
@@ -114,7 +143,7 @@ const RegistrationForm = () => {
                       }));
                     }}
                   />
-                </div>
+                </div> */}
                 <div className="input-box">
                   <span className="details">Email</span>
                   <input
@@ -130,6 +159,7 @@ const RegistrationForm = () => {
                     }}
                   />
                 </div>
+                {/*
                 <div className="input-box">
                   <span className="details">Phone Number</span>
                   <input
@@ -178,7 +208,6 @@ const RegistrationForm = () => {
                     }}
                   />
                 </div>
-
                 <div className="input-box">
                   <span className="details">State</span>
                   <select name="state" id="allStates">
@@ -282,7 +311,8 @@ const RegistrationForm = () => {
                       }));
                     }}
                   />
-                </div> */}
+                </div>{" "}
+                */}
                 <div className="input-box">
                   <span className="details">Monthly Income</span>
                   <input
@@ -320,6 +350,9 @@ const RegistrationForm = () => {
                 <input type="submit" />
               </div>
             </form>
+            <div>
+              <img src={imageAsUrl} alt="firebase Image" id="firebase-img" />
+            </div>
           </div>
         </div>
       </div>
