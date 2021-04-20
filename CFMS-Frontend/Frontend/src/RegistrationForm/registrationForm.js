@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { storage } from "../Firebase/firebase";
 import axios from "axios";
 import "./register.css";
-import { waitFor } from "@testing-library/dom";
 //*--------------------------------------------------------------------------------------------*
 
 let defaultValues = {
@@ -49,7 +48,6 @@ const RegistrationForm = () => {
         console.log(snapShot);
       },
       (err) => {
-        //catches the errors
         console.log(err);
       },
       async () => {
@@ -65,21 +63,21 @@ const RegistrationForm = () => {
       }
     );
     console.log("Image Url : ", imageAsUrl);
-    // var selectedState = document.getElementById("allStates");
-    // var sState = selectedState.options[selectedState.selectedIndex].text;
+    var selectedState = document.getElementById("allStates");
+    var sState = selectedState.options[selectedState.selectedIndex].text;
 
-    // var sG = document.getElementById("gender");
-    // var selectedGender = sG.options[sG.selectedIndex].text;
+    var sG = document.getElementById("gender");
+    var selectedGender = sG.options[sG.selectedIndex].text;
 
-    // var sMS = document.getElementById("mStatus");
-    // var selectedSMartialStatus = sMS.options[sMS.selectedIndex].text;
+    var sMS = document.getElementById("mStatus");
+    var selectedSMartialStatus = sMS.options[sMS.selectedIndex].text;
 
-    // setValues((values) => ({
-    //   ...values,
-    //   state: sState,
-    //   gender: selectedGender,
-    //   martialStatus: selectedSMartialStatus,
-    // }));
+    setValues((values) => ({
+      ...values,
+      state: sState,
+      gender: selectedGender,
+      martialStatus: selectedSMartialStatus,
+    }));
 
     for (var key in values) {
       formData.append(key, values[key]);
@@ -129,7 +127,7 @@ const RegistrationForm = () => {
           <div className="content">
             <form onSubmit={submitData} encType="multipart/form/data">
               <div className="user-details">
-                {/* <div className="input-box">
+                <div className="input-box">
                   <span className="details">Full Name</span>
                   <input
                     type="text"
@@ -143,7 +141,7 @@ const RegistrationForm = () => {
                       }));
                     }}
                   />
-                </div> */}
+                </div>
                 <div className="input-box">
                   <span className="details">Email</span>
                   <input
@@ -159,7 +157,6 @@ const RegistrationForm = () => {
                     }}
                   />
                 </div>
-                {/*
                 <div className="input-box">
                   <span className="details">Phone Number</span>
                   <input
@@ -312,7 +309,6 @@ const RegistrationForm = () => {
                     }}
                   />
                 </div>{" "}
-                */}
                 <div className="input-box">
                   <span className="details">Monthly Income</span>
                   <input
@@ -329,14 +325,14 @@ const RegistrationForm = () => {
                     }}
                   />
                 </div>
-                {/* <div className="input-box">
+                <div className="input-box">
                   <span className="details">Gender</span>
                   <select name="Martial Status" id="gender">
                     <option value="Married">Male</option>
                     <option value="Single">Female</option>
                     <option value="Divorced">Prefer not to say</option>
                   </select>
-                </div> */}
+                </div>
               </div>
               <span className="details">Upload your photo</span>
               <input
@@ -350,9 +346,6 @@ const RegistrationForm = () => {
                 <input type="submit" />
               </div>
             </form>
-            <div>
-              <img src={imageAsUrl} alt="firebase Image" id="firebase-img" />
-            </div>
           </div>
         </div>
       </div>
