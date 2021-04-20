@@ -1,4 +1,5 @@
-import React, { useState, Fragment } from "react";
+import React, { useState } from "react";
+import { storage } from "../Firebase/firebase";
 import axios from "axios";
 import "./register.css";
 //*--------------------------------------------------------------------------------------------*
@@ -20,10 +21,11 @@ let defaultValues = {
 //*--------------------------------------------------------------------------------------------*
 
 const RegistrationForm = () => {
-  const [startDate, setStartDate] = useState(null);
+  const [image, setImage] = useState(null);
+  const [imageAsUrl, setImageAsUrl] = useState("");
+
   const [submited, setSubmited] = useState(false);
   const [values, setValues] = useState(defaultValues);
-  const [image, setImage] = useState(null);
 
   //*--------------------------------------------------------------------------------------------*
 
@@ -36,21 +38,21 @@ const RegistrationForm = () => {
     e.preventDefault();
     const formData = new FormData();
 
-    var selectedState = document.getElementById("allStates");
-    var sState = selectedState.options[selectedState.selectedIndex].text;
+    // var selectedState = document.getElementById("allStates");
+    // var sState = selectedState.options[selectedState.selectedIndex].text;
 
-    var sG = document.getElementById("gender");
-    var selectedGender = sG.options[sG.selectedIndex].text;
+    // var sG = document.getElementById("gender");
+    // var selectedGender = sG.options[sG.selectedIndex].text;
 
-    var sMS = document.getElementById("mStatus");
-    var selectedSMartialStatus = sMS.options[sMS.selectedIndex].text;
+    // var sMS = document.getElementById("mStatus");
+    // var selectedSMartialStatus = sMS.options[sMS.selectedIndex].text;
 
-    setValues((values) => ({
-      ...values,
-      state: sState,
-      gender: selectedGender,
-      martialStatus: selectedSMartialStatus,
-    }));
+    // setValues((values) => ({
+    //   ...values,
+    //   state: sState,
+    //   gender: selectedGender,
+    //   martialStatus: selectedSMartialStatus,
+    // }));
 
     for (var key in values) {
       formData.append(key, values[key]);
@@ -60,26 +62,26 @@ const RegistrationForm = () => {
 
     console.log("Form Data : ", formData.get("name"));
 
-    try {
-      await axios
-        .post(`http://localhost:5000/registration`, formData, {
-          headers: {
-            "Content-Type": "mutlipart/form-data",
-          },
-        })
-        .then((res) => {
-          if (res.status === 200) {
-            console.log("Data saveed successfully");
-            setTimeout(() => {
-              window.location.href = "/data";
-            }, 4000);
-            // Redirect to dashboard
-          } else {
-            // Somthing went wrong try again
-          }
-        });
-      setSubmited(true);
-    } catch (error) {}
+    // try {
+    //   await axios
+    //     .post(`http://localhost:5000/registration`, formData, {
+    //       headers: {
+    //         "Content-Type": "mutlipart/form-data",
+    //       },
+    //     })
+    //     .then((res) => {
+    //       if (res.status === 200) {
+    //         console.log("Data saveed successfully");
+    //         setTimeout(() => {
+    //           window.location.href = "/data";
+    //         }, 4000);
+    //         // Redirect to dashboard
+    //       } else {
+    //         // Somthing went wrong try again
+    //       }
+    //     });
+    //   setSubmited(true);
+    // } catch (error) {}
   };
   //*--------------------------------------------------------------------------------------------*
 
@@ -98,7 +100,7 @@ const RegistrationForm = () => {
           <div className="content">
             <form onSubmit={submitData} encType="multipart/form/data">
               <div className="user-details">
-                <div className="input-box">
+                {/* <div className="input-box">
                   <span className="details">Full Name</span>
                   <input
                     type="text"
@@ -280,7 +282,7 @@ const RegistrationForm = () => {
                       }));
                     }}
                   />
-                </div>
+                </div> */}
                 <div className="input-box">
                   <span className="details">Monthly Income</span>
                   <input
@@ -297,14 +299,14 @@ const RegistrationForm = () => {
                     }}
                   />
                 </div>
-                <div className="input-box">
+                {/* <div className="input-box">
                   <span className="details">Gender</span>
                   <select name="Martial Status" id="gender">
                     <option value="Married">Male</option>
                     <option value="Single">Female</option>
                     <option value="Divorced">Prefer not to say</option>
                   </select>
-                </div>
+                </div> */}
               </div>
               <span className="details">Upload your photo</span>
               <input

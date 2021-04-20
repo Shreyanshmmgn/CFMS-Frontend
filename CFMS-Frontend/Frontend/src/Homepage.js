@@ -14,7 +14,7 @@ const Home = () => {
     <div>
       <header id="header" className="fixed-top">
         <nav>
-          <img src={image} />
+          <img src={image} alt="img" />
           <h7>
             <b>कमिटी करो</b>
           </h7>
