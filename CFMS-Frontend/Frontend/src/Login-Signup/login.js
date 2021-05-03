@@ -19,17 +19,17 @@ const Login = () => {
     axios
       .post("http://localhost:5000/login", givenData)
       .then((res) => {
-        console.log(res);
         if (res.status === 200) {
-          if (!res.data.userRegistered) {
-            setTimeout(() => {
-              window.location.href = "/registrationForm";
-            }, 4000);
-          } else {
-            setTimeout(() => {
-              window.location.href = "/dashBoard";
-            }, 4000);
-          }
+          console.log(res.data.token);
+          // if (!res.data.userRegistered) {
+          //   setTimeout(() => {
+          //     window.location.href = "/registrationForm";
+          //   }, 4000);
+          // } else {
+          //   setTimeout(() => {
+          //     window.location.href = "/dashBoard";
+          //   }, 4000);
+          // }
           document.getElementById("wrong-password").innerHTML =
             "Login Successfull !!";
         }
