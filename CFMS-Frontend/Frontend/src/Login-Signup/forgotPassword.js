@@ -6,16 +6,17 @@ import "../css/forgotpass.css";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
-  const [idCorrect, setIdCorrect] = useState(true);
+  const [idCorrect, setIdCorrect] = useState(false);
+  const [linkSent, setLinkSent] = useState(false);
 
   const submitData = (e) => {
     e.preventDefault();
     const data = { email };
     axios.post("http://localhost:5000/forgotPassword", data).then((res) => {
       if (res.status === 200) {
-        document.getElementById("pp").innerHTML = "Password link sent";
+        setLinkSent(true);
       } else {
-        setIdCorrect(false);
+        setIdCorrect(true);
       }
     });
   };
@@ -47,8 +48,8 @@ const ForgotPassword = () => {
                 }}
               />
             </div>
-            {idCorrect ? <h3></h3> : <h4>Entered Wrong ID </h4>}
-            <h4 id="pp"></h4>
+            {idCorrect ? <h3>Wrong ID </h3> : <h4></h4>}
+            {linkSent ? <h3>Link Sucessfully sent </h3> : <h4></h4>}
 
             <div className="form-group">
               <input

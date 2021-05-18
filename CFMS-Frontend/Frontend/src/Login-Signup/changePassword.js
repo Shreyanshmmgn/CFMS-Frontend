@@ -1,15 +1,19 @@
 import axios from "axios";
 import { useState } from "react";
 import { useParams } from "react-router";
-import "../css/changePassword.css"
+import "../css/changePassword.css";
 
 const ChangePassword = () => {
   const [password, setPassword] = useState("");
   const [sPassword, setSPassword] = useState("");
   const [match, setMatch] = useState(true);
+  const [passwordMsg, setPasswordMsg] = useState(false);
   const { email } = useParams();
 
   const submitData = (e) => {
+    setMatch(true);
+    setPasswordMsg(false);
+
     e.preventDefault();
     if (password !== sPassword) {
       setMatch(false);
@@ -19,7 +23,7 @@ const ChangePassword = () => {
         .post(`http://localhost:5000/changePassword/${email}`, pass)
         .then((res) => {
           if (res.status === 200) {
-            console.log("Password changed successfully ");
+            setPasswordMsg(true);
           } else {
             console.log("Check password again");
           }
@@ -68,8 +72,9 @@ const ChangePassword = () => {
               />
             </div>
             <br></br>
-            {match ? <h2></h2> : <h2>Password does not match !! </h2>}
-           
+            {match ? <h2></h2> : <h3>Password does not match !! </h3>}
+            {passwordMsg ? <h3>Password changed successfully </h3> : <h2></h2>}
+
             <div className="form-group">
               <input
                 type="submit"
