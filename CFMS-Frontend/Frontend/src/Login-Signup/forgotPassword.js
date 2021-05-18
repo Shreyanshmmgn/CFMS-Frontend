@@ -19,19 +19,16 @@ const ForgotPassword = () => {
       }
     });
   };
-  
 
   return (
     <div className="basic1">
       <div className="card1">
         <div className="card-header">
-          <b><h4>
-            Forgot Password
-          </h4>
+          <b>
+            <h4>Forgot Password</h4>
           </b>
         </div>
-        <h2 id="pp">
-        </h2>
+        <h2 id="pp"></h2>
         <div className="card-body">
           <form action="" onSubmit={submitData}>
             <div className="input-group form-group">
@@ -50,13 +47,9 @@ const ForgotPassword = () => {
                 }}
               />
             </div>
-            {idCorrect ? (
-              <h3></h3>
-            ) : (
-              <h4>Entered Wrong ID </h4>
-            )}
+            {idCorrect ? <h3></h3> : <h4>Entered Wrong ID </h4>}
             <h4 id="pp"></h4>
-            
+
             <div className="form-group">
               <input
                 type="submit"
@@ -66,15 +59,18 @@ const ForgotPassword = () => {
             </div>
           </form>
         </div>
-        <br/>
-        <br/>
+        <br />
+        <br />
         <div className="card-footer">
           <div className="d-flex justify-content-center links">
             <h5>
               <b>Back to</b>
               &nbsp;&nbsp;
               <b>
-                <Link style={{ color: "#051972", paddingTop: '30px' }} to="/Signup">
+                <Link
+                  style={{ color: "#051972", paddingTop: "30px" }}
+                  to="/Login"
+                >
                   Login
                 </Link>
               </b>
