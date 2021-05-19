@@ -47,6 +47,9 @@ const AllRouter = () => {
         <Route exact path="/mainHomePage">
           <MainHomePage />
         </Route>
+        <Route exact path="/protected">
+          <ForgotPassword />
+        </Route>
         <Route path="*">
           <Error />
         </Route>

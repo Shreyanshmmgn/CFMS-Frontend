@@ -7,6 +7,8 @@ import "../css/Login.css";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [authToken, setAuthtoken] = useState(null);
+
   // const [loginSucces, setLoginSuccess] = useState(false);
 
   const submitData = (event) => {
@@ -20,7 +22,12 @@ const Login = () => {
       .post("http://localhost:5000/login", givenData)
       .then((res) => {
         if (res.status === 200) {
+          setAuthtoken(res.data.token);
           console.log(res.data.token);
+
+          // // Adds the token to the header
+          // axios.defaults.headers.common.Authorization = `Bearer ${authToken}`;
+
           // if (!res.data.userRegistered) {
           //   setTimeout(() => {
           //     window.location.href = "/registrationForm";

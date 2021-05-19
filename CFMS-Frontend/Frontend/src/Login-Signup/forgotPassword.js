@@ -12,7 +12,7 @@ const ForgotPassword = () => {
   const submitData = (e) => {
     e.preventDefault();
     const data = { email };
-    axios.post("http://localhost:5000/forgotPassword", data).then((res) => {
+    axios.post("http://localhost:5000/protected", data).then((res) => {
       if (res.status === 200) {
         setLinkSent(true);
       } else {
