@@ -9,19 +9,19 @@ let defaultValues = {
   salt: "",
   date: "",
   userData: {
-    name: "fcwa",
-    email: "vsdvsv@gmail",
-    phoneNumber: "892029954",
-    currentAddress: "svsd",
-    permanentAdress: "sdvsv",
-    state: "dv",
-    pincode: "qwsq",
-    dob: "qxq",
-    martialStatus: "sxq",
-    occupation: "qs",
-    monthlyIncome: "sqsedx",
+    name: "",
+    email: "",
+    phoneNumber: "",
+    currentAddress: "",
+    permanentAdress: "",
+    state: "",
+    pincode: "",
+    dob: "",
+    martialStatus: "",
+    occupation: "",
+    monthlyIncome: "",
     gender: "",
-    picture: null,
+    image: null,
   },
 };
 
@@ -43,11 +43,14 @@ const Data = () => {
     window.location.href = "/registrationForm";
     console.log(window.location.href + "/registrationForm");
   };
-  const [data, setData] = useState(true);
+  const [data, setData] = useState(false);
+  const [imageSrc, setImgSrc] = useState(null);
   const fetchData = async () => {
     await axios.post(`http://localhost:5000/sendUserData`).then((res) => {
       if (res.status === 200) {
         defaultValues = res.data;
+        let img = `http://localhost:5000/${res.data.userData.image}`;
+        setImgSrc(img);
         setData(true);
       } else {
         // Somthing went wrong try again
@@ -78,6 +81,9 @@ const Data = () => {
                       <span className="details">Email:</span>
                     </h5>
                     <span> {defaultValues.userData.email}</span>
+                  </div>
+                  <div>
+                    <img src={imageSrc} alt="User Image" />
                   </div>
                   <div className="input-box">
                     <h5>
@@ -147,7 +153,13 @@ const Data = () => {
                     />
                   </div>
                   <div className="button">
-                    <input type="button" value="Register" />
+                    <input
+                      type="button"
+                      value="Register"
+                      onClick={() => {
+                        window.location.href = "/mainHomePage";
+                      }}
+                    />
                   </div>
                 </div>
               </form>

@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import React from "react";
+//*--------------------------------------------------------------------------------------------*
 
 import Home from "./Homepage";
 import Login from "./Login-Signup/login";
@@ -9,7 +10,8 @@ import Error from "./Error";
 import ForgotPassword from "./Login-Signup/forgotPassword";
 import RegistrationForm from "./RegistrationForm/registrationForm.js";
 import ChangePassword from "./Login-Signup/changePassword";
-import Data from "./RegistrationForm/showdata"
+import Data from "./RegistrationForm/showdata";
+import MainHomePage from "./Mainhomepage/Mainhomepage";
 
 const AllRouter = () => {
   return (
@@ -18,7 +20,7 @@ const AllRouter = () => {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/Verified">
+        <Route exact path="/verified">
           <Verified />
         </Route>
         <Route exact path="/Login">
@@ -42,6 +44,9 @@ const AllRouter = () => {
         <Route exact path="/data">
           <Data />
         </Route>
+        <Route exact path="/mainHomePage">
+          <MainHomePage />
+        </Route>
         <Route path="*">
           <Error />
         </Route>
@@ -49,5 +54,6 @@ const AllRouter = () => {
     </Router>
   );
 };
+//*--------------------------------------------------------------------------------------------*
 
 export default AllRouter;

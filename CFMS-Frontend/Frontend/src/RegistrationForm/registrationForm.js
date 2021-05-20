@@ -1,8 +1,7 @@
-import React, { useState } from "react";
-import "./register.css";
+import React, { useState, Fragment } from "react";
 import axios from "axios";
-import "react-datepicker/dist/react-datepicker.css";
-import DatePicker from "react-datepicker";
+import "./register.css";
+//*--------------------------------------------------------------------------------------------*
 
 let defaultValues = {
   name: "",
@@ -17,15 +16,26 @@ let defaultValues = {
   occupation: "",
   monthlyIncome: "",
   gender: "",
-  picture: null,
 };
+//*--------------------------------------------------------------------------------------------*
 
 const RegistrationForm = () => {
   const [startDate, setStartDate] = useState(null);
   const [submited, setSubmited] = useState(false);
   const [values, setValues] = useState(defaultValues);
-  const submitData = (e) => {
+  const [image, setImage] = useState(null);
+
+  //*--------------------------------------------------------------------------------------------*
+
+  const imageUpload = (event) => {
+    event.persist();
+    setImage(event.target.files[0]);
+  };
+
+  const submitData = async (e) => {
     e.preventDefault();
+    const formData = new FormData();
+
     var selectedState = document.getElementById("allStates");
     var sState = selectedState.options[selectedState.selectedIndex].text;
 
@@ -35,8 +45,6 @@ const RegistrationForm = () => {
     var sMS = document.getElementById("mStatus");
     var selectedSMartialStatus = sMS.options[sMS.selectedIndex].text;
 
-    console.log(sState, selectedGender);
-
     setValues((values) => ({
       ...values,
       state: sState,
@@ -44,27 +52,51 @@ const RegistrationForm = () => {
       martialStatus: selectedSMartialStatus,
     }));
 
-    console.log(values);
-    axios.post(`http://localhost:5000/registration`, values).then((res) => {
-      if (res.status === 200) {
-        console.log("Registration Done !!");
-        setTimeout(() => {
-          window.location.href = "/data";
-        }, 3000);
-        // Redirect to dashboard
-      } else {
-        // Somthing went wrong try again
-      }
-    });
-    setSubmited(true);
+    for (var key in values) {
+      formData.append(key, values[key]);
+    }
+    // Adding data to form data
+    formData.append("image", image);
+
+    console.log("Form Data : ", formData.get("name"));
+
+    try {
+      await axios
+        .post(`http://localhost:5000/registration`, formData, {
+          headers: {
+            "Content-Type": "mutlipart/form-data",
+          },
+        })
+        .then((res) => {
+          if (res.status === 200) {
+            console.log("Data saveed successfully");
+            setTimeout(() => {
+              window.location.href = "/data";
+            }, 4000);
+            // Redirect to dashboard
+          } else {
+            // Somthing went wrong try again
+          }
+        });
+      setSubmited(true);
+    } catch (error) {}
   };
+  //*--------------------------------------------------------------------------------------------*
+
   return (
     <>
       <div className="back1">
         <div className="container1">
-          <div className="title">Registration Form :</div>
+          <div className="title">
+            Registration Form :
+            {submited ? (
+              <h3>Data submited Cheers</h3>
+            ) : (
+              <h3>Pleaase enter data</h3>
+            )}
+          </div>
           <div className="content">
-            <form onSubmit={submitData}>
+            <form onSubmit={submitData} encType="multipart/form/data">
               <div className="user-details">
                 <div className="input-box">
                   <span className="details">Full Name</span>
@@ -209,23 +241,18 @@ const RegistrationForm = () => {
                 </div>
                 <div className="input-box">
                   <span className="details">DOB</span>
-
-                  <DatePicker
-                    selected={startDate}
-                    dateFormat= 'dd/MM/yyyy'
-                    maxDate = {new Date()}
-                    onChange={(date) => {
-                      setStartDate(date);
-                      (event) => {
-                        event.persist();
-                        setStartDate(date);
-                        setValues((values) => ({
-                          ...values,
-                          dob: event.target.value,
-                        }));
-                      };
-                    }}
+                  <input
+                    type="date"
+                    id="birthday"
+                    name="birthday"
                     required
+                    onChange={(event) => {
+                      event.persist();
+                      setValues((values) => ({
+                        ...values,
+                        dob: event.target.value,
+                      }));
+                    }}
                   />
                 </div>
                 <div className="input-box">
@@ -278,30 +305,15 @@ const RegistrationForm = () => {
                     <option value="Divorced">Prefer not to say</option>
                   </select>
                 </div>
-
-                <div className="input-box">
-                  <span className="details">Upload your photo</span>
-                  <input
-                    type="file"
-                    className="form-control-file"
-                    // value={FormData.picture}
-                    onChange={(event) => {
-                      event.persist();
-                      setValues((values) => ({
-                        ...values,
-                        picture: event.target.files[0],
-                      }));
-                    }}
-                  ></input>
-                  <img src="" alt="upload-image" />
-                </div>
-                {submited ? (
-                  <h3>Data submited Cheers</h3>
-                ) : (
-                  <h3>Pleaase enter data</h3>
-                )}
               </div>
-
+              <span className="details">Upload your photo</span>
+              <input
+                type="file"
+                className="form-control-file"
+                // value={FormData.picture}
+                onChange={imageUpload}
+                name="image"
+              ></input>
               <div className="button">
                 <input type="submit" />
               </div>

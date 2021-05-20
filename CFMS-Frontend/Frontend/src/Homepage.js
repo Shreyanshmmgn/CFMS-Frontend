@@ -9,14 +9,15 @@ import image5 from "./pics/yogi.jpeg";
 import image6 from "./pics/team-3.jpg";
 import image7 from "./pics/coins.png";
 
-
 const Home = () => {
   return (
     <div>
       <header id="header" className="fixed-top">
         <nav>
           <img src={image} />
-          <h7><b>कमिटी करो</b></h7>
+          <h7>
+            <b>कमिटी करो</b>
+          </h7>
           <input type="checkbox" id="check" />
           <label for="check" class="checkbtn">
             <i class="fas fa-bars"></i>
@@ -26,13 +27,19 @@ const Home = () => {
               <a href="#">Home</a>
             </li>
             <li>
-              <a href="#about" className="btn-get-started scrollto">About</a>
+              <a href="#about" className="btn-get-started scrollto">
+                About
+              </a>
             </li>
             <li>
-              <a href="#team" className="btn-get-started scrollto">Stakeholders</a>
+              <a href="#team" className="btn-get-started scrollto">
+                Stakeholders
+              </a>
             </li>
             <li>
-              <a href="#contact" className="btn-get-started scrollto">Contact</a>
+              <a href="#contact" className="btn-get-started scrollto">
+                Contact
+              </a>
             </li>
             <li>
               <a href="#">Feedback</a>
@@ -171,25 +178,43 @@ const Home = () => {
               <h4>
                 <ul style={{ color: "whitesmoke" }}>
                   <li>{">"} Automate the process of maintaing ledgers.</li>
-                  <li>{">"} The required information can be retrieved easily</li>
-                  <li>{">"} The details can be stored in the storage systems permanently</li>
+                  <li>
+                    {">"} The required information can be retrieved easily
+                  </li>
+                  <li>
+                    {">"} The details can be stored in the storage systems
+                    permanently
+                  </li>
                   <li>{">"} Time will not be wasted in the calculations. </li>
                   <li>{">"} Reports can be generated. </li>
                   <li>{">"} Wastage of manpower is reduced</li>
                   <li>{">"} More Transparancy </li>
-                  <li>{">"} More Transparancy </li>
                   <li>{">"} Large volume of records to process</li>
                   <li>{">"} Less time and High speed</li>
-                  <li>{">"} People can create and maintain there own Chit Funds chain</li>
+                  <li>
+                    {">"} People can create and maintain there own Chit Funds
+                    chain
+                  </li>
                 </ul>
-                </h4>
+              </h4>
             </header>
           </div>
         </section>
-          <div class="photo">
-            <img style ={{ paddingLeft:'200px', width: '50%', paddingBottom: '5px'}} src="https://moneyexcel.com/wp-content/uploads/2016/08/chit-funds.jpg"/>
-            <img style ={{float :"right", height : "500px", paddingRight:'200px', paddingTop: '30px'}}src="http://moneypotchitfunds.com/assets/system_design/images/about%20us.png"/>
-          </div>
+        <div class="photo">
+          <img
+            style={{ paddingLeft: "200px", width: "50%", paddingBottom: "5px" }}
+            src="https://moneyexcel.com/wp-content/uploads/2016/08/chit-funds.jpg"
+          />
+          <img
+            style={{
+              float: "right",
+              height: "500px",
+              paddingRight: "200px",
+              paddingTop: "30px",
+            }}
+            src="http://moneypotchitfunds.com/assets/system_design/images/about%20us.png"
+          />
+        </div>
         {/* <!-- ======= Team Section ======= --> */}
         <section id="team">
           <div className="container" data-aos="fade-up">
@@ -238,7 +263,12 @@ const Home = () => {
                 data-aos-delay="300"
               >
                 <div className="member">
-                  <img style={{height :'275px', width: '320px'}}src={image5} className="img-fluid" alt="" />
+                  <img
+                    style={{ height: "275px", width: "320px" }}
+                    src={image5}
+                    className="img-fluid"
+                    alt=""
+                  />
                   <div className="member-info">
                     <div className="member-info-content">
                       <h4>Yogesh Beniwal</h4>
@@ -338,8 +368,8 @@ const Home = () => {
                     </div>
                   </div>
                   <div className="text-center">
-                    <button type="submit" title="Send Message">
-                      Send Message
+                    <button title="Send Message">
+                      <a href="mailto: shyam.yadav@gmail.com">Send Message</a>
                     </button>
                   </div>
                 </form>
@@ -360,10 +390,9 @@ const Home = () => {
                   Chit funds can be relied upon to satisfy personal needs.
                   Unlike other financial institutions, you can draw upon your
                   chit fund for any purpose – marriages, religious functions,
-                  medical expenses, children’s education, etc.
-                  We are building the next generation systems where the trust is
-                  programmed across all the participating members in the
-                  network.
+                  medical expenses, children’s education, etc. We are building
+                  the next generation systems where the trust is programmed
+                  across all the participating members in the network.
                 </h6>
               </div>
 
