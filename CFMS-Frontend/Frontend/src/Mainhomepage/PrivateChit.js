@@ -3,22 +3,20 @@ import "./../css/chitfunds.css";
 function PrivateChit() {
   return (
     <div>
-      <div class="button2">
-        <button class="btnn success">
-          <b>PUBLIC CHIT</b>
-        </button>
-        <button class="btnn info">
-          <b>PRIVATE CHIT</b>
-        </button>
-      </div>
-      <div class="button3">
-        <button class="btnn1 success1">
-          <b>CREATE ONE</b>
-        </button>
-        <button class="btnn1 info1">
-          <b>JOIN ONE</b>
-        </button>
-      </div>
+    <label class="switch">
+      <input type="checkbox" />
+      <span class="slider1 round1">
+          <h3>Private Chit</h3>
+          <h3 id="public">Public Chit</h3>
+      </span>
+    </label>
+    <label class="switch1">
+      <input type="checkbox" />
+      <span class="slider2 round2">
+          <h3>Create</h3>
+          <h3 id="public1">Join</h3>
+      </span>
+    </label>
     </div>
   );
 }

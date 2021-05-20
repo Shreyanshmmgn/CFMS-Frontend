@@ -8,7 +8,7 @@ function Dashboard(){
         <div className="main-homepage">
             <Navbar></Navbar>
             <PrivateChit ></PrivateChit >
-            < Chitfunds></Chitfunds>
+            <Chitfunds></Chitfunds>
            
         </div>
     )

@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { Component, useState } from "react";
 import { useParams } from "react-router";
+import "../css/verified.css";
 
 const Verified = () => {
   const [loading, setLoding] = useState(true);
@@ -16,6 +17,7 @@ const Verified = () => {
   });
   return (
     <div>
+ 
       {loading ? (
 
         <div class="loader"></div>

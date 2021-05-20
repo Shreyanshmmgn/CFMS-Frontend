@@ -5,7 +5,7 @@ import Dashboard from "./Mainhomepage/Mainhomepage"
 
 function App() {
   console.clear();
-  return <Dashboard />;
+  return <Dashboard/>;
 }
 
 export default App;
