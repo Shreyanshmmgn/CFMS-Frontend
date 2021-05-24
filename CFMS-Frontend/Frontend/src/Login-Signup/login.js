@@ -5,12 +5,14 @@ import axios from "axios";
 import "../css/Login.css";
 import "../Auth/authentication";
 import { useAuthServices } from "../Auth/authentication";
+axios.defaults.withCredentials = true;
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [authToken, setAuthtoken] = useState(null);
-  const { setCookie } = useAuthServices();
+
+  // const [authToken, setAuthtoken] = useState(null);
+  const { logout } = useAuthServices();
   // const [loginSucces, setLoginSuccess] = useState(false);
 
   const submitData = (event) => {
@@ -23,25 +25,26 @@ const Login = () => {
     axios
       .post("http://localhost:5000/login", givenData)
       .then((res) => {
-        if (res.status === 200) {
-          setAuthtoken(res.data.token);
-          setCookie(authToken);
+        //
+        //
+        //
+        //
+        console.log(res.data);
+        // setAuthtoken(res.data.token);
+        // setCookie(authToken);
 
-          // if (!res.data.userRegistered) {
-          //   setTimeout(() => {
-          //     window.location.href = "/registrationForm";
-          //   }, 4000);
-          // } else {
-          //   setTimeout(() => {
-          //     window.location.href = "/dashBoard";
-          //   }, 4000);
-          // }
-          setTimeout(() => {
-            window.location.href = "/protected";
-          }, 4000);
-          document.getElementById("wrong-password").innerHTML =
-            "Login Successfull !!";
-        }
+        // if (!res.data.userRegistered) {
+        //   setTimeout(() => {
+        //     window.location.href = "/registrationForm";
+        //   }, 4000);
+        // } else {
+        //   setTimeout(() => {
+        //     window.location.href = "/dashBoard";
+        //   }, 4000);
+        // }
+
+        document.getElementById("wrong-password").innerHTML =
+          "Login Successfull !!";
       })
       .catch((err) => {
         console.log(err);
@@ -97,7 +100,7 @@ const Login = () => {
             </div>
             <br></br>
             <div class="row align-items-center remember">
-              <input type="checkbox" />
+              <input type="checkbox" onClick={logout} />
               Remember Me
             </div>
             <h3 id="wrong-password"></h3>

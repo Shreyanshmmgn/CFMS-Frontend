@@ -11,7 +11,7 @@ const ForgotPassword = () => {
 
   useEffect(() => {
     axios.post("http://localhost:5000/protected").then((res) => {
-      console.log(res.data.acess);
+      console.log(res.data.access);
     });
     return () => {};
   }, []);
