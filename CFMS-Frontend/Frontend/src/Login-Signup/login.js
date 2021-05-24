@@ -10,7 +10,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [authToken, setAuthtoken] = useState(null);
-  const { setCookie } = useAuthServices(authToken);
+  const { setCookie } = useAuthServices();
   // const [loginSucces, setLoginSuccess] = useState(false);
 
   const submitData = (event) => {
@@ -24,14 +24,8 @@ const Login = () => {
       .post("http://localhost:5000/login", givenData)
       .then((res) => {
         if (res.status === 200) {
-          console.log("Login Successfull lets set cookie");
           setAuthtoken(res.data.token);
-          console.log("auth token saved : ", authToken);
           setCookie(authToken);
-          console.log("Cookie saved !!");
-
-          // // Adds the token to the header
-          // axios.defaults.headers.common.Authorization = `Bearer ${authToken}`;
 
           // if (!res.data.userRegistered) {
           //   setTimeout(() => {
@@ -42,11 +36,15 @@ const Login = () => {
           //     window.location.href = "/dashBoard";
           //   }, 4000);
           // }
+          setTimeout(() => {
+            window.location.href = "/protected";
+          }, 4000);
           document.getElementById("wrong-password").innerHTML =
             "Login Successfull !!";
         }
       })
       .catch((err) => {
+        console.log(err);
         document.getElementById("wrong-password").innerHTML =
           "Eroor Detected !!";
       });

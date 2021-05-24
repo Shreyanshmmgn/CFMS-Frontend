@@ -1,6 +1,6 @@
 // import { useState } from "babel-plugin-react-html-attrs";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../css/forgotpass.css";
 
@@ -8,6 +8,13 @@ const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   const [idCorrect, setIdCorrect] = useState(false);
   const [linkSent, setLinkSent] = useState(false);
+
+  useEffect(() => {
+    axios.post("http://localhost:5000/protected").then((res) => {
+      console.log(res.data.acess);
+    });
+    return () => {};
+  }, []);
 
   const submitData = (e) => {
     e.preventDefault();
