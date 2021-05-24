@@ -1,4 +1,4 @@
- /* slider for private cit and public chit */
+ /* slider for private cit and public chit
  
 .switch {
   position: relative;
@@ -73,9 +73,9 @@ input:checked + .slider1:before {
 
 .slider1.round1:before {
     border-radius: 34px;
-}
+} */
              /* For join and create slider */
-.switch1 {
+/* .switch1 {
   position: relative;
   display: inline-block;
   width: 350px;
@@ -147,4 +147,4 @@ input:checked + .slider2:before {
 
 .slider2.round2:before {
     border-radius: 34px;
-}
+} */

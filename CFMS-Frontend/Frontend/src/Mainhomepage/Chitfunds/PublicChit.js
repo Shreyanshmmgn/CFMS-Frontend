@@ -1,36 +1,36 @@
-import "./../../css/chitfunds.css";
+import "./../../css/PublicChit.css";
 import pic from "./../../pics/img_avatar.png"
 
-function Chitfunds() {
+function PublicChit() {
   return (
     <div>
-      <div class="row3">
-        <div class="column3">
-          <div class="card3">
+      <div className="row3">
+        <div className="column3">
+          <div className="card3">
           <img style={{width:'100%'}} src={pic} alt="Avatar"/>
             <p>Some text</p>
             <p>Some text</p>
           </div>
         </div>
 
-        <div class="column3">
-          <div class="card3">
+        <div className="column3">
+          <div className="card3">
           <img style={{width:'100%'}} src={pic} alt="Avatar"/>
             <p>Some text</p>
             <p>Some text</p>
           </div>
         </div>
 
-        <div class="column3">
-          <div class="card3">
+        <div className="column3">
+          <div className="card3">
           <img style={{width:'100%'}} src={pic} alt="Avatar"/>
             <p>Some text</p>
             <p>Some text</p>
           </div>
         </div>
 
-        <div class="column3">
-          <div class="card3">
+        <div className="column3">
+          <div className="card3">
           <img style={{width:'100%'}} src={pic} alt="Avatar"/>
             <p>Some text</p>
             <p>Some text</p>
@@ -41,4 +41,4 @@ function Chitfunds() {
   );
 }
 
-export default Chitfunds;
+export default PublicChit;

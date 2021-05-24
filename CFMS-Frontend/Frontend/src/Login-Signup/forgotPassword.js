@@ -20,7 +20,6 @@ const ForgotPassword = () => {
     });
   };
   
-
   return (
     <div className="basic1">
       <div className="card1">

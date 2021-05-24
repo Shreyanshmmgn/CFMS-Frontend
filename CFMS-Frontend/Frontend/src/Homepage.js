@@ -19,8 +19,8 @@ const Home = () => {
             <b>कमिटी करो</b>
           </h7>
           <input type="checkbox" id="check" />
-          <label for="check" class="checkbtn">
-            <i class="fas fa-bars"></i>
+          <label htmlFor="check" className="checkbtn">
+            <i className="fas fa-bars"></i>
           </label>
           <ul>
             <li>
@@ -45,7 +45,7 @@ const Home = () => {
               <a href="#">Feedback</a>
             </li>
             <li>
-              <a class="active" href="/Login">
+              <a className="active" href="/Login">
                 LOGIN
               </a>
             </li>
@@ -200,7 +200,7 @@ const Home = () => {
             </header>
           </div>
         </section>
-        <div class="photo">
+        <div className="photo">
           <img
             style={{ paddingLeft: "200px", width: "50%", paddingBottom: "5px" }}
             src="https://moneyexcel.com/wp-content/uploads/2016/08/chit-funds.jpg"
