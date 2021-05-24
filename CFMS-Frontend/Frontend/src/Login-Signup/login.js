@@ -3,12 +3,14 @@ import RegistrationForm from "../RegistrationForm/registrationForm.js";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "../css/Login.css";
+import "../Auth/authentication";
+import { useAuthServices } from "../Auth/authentication";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [authToken, setAuthtoken] = useState(null);
-
+  const { setCookie } = useAuthServices(authToken);
   // const [loginSucces, setLoginSuccess] = useState(false);
 
   const submitData = (event) => {
@@ -22,8 +24,11 @@ const Login = () => {
       .post("http://localhost:5000/login", givenData)
       .then((res) => {
         if (res.status === 200) {
+          console.log("Login Successfull lets set cookie");
           setAuthtoken(res.data.token);
-          console.log(res.data.token);
+          console.log("auth token saved : ", authToken);
+          setCookie(authToken);
+          console.log("Cookie saved !!");
 
           // // Adds the token to the header
           // axios.defaults.headers.common.Authorization = `Bearer ${authToken}`;
@@ -43,7 +48,7 @@ const Login = () => {
       })
       .catch((err) => {
         document.getElementById("wrong-password").innerHTML =
-          "Wrong Credentials !!";
+          "Eroor Detected !!";
       });
 
     //! window.location = "/"; To change to some page
