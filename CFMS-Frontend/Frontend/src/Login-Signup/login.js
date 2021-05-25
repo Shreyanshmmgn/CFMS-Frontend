@@ -25,23 +25,18 @@ const Login = () => {
     axios
       .post("http://localhost:5000/login", givenData)
       .then((res) => {
-        //
-        //
-        //
-        //
         console.log(res.data);
-        // setAuthtoken(res.data.token);
-        // setCookie(authToken);
+        window.location.href = "/protected";
 
-        // if (!res.data.userRegistered) {
-        //   setTimeout(() => {
-        //     window.location.href = "/registrationForm";
-        //   }, 4000);
-        // } else {
-        //   setTimeout(() => {
-        //     window.location.href = "/dashBoard";
-        //   }, 4000);
-        // }
+        if (!res.data.userRegistered) {
+          setTimeout(() => {
+            window.location.href = "/registrationForm";
+          }, 4000);
+        } else {
+          setTimeout(() => {
+            window.location.href = "/dashBoard";
+          }, 4000);
+        }
 
         document.getElementById("wrong-password").innerHTML =
           "Login Successfull !!";
@@ -100,7 +95,7 @@ const Login = () => {
             </div>
             <br></br>
             <div class="row align-items-center remember">
-              <input type="checkbox" onClick={logout} />
+              <input type="checkbox" />
               Remember Me
             </div>
             <h3 id="wrong-password"></h3>

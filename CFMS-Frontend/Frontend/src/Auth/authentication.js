@@ -1,10 +1,10 @@
-import moment from "moment";
-import { useCookies } from "react-cookie";
+// import { useCookies } from "react-cookie";
 import axios from "axios";
 // import { useState, useEffect } from "react";
 
 export const useAuthServices = () => {
-  const [cookies, setCookies] = useCookies({});
+
+  // const [cookies, setCookies] = useCookies({});
 
   //* Function to save cookies with relevent data
   // const setCookie = (token) => {
@@ -14,7 +14,7 @@ export const useAuthServices = () => {
   //   // setCookies("Token", token.token, { path: "/" });
   // };
 
-  //* Function to save cookies with relevent data
+  //* Function to logout cookies
 
   const logout = () => {
     console.log("Logout Called ");
@@ -23,14 +23,5 @@ export const useAuthServices = () => {
     });
   };
 
-  //* Function to save cookies with relevent data
-  const isLoggedIn = () => {};
-
-  //* Function to save cookies with relevent data
-  const isLoggedOut = () => {};
-
-  //* Function to save cookies with relevent data
-  const expiredOrNot = () => {};
-
-  return { logout, isLoggedIn, isLoggedOut };
+  return { logout };
 };

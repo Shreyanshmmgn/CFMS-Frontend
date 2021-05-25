@@ -4,17 +4,10 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../css/forgotpass.css";
 
-const ForgotPassword = () => {
+const FOrgotPassword = () => {
   const [email, setEmail] = useState("");
   const [idCorrect, setIdCorrect] = useState(false);
   const [linkSent, setLinkSent] = useState(false);
-
-  useEffect(() => {
-    axios.post("http://localhost:5000/protected").then((res) => {
-      console.log(res.data.access);
-    });
-    return () => {};
-  }, []);
 
   const submitData = (e) => {
     e.preventDefault();
@@ -27,7 +20,6 @@ const ForgotPassword = () => {
       }
     });
   };
-
   return (
     <div className="basic1">
       <div className="card1">
@@ -87,6 +79,39 @@ const ForgotPassword = () => {
         </div>
       </div>
     </div>
+  );
+};
+
+const NotAuth = () => {
+  return <h1>You are not autherized error : 401</h1>;
+};
+const ForgotPassword = () => {
+  const [loader, setLoader] = useState(true);
+  const [autherized, setautherized] = useState(null);
+
+  useEffect(() => {
+    axios
+      .post("http://localhost:5000/protected")
+      .then((res) => {
+        console.log(" ahjdashkjd aj hdka shdk has");
+        console.log(res.data.access);
+        setLoader(false);
+        if (res.status === 200) {
+          setautherized(true);
+        }
+      })
+      .catch((err) => {
+        console.log("Error Msg : ", err.response.data.msg);
+        setLoader(false);
+        setautherized(false);
+      });
+  }, []);
+
+  return (
+    <>
+      {loader && <h3>Loading ......</h3>}
+      {autherized ? <FOrgotPassword /> : <NotAuth />}
+    </>
   );
 };
 
