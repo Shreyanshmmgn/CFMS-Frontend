@@ -25,19 +25,7 @@ let defaultValues = {
   },
 };
 
-// const fetchData = async () => {
-//   await axios.post(`http://localhost:5000/sendUserData`).then((res) => {
-//     if (res.status === 200) {
-//       defaultValues = res.data;
-// console.log(res.data);
-// Redirect to dashboard
-//     } else {
-// Somthing went wrong try again
-//     }
-//   });
-// };
-
-const Data = () => {
+const ShowData = () => {
   const changeLoaction = (e) => {
     e.preventDefault();
     window.location.href = "/registrationForm";
@@ -176,4 +164,4 @@ const Data = () => {
   );
 };
 
-export default Data;
+export default ShowData;

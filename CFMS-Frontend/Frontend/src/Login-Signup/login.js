@@ -1,5 +1,5 @@
+
 import React, { useState } from "react";
-import RegistrationForm from "../RegistrationForm/registrationForm.js";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "../css/Login.css";
@@ -10,10 +10,7 @@ axios.defaults.withCredentials = true;
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  // const [authToken, setAuthtoken] = useState(null);
   const { logout } = useAuthServices();
-  // const [loginSucces, setLoginSuccess] = useState(false);
 
   const submitData = (event) => {
     event.preventDefault();
@@ -26,7 +23,6 @@ const Login = () => {
       .post("http://localhost:5000/login", givenData)
       .then((res) => {
         console.log(res.data);
-        window.location.href = "/protected";
 
         if (!res.data.userRegistered) {
           setTimeout(() => {
