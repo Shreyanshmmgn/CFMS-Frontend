@@ -62,21 +62,23 @@ const Form = () => {
           });
       }
     );
+
     console.log("Image Url : ", imageAsUrl);
-    var selectedState = document.getElementById("allStates");
-    var sState = selectedState.options[selectedState.selectedIndex].text;
+    // var selectedState = document.getElementById("allStates");
+    // var sState = selectedState.options[selectedState.selectedIndex].text;
 
     var sG = document.getElementById("gender");
     var selectedGender = sG.options[sG.selectedIndex].text;
 
-    var sMS = document.getElementById("mStatus");
-    var selectedSMartialStatus = sMS.options[sMS.selectedIndex].text;
+    // var sMS = document.getElementById("mStatus");
+    // var selectedSMartialStatus = sMS.options[sMS.selectedIndex].text;
 
+    console.log("Setting values ");
     setValues((values) => ({
       ...values,
-      state: sState,
+      // state: sState,
       gender: selectedGender,
-      martialStatus: selectedSMartialStatus,
+      // martialStatus: selectedSMartialStatus,
     }));
 
     for (var key in values) {
@@ -85,7 +87,7 @@ const Form = () => {
     // Adding data to form data
     formData.append("imageUrl", imageAsUrl);
 
-    console.log("Form Data : ", formData.get("imageUrl"));
+    console.log("Form Data : ", formData.get("name"));
 
     try {
       await axios
@@ -102,7 +104,8 @@ const Form = () => {
             }, 4000);
             // Redirect to dashboard
           } else {
-            window.location.href = "/registrationForm";
+            console.log("data not saved  !!");
+            // window.location.href = "/registrationForm";
           }
         });
       setSubmited(true);
@@ -156,7 +159,7 @@ const Form = () => {
                   }}
                 />
               </div>
-              <div className="input-box">
+              {/* <div className="input-box">
                 <span className="details">Phone Number</span>
                 <input
                   type="text"
@@ -323,7 +326,7 @@ const Form = () => {
                     }));
                   }}
                 />
-              </div>
+              </div> */}
               <div className="input-box">
                 <span className="details">Gender</span>
                 <select name="Martial Status" id="gender">
@@ -363,10 +366,10 @@ const RegistrationForm = () => {
     axios
       .post("http://localhost:5000/registration")
       .then((res) => {
-        console.log(" ahjdashkjd aj hdka shdk has");
-        console.log(res.data.access);
+        console.log(" Req to authenticate user");
+        console.log(res.data.success);
         setLoader(false);
-        if (res.status === 200) {
+        if (res.status === 200 || res.status === 201) {
           setautherized(true);
         }
       })
