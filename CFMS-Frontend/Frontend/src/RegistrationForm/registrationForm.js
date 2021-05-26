@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { storage } from "../Firebase/firebase";
 import axios from "axios";
 import "./register.css";
+import NotAuth from "../Auth/notAuth";
 //*--------------------------------------------------------------------------------------------*
 
 let defaultValues = {
@@ -17,6 +18,7 @@ let defaultValues = {
   occupation: "",
   monthlyIncome: "",
   gender: "",
+  imageUrl: "",
 };
 //*--------------------------------------------------------------------------------------------*
 
@@ -37,7 +39,7 @@ const Form = () => {
   const submitData = async (e) => {
     console.log("Image : ", image);
     e.preventDefault();
-    const formData = new FormData();
+    // const formData = new FormData();
     const uploadTask = storage.ref(`/images/${image.name}`).put(image);
 
     //initiates the firebase side uploading
@@ -58,51 +60,46 @@ const Form = () => {
           .child(image.name)
           .getDownloadURL()
           .then((url) => {
+            console.log("setting url : ", imageAsUrl);
             setImageAsUrl(url);
           });
       }
     );
-
-    console.log("Image Url : ", imageAsUrl);
-    // var selectedState = document.getElementById("allStates");
-    // var sState = selectedState.options[selectedState.selectedIndex].text;
+    var selectedState = document.getElementById("allStates");
+    var sState = selectedState.options[selectedState.selectedIndex].text;
 
     var sG = document.getElementById("gender");
     var selectedGender = sG.options[sG.selectedIndex].text;
 
-    // var sMS = document.getElementById("mStatus");
-    // var selectedSMartialStatus = sMS.options[sMS.selectedIndex].text;
+    var sMS = document.getElementById("mStatus");
+    var selectedSMartialStatus = sMS.options[sMS.selectedIndex].text;
 
     console.log("Setting values ");
     setValues((values) => ({
       ...values,
-      // state: sState,
+      imageUrl: imageAsUrl,
+      state: sState,
       gender: selectedGender,
-      // martialStatus: selectedSMartialStatus,
+      martialStatus: selectedSMartialStatus,
     }));
 
-    for (var key in values) {
-      formData.append(key, values[key]);
-    }
-    // Adding data to form data
-    formData.append("imageUrl", imageAsUrl);
+    // for (var key in values) {
+    //   formData.append(key, values[key]);
+    // }
+    // // Adding data to form data
+    // formData.append("imageUrl", imageAsUrl);
 
-    console.log("Form Data : ", formData.get("name"));
+    console.log("Form Data : ", values.imageUrl);
 
     try {
       await axios
-        .post(`http://localhost:5000/registration`, formData, {
-          headers: {
-            "Content-Type": "mutlipart/form-data",
-          },
-        })
+        .post(`http://localhost:5000/registration`, values)
         .then((res) => {
           if (res.status === 200) {
-            console.log("Data saveed successfully");
+            console.log("Data saveed successfully", res.success);
             setTimeout(() => {
               window.location.href = "/showdata";
             }, 4000);
-            // Redirect to dashboard
           } else {
             console.log("data not saved  !!");
             // window.location.href = "/registrationForm";
@@ -159,7 +156,7 @@ const Form = () => {
                   }}
                 />
               </div>
-              {/* <div className="input-box">
+              <div className="input-box">
                 <span className="details">Phone Number</span>
                 <input
                   type="text"
@@ -326,7 +323,7 @@ const Form = () => {
                     }));
                   }}
                 />
-              </div> */}
+              </div>
               <div className="input-box">
                 <span className="details">Gender</span>
                 <select name="Martial Status" id="gender">
@@ -354,9 +351,9 @@ const Form = () => {
   );
 };
 
-const NotAuth = () => {
-  return <h1>You are not autherized error : 401</h1>;
-};
+//*--------------------------------------------------------------------------------------------*
+
+//*--------------------------------------------------------------------------------------------*
 
 const RegistrationForm = () => {
   const [loader, setLoader] = useState(true);
