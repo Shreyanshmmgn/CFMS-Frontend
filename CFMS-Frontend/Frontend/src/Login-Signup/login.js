@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "../css/Login.css";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -19,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     height: "100vh",
   },
   image: {
-    backgroundImage: "url(https://source.unsplash.com/random)",
+    backgroundImage: "url(https://www.chitmonks.com/assets/images/about.png)",
     backgroundRepeat: "no-repeat",
     backgroundColor:
       theme.palette.type === "light"
@@ -88,6 +87,7 @@ const Login = () => {
     //! window.location = "/"; To change to some page
   };
   const classes = useStyles();
+
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
