@@ -216,7 +216,7 @@ const Home = () => {
           />
         </div>
         {/* <!-- ======= Team Section ======= --> */}
-        <section id="team">
+        {/* <section id="team">
           <div className="container" data-aos="fade-up">
             <div className="section-header">
               <h3>Our Team</h3>
@@ -295,7 +295,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* <!-- ======= Contact Section ======= --> */}
         <section id="contact">

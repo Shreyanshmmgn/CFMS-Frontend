@@ -44,7 +44,7 @@ const AllRouter = () => {
         <Route exact path="/data">
           <Data />
         </Route>
-        <Route exact path="/mainHomePage">
+        <Route exact path="/dashBoard">
           <MainHomePage />
         </Route>
         <Route path="*">
