@@ -54,35 +54,35 @@ const Signup = () => {
   const [userPassword, setUserPassword] = useState("");
   const [userRePassword, setUserRePassword] = useState("");
 
-  valid = () => {
-    let x = true;
+  // valid = () => {
+  //   let x = true;
 
-    if (user !== null) {
-      if (user.length < 5) {
-        setState({ nameError: "Name must be 5 characters long!" });
-        x = false;
-        console.log("False 3");
-      }
-    }
-    if (password !== null) {
-      if (password.length < 8) {
-        setState({
-          passworderror: "Password must be 8 character long!",
-        });
-        x = false;
-        console.log("False 4");
-      }
-    }
-    if (password !== repassword) {
-      setState({ repassworderror: "Password does not match" });
-      x = false;
-    }
-    return x;
-  };
+  //   if (user !== null) {
+  //     if (user.length < 5) {
+  //       setState({ nameError: "Name must be 5 characters long!" });
+  //       x = false;
+  //       console.log("False 3");
+  //     }
+  //   }
+  //   if (password !== null) {
+  //     if (password.length < 8) {
+  //       setState({
+  //         passworderror: "Password must be 8 character long!",
+  //       });
+  //       x = false;
+  //       console.log("False 4");
+  //     }
+  //   }
+  //   if (password !== repassword) {
+  //     setState({ repassworderror: "Password does not match" });
+  //     x = false;
+  //   }
+  //   return x;
+  // };
 
   const submitData = (event) => {
     event.preventDefault();
-    if (valid()) {
+    if (1) {
       const regeisterData = {
         userName: userName,
         email: userEmail,

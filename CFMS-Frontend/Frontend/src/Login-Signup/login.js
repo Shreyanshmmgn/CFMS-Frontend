@@ -56,6 +56,7 @@ const useStyles = makeStyles((theme) => ({
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [ currentValue, setcurrentValue] = useState(false);
   // const [loginSucces, setLoginSuccess] = useState(false);
 
   const submitData = (event) => {
@@ -81,6 +82,7 @@ const Login = () => {
               window.location.href = "/dashBoard";
             }, 4000);
           }
+          setcurrentValue(true);
           // document.getElementById("wrong-password").innerHTML =
           //   "Login Successfull !!";
         }
@@ -144,18 +146,26 @@ const Login = () => {
               data-toggle="modal"
               data-target="#myModal"
               className={classes.submit}
+              on
             >
               Sign In
             </Button>
-
-            <div class="modal fade" id="myModal">
-              <div class="modal-dialog modal-dialog-centered ">
-                
+              {
+        
+        currentValue ? <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-dialog-centered ">                
+          <div class="modal-content">
+            <h3 style={{paddingTop: "25px"}}class="modal-body text-center text-success"><b>Login Successfully</b> <button type="button" class="close" data-dismiss="modal">&times;</button></h3>
+          </div>
+        </div>
+      </div>   :   <div class="modal fade" id="myModal">
+              <div class="modal-dialog modal-dialog-centered ">                
                 <div class="modal-content">
-                  <h4 class="modal-body text-center text-success"><b>Login Successfully</b> <button type="button" class="close" data-dismiss="modal">&times;</button></h4>
+                  <h3 style={{paddingTop: "25px"}}class="modal-body text-center text-danger"><b>Wrong Credentials!</b> <button type="button" class="close" data-dismiss="modal">&times;</button></h3>
                 </div>
               </div>
             </div>
+      }
             {/* <button onClick={openModal} className='btn'>
         show modal
       </button> */}
