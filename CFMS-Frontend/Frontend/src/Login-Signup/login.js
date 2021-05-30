@@ -109,7 +109,7 @@ const Login = () => {
           <Typography component="h1" variant="h5">
             Login
           </Typography>
-          <form className={classes.form} noValidate onSubmit={submitData}>
+          <form className={classes.form} onSubmit={submitData}>
             <TextField
               variant="outlined"
               margin="normal"
@@ -120,7 +120,7 @@ const Login = () => {
               name="email"
               autoComplete="email"
               autoFocus
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}             
             />
             <TextField
               variant="outlined"
@@ -133,6 +133,7 @@ const Login = () => {
               id="password"
               autoComplete="current-password"
               onChange={(e) => setPassword(e.target.value)}
+              
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}

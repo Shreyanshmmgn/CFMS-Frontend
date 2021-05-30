@@ -126,7 +126,7 @@
       left: 0;
     }
   } 
- i{
+ .dropdown-content i{
   margin-top: 43px;
   margin-left: 20px;
  }

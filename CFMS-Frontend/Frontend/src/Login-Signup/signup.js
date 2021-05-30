@@ -82,7 +82,7 @@ const Signup = () => {
 
   const submitData = (event) => {
     event.preventDefault();
-    if (1) {
+    if (this.valid()) {
       const regeisterData = {
         userName: userName,
         email: userEmail,
