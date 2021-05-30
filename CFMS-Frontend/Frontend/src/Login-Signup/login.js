@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [ currentValue, setcurrentValue] = useState(false);
+  const [ currentValue, setcurrentValue] = useState(null);
   // const [loginSucces, setLoginSuccess] = useState(false);
 
   const submitData = (event) => {
@@ -72,7 +72,7 @@ const Login = () => {
         console.log(res.data.userRegistered);
         if (res.status === 200) {
           if (!res.data.userRegistered) {
-            console.log("FOrm ");
+            console.log("Form ");
             setTimeout(() => {
               window.location.href = "/registrationForm";
             }, 4000);
@@ -88,6 +88,7 @@ const Login = () => {
         }
       })
       .catch((err) => {
+        setcurrentValue(false);
         // document.getElementById("wrong-password").innerHTML =
         //   "Wrong Credentials !!";
         console.log(" Error was there : ", err);

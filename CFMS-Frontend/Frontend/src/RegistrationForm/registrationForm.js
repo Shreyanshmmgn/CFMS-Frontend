@@ -20,7 +20,6 @@ let defaultValues = {
 //*--------------------------------------------------------------------------------------------*
 
 const RegistrationForm = () => {
-  const [startDate, setStartDate] = useState(null);
   const [submited, setSubmited] = useState(false);
   const [values, setValues] = useState(defaultValues);
   const [image, setImage] = useState(null);
