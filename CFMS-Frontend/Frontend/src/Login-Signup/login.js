@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -10,9 +11,12 @@ import Link from "@material-ui/core/Link";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+// import { useGlobalContext } from './../Mainhomepage/Navbar/context';
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+
 axios.defaults.withCredentials = true;
+
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "100vh",
@@ -20,29 +24,32 @@ const useStyles = makeStyles((theme) => ({
   image: {
     backgroundImage: "url(https://www.chitmonks.com/assets/images/about.png)",
     backgroundRepeat: "no-repeat",
+
+    width: "100%",
+    height: "400",
     backgroundColor:
       theme.palette.type === "light"
         ? theme.palette.grey[50]
         : theme.palette.grey[900],
-    backgroundSize: "cover",
+
     backgroundPosition: "center",
   },
   paper: {
-    margin: theme.spacing(8, 4),
+    margin: theme.spacing(13, 5),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
   },
   avatar: {
-    margin: theme.spacing(1),
+    margin: theme.spacing(2),
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
     width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
+    marginTop: theme.spacing(2),
   },
   submit: {
-    margin: theme.spacing(3, 0, 2),
+    margin: theme.spacing(4, 0, 2),
   },
 }));
 
@@ -87,7 +94,7 @@ const Login = () => {
     //! window.location = "/"; To change to some page
   };
   const classes = useStyles();
-
+  
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
@@ -98,7 +105,7 @@ const Login = () => {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Login in
+            Login
           </Typography>
           <form className={classes.form} noValidate onSubmit={submitData}>
             <TextField
@@ -134,10 +141,24 @@ const Login = () => {
               fullWidth
               variant="contained"
               color="primary"
+              data-toggle="modal"
+              data-target="#myModal"
               className={classes.submit}
             >
               Sign In
             </Button>
+
+            <div class="modal fade" id="myModal">
+              <div class="modal-dialog modal-dialog-centered ">
+                
+                <div class="modal-content">
+                  <h4 class="modal-body text-center text-success"><b>Login Successfully</b> <button type="button" class="close" data-dismiss="modal">&times;</button></h4>
+                </div>
+              </div>
+            </div>
+            {/* <button onClick={openModal} className='btn'>
+        show modal
+      </button> */}
             <Grid container>
               <Grid item xs>
                 <Link href="/forgotPassword" variant="body2">

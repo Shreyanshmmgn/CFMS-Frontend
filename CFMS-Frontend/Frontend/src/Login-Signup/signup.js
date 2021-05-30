@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.info.main,
   },
   form: {
     width: "100%", // Fix IE 11 issue.
@@ -54,35 +54,35 @@ const Signup = () => {
   const [userPassword, setUserPassword] = useState("");
   const [userRePassword, setUserRePassword] = useState("");
 
-  // valid = () => {
-  //   let x = true;
+  valid = () => {
+    let x = true;
 
-  //   if (user !== null) {
-  //     if (user.length < 5) {
-  //       setState({ nameError: "Name must be 5 characters long!" });
-  //       x = false;
-  //       console.log("False 3");
-  //     }
-  //   }
-  //   if (password !== null) {
-  //     if (password.length < 8) {
-  //       setState({
-  //         passworderror: "Password must be 8 character long!",
-  //       });
-  //       x = false;
-  //       console.log("False 4");
-  //     }
-  //   }
-  //   if (password !== repassword) {
-  //     setState({ repassworderror: "Password does not match" });
-  //     x = false;
-  //   }
-  //   return x;
-  // };
+    if (user !== null) {
+      if (user.length < 5) {
+        setState({ nameError: "Name must be 5 characters long!" });
+        x = false;
+        console.log("False 3");
+      }
+    }
+    if (password !== null) {
+      if (password.length < 8) {
+        setState({
+          passworderror: "Password must be 8 character long!",
+        });
+        x = false;
+        console.log("False 4");
+      }
+    }
+    if (password !== repassword) {
+      setState({ repassworderror: "Password does not match" });
+      x = false;
+    }
+    return x;
+  };
 
   const submitData = (event) => {
     event.preventDefault();
-    if (1) {
+    if (valid()) {
       const regeisterData = {
         userName: userName,
         email: userEmail,
@@ -192,6 +192,9 @@ const Signup = () => {
             >
               Sign Up
             </Button>
+            <Grid item xs={12}>
+            By signing up, you agree to our terms of service and privacy policy.
+            </Grid>
             <Grid container justify="flex-end">
               <Grid item>
                 <Link href="/login" variant="body2">
