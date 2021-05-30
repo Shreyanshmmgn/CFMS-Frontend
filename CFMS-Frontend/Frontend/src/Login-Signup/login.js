@@ -100,7 +100,7 @@ const Login = () => {
           <Typography component="h1" variant="h5">
             Login in
           </Typography>
-          <form className={classes.form} noValidate onSubmit={submitData}>
+          <form className={classes.form} onSubmit={submitData}>
             <TextField
               variant="outlined"
               margin="normal"

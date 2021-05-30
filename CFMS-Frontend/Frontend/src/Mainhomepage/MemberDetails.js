@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react";
+import React from "react";
 import axios from "axios";
 import "./../css/MemberDetails.css";
 //*--------------------------------------------------------------------------------------------*
@@ -16,18 +16,18 @@ let defaultValues = {
   monthlyInstallment: "",
   minimumInstallment: "",
   maximumInstallment: "",
-  
 };
 //*--------------------------------------------------------------------------------------------*
 
 const MemberDetails = () => {
-  
   return (
     <>
       <div className="back2">
         <div className="container2">
           <div className="title">
-            <b><h2 style={{fontFamily: "cursive"}}>Create New Chit Group</h2></b>
+            <b>
+              <h2 style={{ fontFamily: "cursive" }}>Create New Chit Group</h2>
+            </b>
             {/* {submited ? (
               <h3>Data submited Cheers</h3>
             ) : (
@@ -35,7 +35,7 @@ const MemberDetails = () => {
             )} */}
           </div>
           <div className="content">
-            <form >
+            <form>
               <div className="user-details">
                 <div className="input-box">
                   <span className="details">Manager Name</span>
@@ -84,7 +84,7 @@ const MemberDetails = () => {
                   <span className="details">Time Period</span>
                   <input
                     type="text"
-                    name = "Time Period"
+                    name="Time Period"
                     required
                     // onChange={(event) => {
                     //   event.persist();
@@ -99,7 +99,7 @@ const MemberDetails = () => {
                   <span className="details">Fund Size</span>
                   <input
                     type="text"
-                    name  ="Fund Size"
+                    name="Fund Size"
                     required
                     // onChange={(event) => {
                     //   event.persist();
@@ -114,7 +114,7 @@ const MemberDetails = () => {
                   <span className="details">Commission</span>
                   <input
                     type="text"
-                    name = "Commission"
+                    name="Commission"
                     // placeholder="Enter your Pincodecode"
                     // pattern="[0-9]{6}"
                     // title="Please enter 6 digit code"
@@ -195,7 +195,6 @@ const MemberDetails = () => {
                   <input
                     type="text"
                     name="Minimum Installment"
-                    
                     required
                     // onChange={(event) => {
                     //   event.persist();
@@ -221,10 +220,9 @@ const MemberDetails = () => {
                     // }}
                   />
                 </div>
-                </div>
+              </div>
               <div className="button">
-                <input type="submit" name="Create Chit Group"/>
-                
+                <input type="submit" name="Create Chit Group" />
               </div>
             </form>
           </div>
