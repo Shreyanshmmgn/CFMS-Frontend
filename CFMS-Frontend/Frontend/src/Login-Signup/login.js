@@ -86,6 +86,9 @@ const Login = () => {
           // document.getElementById("wrong-password").innerHTML =
           //   "Login Successfull !!";
         }
+
+        document.getElementById("wrong-password").innerHTML =
+          "Login Successfull !!";
       })
       .catch((err) => {
         setcurrentValue(false);

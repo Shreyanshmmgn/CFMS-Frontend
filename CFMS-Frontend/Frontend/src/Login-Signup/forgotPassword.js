@@ -95,13 +95,11 @@ export default ForgotPassword;
   /* <div className="basic1">
       <div className="card1">
         <div className="card-header">
-          <b><h4>
-            Forgot Password
-          </h4>
+          <b>
+            <h4>Forgot Password</h4>
           </b>
         </div>
-        <h2 id="pp">
-        </h2>
+        <h2 id="pp"></h2>
         <div className="card-body">
           <form action="" onSubmit={submitData}>
             <div className="input-group form-group">
@@ -136,15 +134,18 @@ export default ForgotPassword;
             </div>
           </form>
         </div>
-        <br/>
-        <br/>
+        <br />
+        <br />
         <div className="card-footer">
           <div className="d-flex justify-content-center links">
             <h5>
               <b>Back to</b>
               &nbsp;&nbsp;
               <b>
-                <Link style={{ color: "#051972", paddingTop: '30px' }} to="/Signup">
+                <Link
+                  style={{ color: "#051972", paddingTop: "30px" }}
+                  to="/Login"
+                >
                   Login
                 </Link>
               </b>
