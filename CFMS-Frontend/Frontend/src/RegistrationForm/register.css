@@ -13,7 +13,7 @@
   justify-content: center;
   align-items: center;
   padding-top: 10px;
-  background: linear-gradient(135deg, #71B7E6, #9B59B6);
+  
 }
 
 .container1 {
@@ -41,7 +41,7 @@
   height: 3px;
   width: 30px;
   border-radius: 5px;
-  background: linear-gradient(135deg, #71B7E6, #9B59B6);
+ 
 }
 
 .content form .user-details {
