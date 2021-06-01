@@ -200,21 +200,17 @@ const Home = () => {
             </header>
           </div>
         </section>
-        <div className="photo">
-          <img
-            style={{ paddingLeft: "200px", width: "50%", paddingBottom: "5px" }}
-            src="https://moneyexcel.com/wp-content/uploads/2016/08/chit-funds.jpg"
-          />
-          <img
-            style={{
-              float: "right",
-              height: "500px",
-              paddingRight: "200px",
-              paddingTop: "30px",
-            }}
-            src="http://moneypotchitfunds.com/assets/system_design/images/about%20us.png"
-          />
+        <section>
+        <div class="cont">
+        <div class="money">
+          <img src="https://moneyexcel.com/wp-content/uploads/2016/08/chit-funds.jpg" alt="money"style={{height:"90%"}} />
         </div>
+        <div class="money">
+          <img src="http://moneypotchitfunds.com/assets/system_design/images/about%20us.png" alt="money" style={{height:"90%"}}/>
+        </div>
+    
+      </div>
+      </section>
         {/* <!-- ======= Team Section ======= --> */}
         <section id="team">
           <div className="container" data-aos="fade-up">

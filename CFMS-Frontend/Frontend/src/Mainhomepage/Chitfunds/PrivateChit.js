@@ -1,5 +1,5 @@
-import "./../css/PrivateChit.css"
-import MemberDetails from "./MemberDetails"
+import "./../../css/PrivateChit.css";
+import MemberDetails from "./../MemberDetails"
 import { useState } from "react";
 function PrivateChit() {
   const [ currentValue, setcurrentValue] = useState(false);
