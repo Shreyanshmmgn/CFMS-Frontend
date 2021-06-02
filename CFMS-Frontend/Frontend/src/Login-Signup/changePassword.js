@@ -20,7 +20,10 @@ const ChangePassword = () => {
     } else {
       const pass = { password };
       axios
-        .post(`http://localhost:5000/changePassword/${email}`, pass)
+        .post(
+          process.env.REACT_APP_BACKEND_URL + `/changePassword/${email}`,
+          pass
+        )
         .then((res) => {
           if (res.status === 200) {
             setPasswordMsg(true);

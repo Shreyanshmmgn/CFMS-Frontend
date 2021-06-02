@@ -34,16 +34,17 @@ const ShowData = () => {
   const [data, setData] = useState(false);
   // const [imageSrc, setImgSrc] = useState(null);
   const fetchData = async () => {
-    await axios.post(`http://localhost:5000/sendUserData`).then((res) => {
-      if (res.status === 200) {
-        defaultValues = res.data;
-        // let img = `http://localhost:5000/${res.data.userData.image}`;
-        // setImgSrc(img);
-        setData(true);
-      } else {
-        // Somthing went wrong try again
-      }
-    });
+    await axios
+      .post(process.env.REACT_APP_BACKEND_URL + `/sendUserData`)
+      .then((res) => {
+        if (res.status === 200) {
+          defaultValues = res.data;
+          // setImgSrc(img);
+          setData(true);
+        } else {
+          // Somthing went wrong try again
+        }
+      });
   };
   useEffect(() => {
     fetchData();

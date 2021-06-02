@@ -17,19 +17,17 @@ const Login = () => {
       email: email,
       password: password,
     };
-
     axios
-      .post("http://localhost:5000/login", givenData)
+      .post(process.env.REACT_APP_BACKEND_URL + "/login", givenData)
       .then((res) => {
-        console.log(res.data);
-
+        // console.log(res.data);
         if (!res.data.userRegistered) {
           setTimeout(() => {
-            window.location.href = "/registrationForm";
+            window.location.href = "/api/registrationForm";
           }, 4000);
         } else {
           setTimeout(() => {
-            window.location.href = "/dashBoard";
+            window.location.href = "/api/dashBoard";
           }, 4000);
         }
 

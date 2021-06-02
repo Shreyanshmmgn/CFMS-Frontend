@@ -76,7 +76,7 @@ export default class Signup extends React.Component {
         password: this.state.password,
       };
       axios
-        .post("http://localhost:5000/signup", regeisterData)
+        .post(process.env.REACT_APP_BACKEND_URL + "/signup", regeisterData)
         .then((res) => console.log(res.data));
       //! window.location = "/"; To change to some page
       this.setState({

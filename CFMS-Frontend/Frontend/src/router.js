@@ -21,34 +21,34 @@ const AllRouter = () => {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/verified">
+        <Route exact path="/api/verified">
           <Verified />
         </Route>
-        <Route exact path="/Login">
+        <Route exact path="/api/Login">
           <Login />
         </Route>
-        <Route exact path="/Signup">
+        <Route exact path="/api/Signup">
           <Signup />
         </Route>
-        <Route exact path="/activate/user/:id">
+        <Route exact path="/api/activate/user/:id">
           <Verified />
         </Route>
-        <Route exact path="/forgotPassword">
+        <Route exact path="/api/forgotPassword">
           <ForgotPassword />
         </Route>
-        <Route exact path="/registrationForm">
+        <Route exact path="/api/registrationForm">
           <RegistrationForm />
         </Route>
-        <Route exact path="/changePassword/:email">
+        <Route exact path="/api/changePassword/:email">
           <ChangePassword />
         </Route>
-        <Route exact path="/showdata">
+        <Route exact path="/api/showdata">
           <ShowData />
         </Route>
-        <Route exact path="/mainHomePage">
+        <Route exact path="/api/mainHomePage">
           <MainHomePage />
         </Route>
-        <Route exact path="/protected">
+        <Route exact path="/api/protected">
           <ForgotPassword />
         </Route>
         <Route path="*">

@@ -11,13 +11,15 @@ const FOrgotPassword = () => {
   const submitData = (e) => {
     e.preventDefault();
     const data = { email };
-    axios.post("http://localhost:5000/protected", data).then((res) => {
-      if (res.status === 200) {
-        setLinkSent(true);
-      } else {
-        setIdCorrect(true);
-      }
-    });
+    axios
+      .post(process.env.REACT_APP_BACKEND_URL + "protected", data)
+      .then((res) => {
+        if (res.status === 200) {
+          setLinkSent(true);
+        } else {
+          setIdCorrect(true);
+        }
+      });
   };
   return (
     <div className="basic1">
@@ -90,7 +92,7 @@ const ForgotPassword = () => {
 
   useEffect(() => {
     axios
-      .post("http://localhost:5000/protected")
+      .post(process.env.REACT_APP_BACKEND_URL + "/protected")
       .then((res) => {
         console.log(" ahjdashkjd aj hdka shdk has");
         console.log(res.data.access);
