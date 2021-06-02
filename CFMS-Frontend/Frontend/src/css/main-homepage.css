@@ -1,0 +1,78 @@
+ /* slider for private cit and public chit */
+ 
+ .switch {
+    position: relative;
+    display: inline-block;
+    width: 510px;
+    height: 55px;
+    margin-left: 75vh;
+    margin-top: 15vh;
+    
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider1 {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transition: .4s;
+    transition: .4s;
+    
+  }
+  .slider1 h3{
+    margin-top: 13px;
+    margin-left: 30px;
+    font-weight: bold;
+  }
+  #public{
+      margin-top: -45px;
+      margin-left: 350px;
+  }
+  
+  .slider1:before {
+    position: absolute;
+    content: "Public Chit";
+    box-sizing: border-box;
+    padding-left: 55px;
+    padding-top: 10px;
+    font-size: 22px;
+    font-weight: normal;
+    
+    color:white;
+    height: 55px;
+    width: 255px;
+    left: 0px;
+    bottom: -2px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    background-color: #1b1c55;
+  }
+  
+  
+  input:checked + .slider1:before {
+    -webkit-transform: translateX(200px);
+    -ms-transform: translateX(255px);
+    transform: translateX(255px);
+    content: "Private Chit";
+    
+  }
+  
+  .slider1.round1 {
+    border-radius: 34px;
+    border: 1px solid black;
+  }
+  
+  .slider1.round1:before {
+      border-radius: 34px;
+  }
+  
+  

@@ -1,12 +1,35 @@
+// // import { useState } from "babel-plugin-react-html-attrs";
 import axios from "axios";
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import "../css/forgotpass.css";
+import { useState } from "react";
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import TextField from "@material-ui/core/TextField";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
 
-const FOrgotPassword = () => {
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    marginTop: theme.spacing(8),
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  avatar: {
+    margin: theme.spacing(1),
+    backgroundColor: theme.palette.secondary.main,
+  },
+  form: {
+    width: "100%", // Fix IE 11 issue.
+    marginTop: theme.spacing(1),
+  },
+  submit: {
+    margin: theme.spacing(3, 0, 2),
+  },
+}));
+
+const ForgotPassword = () => {
   const [email, setEmail] = useState("");
-  const [idCorrect, setIdCorrect] = useState(false);
-  const [linkSent, setLinkSent] = useState(false);
 
   const submitData = (e) => {
     e.preventDefault();
@@ -15,14 +38,59 @@ const FOrgotPassword = () => {
       .post(process.env.REACT_APP_BACKEND_URL + "protected", data)
       .then((res) => {
         if (res.status === 200) {
-          setLinkSent(true);
+          // setLinkSent(true);
         } else {
-          setIdCorrect(true);
+          // setIdCorrect(true);
         }
       });
   };
+  const classes = useStyles();
   return (
-    <div className="basic1">
+    <Container component="main" maxWidth="xs">
+      <CssBaseline />
+      <div className={classes.paper}>
+        {/* <Avatar className={classes.avatar}>
+          <LockOutlinedIcon />  
+        </Avatar> */}
+        <Typography component="h1" variant="h5">
+          Forgot Password
+        </Typography>
+        <form className={classes.form} onSubmit={submitData}>
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="Email Address"
+            name="email"
+            autoComplete="email"
+            autoFocus
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+          >
+            Send
+          </Button>
+        </form>
+
+        <h2 id="pp"></h2>
+      </div>
+    </Container>
+  );
+};
+
+export default ForgotPassword;
+
+{
+  /* <div className="basic1">
       <div className="card1">
         <div className="card-header">
           <b>
@@ -48,8 +116,12 @@ const FOrgotPassword = () => {
                 }}
               />
             </div>
-            {idCorrect ? <h3>Wrong ID </h3> : <h4></h4>}
-            {linkSent ? <h3>Link Sucessfully sent </h3> : <h4></h4>}
+            {idCorrect ? (
+              <h3></h3>
+            ) : (
+              <h4>Entered Wrong ID </h4>
+            )}
+            <h4 id="pp"></h4>
 
             <div className="form-group">
               <input
@@ -79,41 +151,5 @@ const FOrgotPassword = () => {
           </div>
         </div>
       </div>
-    </div>
-  );
-};
-
-const NotAuth = () => {
-  return <h1>You are not autherized error : 401</h1>;
-};
-const ForgotPassword = () => {
-  const [loader, setLoader] = useState(true);
-  const [autherized, setautherized] = useState(null);
-
-  useEffect(() => {
-    axios
-      .post(process.env.REACT_APP_BACKEND_URL + "/protected")
-      .then((res) => {
-        console.log(" ahjdashkjd aj hdka shdk has");
-        console.log(res.data.access);
-        setLoader(false);
-        if (res.status === 200) {
-          setautherized(true);
-        }
-      })
-      .catch((err) => {
-        console.log("Error Msg : ", err.response.data.msg);
-        setLoader(false);
-        setautherized(false);
-      });
-  }, []);
-
-  return (
-    <>
-      {loader && <h3>Loading ......</h3>}
-      {autherized ? <FOrgotPassword /> : <NotAuth />}
-    </>
-  );
-};
-
-export default ForgotPassword;
+    </div> */
+}

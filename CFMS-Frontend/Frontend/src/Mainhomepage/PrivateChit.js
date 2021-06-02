@@ -1,25 +1,22 @@
-import "./../css/PrivateChit.css";
-import "./../css/chitfunds.css";
+import "./../css/PrivateChit.css"
+import MemberDetails from "./MemberDetails"
+import { useState } from "react";
 function PrivateChit() {
+  const [ currentValue, setcurrentValue] = useState(false);
   return (
-    <div>
-      <div class="button2">
-        <button class="btnn success">
-          <b>PUBLIC CHIT</b>
-        </button>
-        <button class="btnn info">
-          <b>PRIVATE CHIT</b>
-        </button>
-      </div>
-      <div class="button3">
-        <button class="btnn1 success1">
-          <b>CREATE ONE</b>
-        </button>
-        <button class="btnn1 info1">
-          <b>JOIN ONE</b>
-        </button>
-      </div>
-    </div>
+    <>
+    <label className="switch1">
+      <input type="checkbox" onClick={() => {setcurrentValue(!currentValue)}}  />
+      <span className="slider2 round2">
+          <h3>Create</h3>
+          <h3 id="public1">Join</h3>
+      </span>
+    </label>
+    {
+        
+        currentValue ? <div/> : < MemberDetails/>
+      }
+    </>
   );
 }
 

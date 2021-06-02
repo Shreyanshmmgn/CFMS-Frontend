@@ -1,90 +1,74 @@
-* {
-    box-sizing: border-box;
-  }
+          /* For join and create slider */
 
+.switch1 {
+  position: relative;
+  width: 350px;
+  height: 50px;
+  margin-left: 85vh;
+  margin-top: 6vh;
   
-.button2 {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%;
-    margin-top: 200px;
-    padding-left: 430px;
-    
-  }
+}
+
+.switch1 input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider2 {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transition: .4s;
+  transition: .4s;
   
-  .btnn {
-    border: 2px solid black;
-    border-radius: 5px;
-    background-color: white;
-    color: black;
-    padding: 14px 28px;
-    font-size: 25px;
-    cursor: pointer;
-    margin-right: 20px;
-    
-  }
+}
+.slider2 h3{
+  margin-top: 13px;
+  margin-left: 25px;
+  font-weight: bold;
+}
+#public1{
+    margin-top: -45px;
+    margin-left: 270px;
+}
+
+.slider2:before {
+  position: absolute;
+  content: "Create";
+  box-sizing: border-box;
+  padding-left: 56px;
+  padding-top: 10px;
+  font-size: 22px;
+  font-weight: normal;
+  color:white;
+  height: 50px;
+  width: 175px;
+  left: 0px;
+  bottom: -2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  background-color: #0e3cbb;
+}
+
+
+input:checked + .slider2:before {
+  -webkit-transform: translateX(175px);
+  -ms-transform: translateX(175px);
+  transform: translateX(175px);
+  content: "Join";
   
-  .success {
-    border-color: #4caf50;
-    color: green;
-  }
-  
-  .success:hover {
-    background-color: #4caf50;
-    color: white;
-  }
-  
-  .info {
-    border-color: #2196f3;
-    color: dodgerblue;
-  }
-  
-  .info:hover {
-    background: #2196f3;
-    color: white;
-  }
-  
-  .button3 {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%;
-    margin-top: 40px;
-    padding-left: 450px;
-    
-  }
-  
-  .btnn1{
-    border: 2px solid black;
-    border-radius: 5px;
-    background-color: white;
-    color: black;
-    padding: 14px 28px;
-    font-size: 25px;
-    cursor: pointer;
-    margin-right: 20px;
-    
-  }
-  
-  .success1 {
-    border-color: #878fff;
-    color: #878fff;
-  }
-  
-  .success1:hover {
-    background-color: #878fff;
-    color: white;
-  }
-  
-  .info1{
-    border-color: #123c5f;
-    color: #8dcafc;
-  }
-  
-  .info1:hover {
-    background: #123c5f;
-    color: white;
-  }
-  
- 
+}
+
+.slider2.round2 {
+  border-radius: 34px;
+  border: 1px solid black;
+}
+
+.slider2.round2:before {
+    border-radius: 34px;
+}
