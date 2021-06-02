@@ -45,7 +45,7 @@ const Home = () => {
               <a href="#">Feedback</a>
             </li>
             <li>
-              <a className="active" href="/Login">
+              <a href="/Login">
                 LOGIN
               </a>
             </li>

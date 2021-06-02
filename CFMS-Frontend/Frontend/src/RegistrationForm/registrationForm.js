@@ -91,7 +91,7 @@ const RegistrationForm = () => {
             {submited ? (
               <h3>Data submited Cheers</h3>
             ) : (
-              <h3>Pleaase enter data</h3>
+              <h3>Please enter data</h3>
             )}
           </div>
           <div className="content">
@@ -304,7 +304,7 @@ const RegistrationForm = () => {
                     <option value="Divorced">Prefer not to say</option>
                   </select>
                 </div>
-              </div>
+              
               <span className="details">Upload your photo</span>
               <input
                 type="file"
@@ -313,6 +313,7 @@ const RegistrationForm = () => {
                 onChange={imageUpload}
                 name="image"
               ></input>
+              </div>
               <div className="button">
                 <input type="submit" />
               </div>

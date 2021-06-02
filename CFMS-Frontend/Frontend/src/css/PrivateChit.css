@@ -1,6 +1,6 @@
           /* For join and create slider */
 
-.switch1 {
+/* .switch1 {
   position: relative;
   width: 350px;
   height: 50px;
@@ -71,4 +71,4 @@ input:checked + .slider2:before {
 
 .slider2.round2:before {
     border-radius: 34px;
-}
+} */

@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import MemberDetails from './../MemberDetails';
 import PublicChit from './../Chitfunds/PublicChit';
 import ChitDetails from'./../ChitDetails'
+import Members from './../Members'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -71,37 +72,30 @@ const SmallNav = () => {
         <Tabs
           value={value}
           onChange={handleChange}
-          
+          centered
         >
-          <Tab
-            value="one"
-            label="Check out Public Chit Groups"
-            className={classes.Tab}
-            style={{color:'black',marginRight:'50px',marginLeft:'80px'}}
-            {...a11yProps("one")}
-
-          />
-           
-           <Tab style={{marginRight:'40px'}} value="two" label="Create Private Chit" {...a11yProps("two")} />
-           <Tab style={{marginRight:'40px'}} value="three" label="Join Private Chit" {...a11yProps("two")} />
          
-          <Tab value="four" label="Chit Details" {...a11yProps("three")} />
-          <Tab value="five" label="Members" {...a11yProps("four")} />
-          <Tab value="six" label="Rounds" {...a11yProps("five")} />
-          <Tab value="seven" label="Investments" {...a11yProps("six")} />
+           
+           <Tab style={{marginRight:'40px',color:'black'}} value="one" label="Create Private Chit" {...a11yProps("one")} />
+           <Tab style={{marginRight:'60px', color:'black'}} value="two" label="Join Private Chit" {...a11yProps("two")} />
+         
+          <Tab  style={{marginRight:'50px'}} value="three" label="Chit Details" {...a11yProps("three")} />
+          <Tab style={{marginRight:'50px'}} value="four" label="Members" {...a11yProps("four")} />
+          <Tab style={{marginRight:'50px'}} value="five" label="Rounds" {...a11yProps("five")} />
+          <Tab value="six" label="Investments" {...a11yProps("six")} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index="one">
-       <PublicChit/>
-      </TabPanel>
-      <TabPanel value={value} index="two">
       <MemberDetails/>
       </TabPanel>
+      <TabPanel value={value} index="two">
+      
+      </TabPanel>
       <TabPanel value={value} index="three">
-       
+      <ChitDetails/>
       </TabPanel>
       <TabPanel value={value} index="four">
-        <ChitDetails/>
+      <Members/>
       </TabPanel>
       <TabPanel value={value} index="five">
        
@@ -109,9 +103,7 @@ const SmallNav = () => {
       <TabPanel value={value} index="six">
         
       </TabPanel>
-      <TabPanel value={value} index="seven">
-        
-      </TabPanel>
+
     </div>
   );
 };

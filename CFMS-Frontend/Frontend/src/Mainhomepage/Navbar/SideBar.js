@@ -74,8 +74,8 @@ const useStyles = makeStyles({
           <React.Fragment key={anchor}>
             <Button onClick={toggleDrawer(anchor, true)}><IconButton
             edge="start"
-            className={classes.menuButton}
-            
+            // className={classes.menuButton}
+            color="secondary"
             aria-label="menu"
           >
             <MenuIcon />
