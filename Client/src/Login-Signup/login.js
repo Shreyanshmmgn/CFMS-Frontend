@@ -66,7 +66,7 @@ const Login = () => {
       password: password,
     };
     axios
-      .post(process.env.REACT_APP_BACKEND_URL + "/login", givenData)
+      .post("https://cfms-testing-1.herokuapp.com/api/Login", givenData)
       .then((res) => {
         // console.log(res.data);
         if (!res.data.userRegistered) {
