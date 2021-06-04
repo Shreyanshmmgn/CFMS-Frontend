@@ -3,9 +3,9 @@ import "./css/Home.css";
 import image from "./pics/logo.jpg";
 import image1 from "./pics/unnamed.png";
 import image2 from "./pics/standard.png";
-import image3 from "./pics/pp.jpeg";
+import image3 from "./pics/pp.jpg";
 import image4 from "./pics/shreyansh.jpg";
-import image5 from "./pics/yogi.jpeg";
+import image5 from "./pics/yogi.jpg";
 import image6 from "./pics/team-3.jpg";
 import image7 from "./pics/coins.png";
 
