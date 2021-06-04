@@ -34,8 +34,10 @@ const ForgotPassword = () => {
   const submitData = (e) => {
     e.preventDefault();
     const data = { email };
+    console.log(process.env.REACT_APP_BACKEND_URL + "forgotPassword");
+
     axios
-      .post(process.env.REACT_APP_BACKEND_URL + "protected", data)
+      .post(process.env.REACT_APP_BACKEND_URL + "forgotPassword", data)
       .then((res) => {
         if (res.status === 200) {
           // setLinkSent(true);
