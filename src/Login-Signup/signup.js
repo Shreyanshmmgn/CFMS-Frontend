@@ -87,20 +87,8 @@ const Signup = () => {
         password: userPassword,
       };
       axios
-        .post("http://localhost:5000/signup", regeisterData)
-        .then((res) => {
-          if (res.status === 200) {
-            console.log("Resgistered ", res.message);
-            // Add modal or text to show please verufy your message
-            // And that you have successfully registered
-            setTimeout(() => {
-              window.location.href = "/Login";
-            }, 4000);
-          }
-        })
-        .catch((err) => {
-          console.log("Already Resgistered ", err.message);
-        });
+        .post(process.env.REACT_APP_BACKEND_URL + "/signup", regeisterData)
+        .then((res) => console.log(res.data));
       //! window.location = "/"; To change to some page
     }
   };
@@ -191,11 +179,12 @@ const Signup = () => {
               Sign Up
             </Button>
             <Grid item xs={12}>
-            By signing up, you agree to our terms of service and privacy policy.
+              By signing up, you agree to our terms of service and privacy
+              policy.
             </Grid>
             <Grid container justify="flex-end">
               <Grid item>
-                <Link href="/login" variant="body2">
+                <Link href="/api/login" variant="body2">
                   Already have an account? Sign in
                 </Link>
               </Grid>

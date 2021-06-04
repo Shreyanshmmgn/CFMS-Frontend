@@ -35,15 +35,13 @@ const ForgotPassword = () => {
     e.preventDefault();
     const data = { email };
     axios
-      .post("http://localhost:5000/forgotPassword", data)
+      .post(process.env.REACT_APP_BACKEND_URL + "protected", data)
       .then((res) => {
         if (res.status === 200) {
-          document.getElementById("pp").innerHTML = "Password link sent";
+          // setLinkSent(true);
+        } else {
+          // setIdCorrect(true);
         }
-      })
-      .catch((err) => {
-        console.log(err);
-        document.getElementById("pp").innerHTML = "Worng email id";
       });
   };
   const classes = useStyles();
