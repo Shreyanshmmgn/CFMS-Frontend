@@ -13,18 +13,18 @@
   justify-content: center;
   align-items: center;
   padding-top: 10px;
-  background: linear-gradient(135deg, #71B7E6, #9B59B6);
+  
 }
 
 .container1 {
-  max-width: 800px;
+  max-width: 900px;
   max-height: 800px;
   width: 100%;
   background-color: #fff;
   padding: 8px 8px 8px 8px;
-  overflow: scroll;
+  
   border-radius: 5px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 5px 10px rgba(0.5, 0.5, 0.5, 0.5);
 }
 
 .container1 .title {
@@ -41,7 +41,7 @@
   height: 3px;
   width: 30px;
   border-radius: 5px;
-  background: linear-gradient(135deg, #71B7E6, #9B59B6);
+ 
 }
 
 .content form .user-details {

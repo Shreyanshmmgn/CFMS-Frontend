@@ -20,7 +20,7 @@
   max-width: 1000px;
   max-height: 800px;
   width: 100%;
-  background-color: rgb(208, 225, 255);
+  background-color: rgb(228, 228, 228);
   padding: 8px 8px 8px 8px;
   overflow: scroll;
   border-radius: 5px;
@@ -28,7 +28,7 @@
 }
 .title{
     text-align: center;
-    background-color: rgb(108, 159, 255);
+    background-color: #f5f8fa;
 }
 .container2.title {
   font-size: 25px;
@@ -141,11 +141,11 @@ form .button input {
   letter-spacing: 1px;
   cursor: pointer;
   transition: all 0.3s ease;
-  background: linear-gradient(135deg, #71B7E6, #635dbd);
+  background: linear-gradient(135deg, #cacaca, #747475);
 }
 
 form .button input:hover {
-  background: linear-gradient(-135deg, #71B7E6, #635dbd);
+  background: linear-gradient(-135deg, #a5a7a8, #5b5b5e);
 }
 
 /* @media(max-width: 584px){
