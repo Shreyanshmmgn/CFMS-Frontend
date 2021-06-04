@@ -3,12 +3,6 @@ import axios from "axios";
 import "./MemberDetails";
 
 let defaultValues = {
-  userName: "",
-  email: "",
-  hash: "",
-  salt: "",
-  date: "",
-  userData: {
     managerName: "wcfedf",
     totalMembers: "cwscwa",
     amount: "wfcdcwasfc",
@@ -22,7 +16,7 @@ let defaultValues = {
     minimumInstallment: "qwdq",
     maximumInstallment: "qwd",
     // image: null,
-  },
+  
 };
 
 // const fetchData = async () => {
@@ -74,13 +68,13 @@ const Data = () => {
                     <h5>
                       <span className="details">Manager Name: </span>
                     </h5>
-                    <span> {defaultValues.userData.managerName}</span>
+                    <span> {defaultValues.managerName}</span>
                   </div>
                   <div className="input-box">
                     <h5>
                       <span className="details">Total Members:</span>
                     </h5>
-                    <span> {defaultValues.userData.totalMembers}</span>
+                    <span> {defaultValues.totalMembers}</span>
                   </div>
                   {/* <div>
                     <img src={imageSrc} alt="User Image" />
@@ -89,62 +83,62 @@ const Data = () => {
                     <h5>
                       <span className="details">Amount: </span>
                     </h5>
-                    <span> {defaultValues.userData.amount}</span>
+                    <span> {defaultValues.amount}</span>
                   </div>
                  
                   <div className="input-box">
                     <h5>
                       <span className="details">Time Period</span>
                     </h5>
-                    <span> {defaultValues.userData.timePeriod}</span>
+                    <span> {defaultValues.timePeriod}</span>
                   </div>
                   <div className="input-box">
                     <h5>
                       <span className="details">Fund Size</span>
                     </h5>
-                    <span> {defaultValues.userData.fundSize}</span>
+                    <span> {defaultValues.fundSize}</span>
                   </div>
                   <div className="input-box">
                     <h5>
                       <span className="details">Commission</span>
                     </h5>
-                    <span> {defaultValues.userData.commission}</span>
+                    <span> {defaultValues.commission}</span>
                   </div>
                   <div className="input-box">
                     <h5>
                       <span className="details">Start Date</span>
                     </h5>
-                    <span> {defaultValues.userData.startDate}</span>
+                    <span> {defaultValues.startDate}</span>
                   </div>
                   <div className="input-box">
                     <h5>
                       <span className="details">Minimum Bid in Percentage</span>
                     </h5>
-                    <span> {defaultValues.userData.minimumBid}</span>
+                    <span> {defaultValues.minimumBid}</span>
                   </div>
                   <div className="input-box">
                     <h5>
                       <span className="details">Maximum Bid in Percentage: </span>
                     </h5>
-                    <span> {defaultValues.userData.maximumBid}</span>
+                    <span> {defaultValues.maximumBid}</span>
                   </div>
                   <div className="input-box">
                     <h5>
                       <span className="details">Monthly Installment</span>
                     </h5>
-                    <span> {defaultValues.userData.monthlyInstallment}</span>
+                    <span> {defaultValues.monthlyInstallment}</span>
                   </div>
                   <div className="input-box">
                     <h5>
                       <span className="details">Minimum Installment</span>
                     </h5>
-                    <span> {defaultValues.userData.minimumInstallment}</span>
+                    <span> {defaultValues.minimumInstallment}</span>
                   </div>
                   <div className="input-box">
                     <h5>
                       <span className="details">Maximum Installment</span>
                     </h5>
-                    <span> {defaultValues.userData.maximumInstallment}</span>
+                    <span> {defaultValues.maximumInstallment}</span>
                   </div>
                   <div className="button">
                     <input

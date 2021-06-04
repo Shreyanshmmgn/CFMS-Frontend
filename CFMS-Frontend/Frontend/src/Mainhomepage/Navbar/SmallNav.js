@@ -10,7 +10,7 @@ import MemberDetails from './../MemberDetails';
 import PublicChit from './../Chitfunds/PublicChit';
 import ChitDetails from'./../ChitDetails'
 import Members from './../Members'
-
+import JoinPrivateChit from './../JoinPrivateChit'
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -89,7 +89,7 @@ const SmallNav = () => {
       <MemberDetails/>
       </TabPanel>
       <TabPanel value={value} index="two">
-      
+      <JoinPrivateChit/>
       </TabPanel>
       <TabPanel value={value} index="three">
       <ChitDetails/>

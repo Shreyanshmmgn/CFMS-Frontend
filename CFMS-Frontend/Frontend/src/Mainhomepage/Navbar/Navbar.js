@@ -192,10 +192,10 @@ export default function Navbar() {
             />
           </div>
           <div className = "spacing">
-            <Button style={{marginLeft: '40px'}}  variant="contained" color="#fafafa" onClick={() => {setcurrentValue(!currentValue)}} disableElevation>
+            <Button style={{marginLeft: '40px'}}  variant="contained" color="#fafafa" onClick={() => {setcurrentValue(false)}} disableElevation>
               Public Chit
             </Button>
-            <Button style={{marginLeft: '20px'}} variant="contained" color="secondary" onClick={() => {setcurrentValue(!currentValue)}} disableElevation>
+            <Button style={{marginLeft: '20px'}} variant="contained" color="secondary" onClick={() => {setcurrentValue(true)}} disableElevation>
               Private Chit
             </Button>
       
