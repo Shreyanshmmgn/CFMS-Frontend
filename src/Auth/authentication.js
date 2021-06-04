@@ -17,10 +17,10 @@ export const useAuthServices = () => {
 
   const logout = () => {
     console.log("Logout Called ");
-    axios.post("http://localhost:5000/logout").then((res) => {
+    axios.post(process.env.REACT_APP_BACKEND_URL + "/logout").then((res) => {
       console.log("Logout Successfully hurrrh");
     });
   };
 
-  return { logout};
+  return { logout };
 };

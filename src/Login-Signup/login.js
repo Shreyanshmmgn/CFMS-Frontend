@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [ currentValue, setcurrentValue] = useState(null);
+  const [currentValue, setcurrentValue] = useState(null);
   // const [loginSucces, setLoginSuccess] = useState(false);
 
   const submitData = (event) => {
@@ -65,26 +65,19 @@ const Login = () => {
       email: email,
       password: password,
     };
-
+    console.log(process.env.REACT_APP_BACKEND_URL + "login");
     axios
-      .post("http://localhost:5000/login", givenData)
+      .post(process.env.REACT_APP_BACKEND_URL + "login", givenData)
       .then((res) => {
-        console.log(res.data.userRegistered);
-        if (res.status === 200) {
-          if (!res.data.userRegistered) {
-            console.log("Form ");
-            setTimeout(() => {
-              window.location.href = "/registrationForm";
-            }, 4000);
-          } else {
-            setTimeout(() => {
-              console.log("Dashboard ");
-              window.location.href = "/dashBoard";
-            }, 4000);
-          }
-          setcurrentValue(true);
-          // document.getElementById("wrong-password").innerHTML =
-          //   "Login Successfull !!";
+        // console.log(res.data);
+        if (!res.data.userRegistered) {
+          setTimeout(() => {
+            window.location.href = "/api/registrationForm";
+          }, 4000);
+        } else {
+          setTimeout(() => {
+            window.location.href = "/api/dashBoard";
+          }, 4000);
         }
 
         document.getElementById("wrong-password").innerHTML =
@@ -100,7 +93,7 @@ const Login = () => {
     //! window.location = "/"; To change to some page
   };
   const classes = useStyles();
-  
+
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
@@ -124,7 +117,7 @@ const Login = () => {
               name="email"
               autoComplete="email"
               autoFocus
-              onChange={(e) => setEmail(e.target.value)}             
+              onChange={(e) => setEmail(e.target.value)}
             />
             <TextField
               variant="outlined"
@@ -137,7 +130,6 @@ const Login = () => {
               id="password"
               autoComplete="current-password"
               onChange={(e) => setPassword(e.target.value)}
-              
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -155,33 +147,50 @@ const Login = () => {
             >
               Sign In
             </Button>
-              {
-        
-        currentValue ? <div class="modal fade" id="myModal">
-        <div class="modal-dialog modal-dialog-centered ">                
-          <div class="modal-content">
-            <h3 style={{paddingTop: "25px"}}class="modal-body text-center text-success"><b>Login Successfully</b> <button type="button" class="close" data-dismiss="modal">&times;</button></h3>
-          </div>
-        </div>
-      </div>   :   <div class="modal fade" id="myModal">
-              <div class="modal-dialog modal-dialog-centered ">                
-                <div class="modal-content">
-                  <h3 style={{paddingTop: "25px"}}class="modal-body text-center text-danger"><b>Wrong Credentials!</b> <button type="button" class="close" data-dismiss="modal">&times;</button></h3>
+            {currentValue ? (
+              <div class="modal fade" id="myModal">
+                <div class="modal-dialog modal-dialog-centered ">
+                  <div class="modal-content">
+                    <h3
+                      style={{ paddingTop: "25px" }}
+                      class="modal-body text-center text-success"
+                    >
+                      <b>Login Successfully</b>{" "}
+                      <button type="button" class="close" data-dismiss="modal">
+                        &times;
+                      </button>
+                    </h3>
+                  </div>
                 </div>
               </div>
-            </div>
-      }
+            ) : (
+              <div class="modal fade" id="myModal">
+                <div class="modal-dialog modal-dialog-centered ">
+                  <div class="modal-content">
+                    <h3
+                      style={{ paddingTop: "25px" }}
+                      class="modal-body text-center text-danger"
+                    >
+                      <b>Wrong Credentials!</b>{" "}
+                      <button type="button" class="close" data-dismiss="modal">
+                        &times;
+                      </button>
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            )}
             {/* <button onClick={openModal} className='btn'>
         show modal
       </button> */}
             <Grid container>
               <Grid item xs>
-                <Link href="/forgotPassword" variant="body2">
+                <Link href="/api/forgotPassword" variant="body2">
                   Forgot password?
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="/signUp" variant="body2">
+                <Link href="/api/signUp" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>

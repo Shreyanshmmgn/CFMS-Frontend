@@ -93,7 +93,7 @@ const Form = () => {
 
     try {
       await axios
-        .post(`http://localhost:5000/registration`, values)
+        .post(process.env.REACT_APP_BACKEND_URL + `/registration`, values)
         .then((res) => {
           if (res.status === 200) {
             console.log("Data saveed successfully", res.success);
@@ -361,7 +361,7 @@ const RegistrationForm = () => {
 
   useEffect(() => {
     axios
-      .post("http://localhost:5000/registration")
+      .post(process.env.REACT_APP_BACKEND_URL + "/registration")
       .then((res) => {
         console.log(" Req to authenticate user");
         console.log(res.data.success);

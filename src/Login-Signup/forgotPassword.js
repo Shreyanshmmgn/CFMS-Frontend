@@ -34,16 +34,16 @@ const ForgotPassword = () => {
   const submitData = (e) => {
     e.preventDefault();
     const data = { email };
+    console.log(process.env.REACT_APP_BACKEND_URL + "forgotPassword");
+
     axios
-      .post("http://localhost:5000/forgotPassword", data)
+      .post(process.env.REACT_APP_BACKEND_URL + "forgotPassword", data)
       .then((res) => {
         if (res.status === 200) {
-          document.getElementById("pp").innerHTML = "Password link sent";
+          // setLinkSent(true);
+        } else {
+          // setIdCorrect(true);
         }
-      })
-      .catch((err) => {
-        console.log(err);
-        document.getElementById("pp").innerHTML = "Worng email id";
       });
   };
   const classes = useStyles();
