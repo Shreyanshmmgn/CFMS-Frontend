@@ -10,7 +10,7 @@ import image6 from "./pics/team-3.jpg";
 import image7 from "./pics/coins.png";
 
 const Home = () => {
-  console.log("This is latest version - 1");
+  console.log("This is latest version - 2");
   return (
     <div>
       <header id="header" className="fixed-top">
