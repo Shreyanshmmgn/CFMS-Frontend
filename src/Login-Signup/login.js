@@ -56,7 +56,9 @@ const useStyles = makeStyles((theme) => ({
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [currentValue, setcurrentValue] = useState(null);
+  const [currentValue, setcurrentValue] = useState(false);
+  const [currentValue2, setcurrentValue2] = useState(false);
+
   // const [loginSucces, setLoginSuccess] = useState(false);
 
   const submitData = (event) => {
@@ -79,12 +81,11 @@ const Login = () => {
             window.location.href = "/api/dashBoard";
           }, 4000);
         }
-
-        document.getElementById("wrong-password").innerHTML =
-          "Login Successfull !!";
+        setcurrentValue(true);
+        setcurrentValue(false);
       })
       .catch((err) => {
-        setcurrentValue(false);
+        setcurrentValue2(true);
         // document.getElementById("wrong-password").innerHTML =
         //   "Wrong Credentials !!";
         console.log(" Error was there : ", err);
@@ -147,42 +148,6 @@ const Login = () => {
             >
               Sign In
             </Button>
-            {currentValue ? (
-              <div class="modal fade" id="myModal">
-                <div class="modal-dialog modal-dialog-centered ">
-                  <div class="modal-content">
-                    <h3
-                      style={{ paddingTop: "25px" }}
-                      class="modal-body text-center text-success"
-                    >
-                      <b>Login Successfully</b>{" "}
-                      <button type="button" class="close" data-dismiss="modal">
-                        &times;
-                      </button>
-                    </h3>
-                  </div>
-                </div>
-              </div>
-            ) : (
-              <div class="modal fade" id="myModal">
-                <div class="modal-dialog modal-dialog-centered ">
-                  <div class="modal-content">
-                    <h3
-                      style={{ paddingTop: "25px" }}
-                      class="modal-body text-center text-danger"
-                    >
-                      <b>Wrong Credentials!</b>{" "}
-                      <button type="button" class="close" data-dismiss="modal">
-                        &times;
-                      </button>
-                    </h3>
-                  </div>
-                </div>
-              </div>
-            )}
-            {/* <button onClick={openModal} className='btn'>
-        show modal
-      </button> */}
             <Grid container>
               <Grid item xs>
                 <Link href="/api/forgotPassword" variant="body2">
@@ -195,6 +160,38 @@ const Login = () => {
                 </Link>
               </Grid>
             </Grid>
+            {currentValue ? (
+              <div class="modal fade">
+                <div class="modal-dialog modal-dialog-centered ">
+                  <div class="modal-content">
+                    <h3
+                      style={{ paddingTop: "25px" }}
+                      class="modal-body text-center text-success"
+                    >
+                      <b>Login Successfully</b>{" "}
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <h1></h1>
+            )}
+            {currentValue2 ? (
+              // <div class="modal fade">
+              //   <div class="modal-dialog modal-dialog-centered ">
+              <div class="modal-content">
+                <h3
+                  style={{ paddingTop: "25px" }}
+                  class="modal-body text-center text-danger"
+                >
+                  <b>Wrong Credentials!</b>{" "}
+                </h3>
+              </div>
+            ) : (
+              //   </div>
+              // </div>
+              <h1></h1>
+            )}
           </form>
         </div>
       </Grid>

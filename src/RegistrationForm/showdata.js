@@ -35,7 +35,7 @@ const ShowData = () => {
   // const [imageSrc, setImgSrc] = useState(null);
   const fetchData = async () => {
     await axios
-      .post(process.env.REACT_APP_BACKEND_URL + `/sendUserData`)
+      .post(process.env.REACT_APP_BACKEND_URL + `sendUserData`)
       .then((res) => {
         if (res.status === 200) {
           defaultValues = res.data;

@@ -87,7 +87,7 @@ const Signup = () => {
         password: userPassword,
       };
       axios
-        .post(process.env.REACT_APP_BACKEND_URL + "/signup", regeisterData)
+        .post(process.env.REACT_APP_BACKEND_URL + "signup", regeisterData)
         .then((res) => console.log(res.data));
       //! window.location = "/"; To change to some page
     }
@@ -158,14 +158,6 @@ const Signup = () => {
                   id="password"
                   autoComplete="current-password"
                   onChange={(e) => setUserRePassword(e.target.value)}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <FormControlLabel
-                  control={
-                    <Checkbox value="allowExtraEmails" color="primary" />
-                  }
-                  label="I want to receive inspiration, marketing promotions and updates via email."
                 />
               </Grid>
             </Grid>

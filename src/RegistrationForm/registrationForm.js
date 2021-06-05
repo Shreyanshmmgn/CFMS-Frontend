@@ -4,7 +4,7 @@ import axios from "axios";
 import "./register.css";
 import NotAuth from "../Auth/notAuth";
 //*--------------------------------------------------------------------------------------------*
- 
+
 let defaultValues = {
   name: "",
   email: "",
@@ -21,27 +21,27 @@ let defaultValues = {
   imageUrl: "",
 };
 //*--------------------------------------------------------------------------------------------*
- 
+
 const Form = () => {
   const [image, setImage] = useState(null);
   const [imageAsUrl, setImageAsUrl] = useState("");
- 
+
   const [submited, setSubmited] = useState(false);
   const [values, setValues] = useState(defaultValues);
- 
+
   //*--------------------------------------------------------------------------------------------*
- 
+
   const imageUpload = (event) => {
     event.persist();
     setImage(event.target.files[0]);
   };
- 
+
   const submitData = async (e) => {
     console.log("Image : ", image);
     e.preventDefault();
     // const formData = new FormData();
     const uploadTask = storage.ref(`/images/${image.name}`).put(image);
- 
+
     //initiates the firebase side uploading
     uploadTask.on(
       "state_changed",
@@ -67,13 +67,13 @@ const Form = () => {
     );
     var selectedState = document.getElementById("allStates");
     var sState = selectedState.options[selectedState.selectedIndex].text;
- 
+
     var sG = document.getElementById("gender");
     var selectedGender = sG.options[sG.selectedIndex].text;
- 
+
     var sMS = document.getElementById("mStatus");
     var selectedSMartialStatus = sMS.options[sMS.selectedIndex].text;
- 
+
     console.log("Setting values ");
     setValues((values) => ({
       ...values,
@@ -82,18 +82,12 @@ const Form = () => {
       gender: selectedGender,
       martialStatus: selectedSMartialStatus,
     }));
- 
-    // for (var key in values) {
-    //   formData.append(key, values[key]);
-    // }
-    // // Adding data to form data
-    // formData.append("imageUrl", imageAsUrl);
- 
+
     console.log("Form Data : ", values.imageUrl);
- 
+
     try {
       await axios
-        .post(process.env.REACT_APP_BACKEND_URL + `/registration`, values)
+        .post(process.env.REACT_APP_BACKEND_URL + `registration`, values)
         .then((res) => {
           if (res.status === 200) {
             console.log("Data saveed successfully", res.success);
@@ -111,7 +105,7 @@ const Form = () => {
     }
   };
   //*--------------------------------------------------------------------------------------------*
- 
+
   return (
     <div className="back1">
       <div className="container1">
@@ -350,15 +344,15 @@ const Form = () => {
     </div>
   );
 };
- 
+
 //*--------------------------------------------------------------------------------------------*
- 
+
 //*--------------------------------------------------------------------------------------------*
- 
+
 const RegistrationForm = () => {
   const [loader, setLoader] = useState(true);
   const [autherized, setautherized] = useState(null);
- 
+
   useEffect(() => {
     axios
       .post(process.env.REACT_APP_BACKEND_URL + "/registration")
@@ -376,7 +370,7 @@ const RegistrationForm = () => {
         setautherized(false);
       });
   }, []);
- 
+
   return (
     <>
       {loader && <h3>Loading ......</h3>}
@@ -384,6 +378,5 @@ const RegistrationForm = () => {
     </>
   );
 };
- 
+
 export default RegistrationForm;
- 

@@ -7,7 +7,7 @@ const Verified = () => {
   const [loading, setLoding] = useState(true);
   const { id } = useParams();
   axios
-    .post(process.env.REACT_APP_BACKEND_URL + `/activate/user/${id}`)
+    .post(process.env.REACT_APP_BACKEND_URL + `activate/user/${id}`)
     .then((res) => {
       console.log("Post req succesfull!");
       setLoding(false);

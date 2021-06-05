@@ -46,7 +46,7 @@ const ChangePassword = () => {
       const pass = { password };
       axios
         .post(
-          process.env.REACT_APP_BACKEND_URL + `/changePassword/${email}`,
+          process.env.REACT_APP_BACKEND_URL + `changePassword/${email}`,
           pass
         )
         .then((res) => {
