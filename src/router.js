@@ -45,7 +45,7 @@ const AllRouter = () => {
         <Route exact path="/api/showdata">
           <ShowData />
         </Route>
-        <Route exact path="/api/mainHomePage">
+        <Route exact path="/api/dashboard">
           <MainHomePage />
         </Route>
         <Route exact path="/api/protected">

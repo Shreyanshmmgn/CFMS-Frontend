@@ -361,7 +361,7 @@ const RegistrationForm = () => {
  
   useEffect(() => {
     axios
-      .post(process.env.REACT_APP_BACKEND_URL + "/registration")
+      .post(process.env.REACT_APP_BACKEND_URL + "/registrationForm")
       .then((res) => {
         console.log(" Req to authenticate user");
         console.log(res.data.success);
@@ -379,7 +379,7 @@ const RegistrationForm = () => {
  
   return (
     <>
-      {loader && <h3>Loading ......</h3>}
+      {loader && <div class="loader"></div>}
       {autherized ? <Form /> : <NotAuth />}
     </>
   );

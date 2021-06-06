@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [currentValue, setcurrentValue] = useState(null);
+  const [currentValue, setcurrentValue] = useState(true);
   // const [loginSucces, setLoginSuccess] = useState(false);
 
   const submitData = (event) => {
@@ -65,6 +65,7 @@ const Login = () => {
       email: email,
       password: password,
     };
+    // setcurrentValue(true);
     console.log(process.env.REACT_APP_BACKEND_URL + "login");
     axios
       .post(process.env.REACT_APP_BACKEND_URL + "login", givenData)
@@ -80,11 +81,10 @@ const Login = () => {
           }, 4000);
         }
 
-        document.getElementById("wrong-password").innerHTML =
-          "Login Successfull !!";
+        
       })
       .catch((err) => {
-        setcurrentValue(false);
+        // setcurrentValue(true);
         // document.getElementById("wrong-password").innerHTML =
         //   "Wrong Credentials !!";
         console.log(" Error was there : ", err);
@@ -143,7 +143,7 @@ const Login = () => {
               data-toggle="modal"
               data-target="#myModal"
               className={classes.submit}
-              on
+              
             >
               Sign In
             </Button>
