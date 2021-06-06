@@ -7,10 +7,11 @@ const NotAuth = () => {
       <i className="far fa-question-circle fa-spin"></i>
       <div className="err2">1</div>
       <div className="msg">
-        Maybe this page moved? Got deleted? Is hiding out in quarantine? Never
+        <h2>You are not Authorized</h2>
+        Maybe this page moved? Got deleted? Never
         existed in the first place?
         <p>
-          Let's go <a className ="round"href="#">home</a> and try from there.
+          Let's go <a className ="round"href="/">home</a> and try from there.
         </p>
       </div>
     </div>
