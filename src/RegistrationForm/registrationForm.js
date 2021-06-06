@@ -355,7 +355,7 @@ const RegistrationForm = () => {
 
   useEffect(() => {
     axios
-      .post(process.env.REACT_APP_BACKEND_URL + "/registration")
+      .post(process.env.REACT_APP_BACKEND_URL + "registration")
       .then((res) => {
         console.log(" Req to authenticate user");
         console.log(res.data.success);
@@ -365,7 +365,7 @@ const RegistrationForm = () => {
         }
       })
       .catch((err) => {
-        console.log("Error Msg : ", err.response.data.msg);
+        console.log("Error Msg : ", err);
         setLoader(false);
         setautherized(false);
       });

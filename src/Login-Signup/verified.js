@@ -10,7 +10,6 @@ const Verified = () => {
     .post(process.env.REACT_APP_BACKEND_URL + `activate/user/${id}`)
     .then((res) => {
       console.log("Post req succesfull!");
-      setLoding(false);
       if (res.status === 200) {
         setLoding(false);
       } else {
@@ -19,7 +18,6 @@ const Verified = () => {
     });
   return (
     <div>
- 
       {loading ? (
         <div class="loader"></div>
       ) : (
