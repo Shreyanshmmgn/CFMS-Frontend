@@ -92,7 +92,7 @@ const Form = () => {
           if (res.status === 200) {
             console.log("Data saveed successfully", res.success);
             setTimeout(() => {
-              window.location.href = "/showdata";
+              window.location.href = "/api/showdata";
             }, 4000);
           } else {
             console.log("data not saved  !!");

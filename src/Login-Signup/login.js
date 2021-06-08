@@ -71,6 +71,7 @@ const Login = () => {
     axios
       .post(process.env.REACT_APP_BACKEND_URL + "login", givenData)
       .then((res) => {
+        setcurrentValue(true);
         // console.log(res.data);
         if (!res.data.userRegistered) {
           setTimeout(() => {
@@ -81,8 +82,7 @@ const Login = () => {
             window.location.href = "/api/dashBoard";
           }, 4000);
         }
-        setcurrentValue(true);
-        setcurrentValue(false);
+        setcurrentValue2(false);
       })
       .catch((err) => {
         setcurrentValue2(true);
@@ -160,41 +160,33 @@ const Login = () => {
                 </Link>
               </Grid>
             </Grid>
-            {currentValue ? (
-              <div class="modal fade">
-                <div class="modal-dialog modal-dialog-centered ">
-                  <div class="modal-content">
-                    <h3
-                      style={{ paddingTop: "25px" }}
-                      class="modal-body text-center text-success"
-                    >
-                      <b>Login Successfully</b>{" "}
-                    </h3>
-                  </div>
-                </div>
-              </div>
-            ) : (
-              <h1></h1>
-            )}
-            {currentValue2 ? (
-              // <div class="modal fade">
-              //   <div class="modal-dialog modal-dialog-centered ">
-              <div class="modal-content">
-                <h3
-                  style={{ paddingTop: "25px" }}
-                  class="modal-body text-center text-danger"
-                >
-                  <b>Wrong Credentials!</b>{" "}
-                </h3>
-              </div>
-            ) : (
-              //   </div>
-              // </div>
-              <h1></h1>
-            )}
           </form>
         </div>
       </Grid>
+      {currentValue ? (
+        <div class="modal-content">
+          <h3
+            style={{ paddingTop: "25px" }}
+            class="modal-body text-center text-danger"
+          >
+            <b>Login Successfully!</b>{" "}
+          </h3>
+        </div>
+      ) : (
+        <h1></h1>
+      )}
+      {currentValue2 ? (
+        <div class="modal-content">
+          <h3
+            style={{ paddingTop: "25px" }}
+            class="modal-body text-center text-danger"
+          >
+            <b>Wrong Credentials!</b>{" "}
+          </h3>
+        </div>
+      ) : (
+        <h1></h1>
+      )}
     </Grid>
   );
 };

@@ -5,8 +5,6 @@ import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
 import Link from "@material-ui/core/Link";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
@@ -57,12 +55,30 @@ const Message = ({ registered }) => {
   console.log("MEssaged called : ", registered);
   switch (registered) {
     case 1: {
-      return <b>Signup Successfully</b>;
+      return (
+        <div class="modal-content">
+          <h3
+            style={{ paddingTop: "25px" }}
+            class="modal-body text-center text-danger"
+          >
+            <b>Signup Successfully😋</b> <h4> Please verify your email now!</h4>
+          </h3>
+        </div>
+      );
     }
     case 2: {
       console.log("case 2 reached");
       return (
-        <b>Someting wrong please check details again / or already registered</b>
+        <div class="modal-content">
+          <h3
+            style={{ paddingTop: "25px" }}
+            class="modal-body text-center text-danger"
+          >
+            <b>
+              Someting wrong please check details again / or already registered
+            </b>{" "}
+          </h3>
+        </div>
       );
     }
     default:
@@ -216,8 +232,9 @@ const Signup = () => {
               </Grid>
             </Grid>
           </form>
+          <br />
+          <Message registered={registered} />
         </div>
-        <Message registered={registered} />
       </Grid>
     </Grid>
   );

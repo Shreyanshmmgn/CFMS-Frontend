@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import "./css/Home.css";
 import image from "./pics/logo.jpg";
 import image1 from "./pics/unnamed.png";
@@ -11,6 +12,12 @@ import image7 from "./pics/coins.png";
 
 const Home = () => {
   console.log("This is latest version - 2");
+  let history = useHistory();
+
+  const loginfunction = () => {
+    history.push("/api/login");
+  };
+
   return (
     <div>
       <header id="header" className="fixed-top">
@@ -46,9 +53,12 @@ const Home = () => {
               <a href="#">Feedback</a>
             </li>
             <li>
-              <a href="/api/Login">
-              
-                LOGIN
+              <a
+                onClick={() => {
+                  history.push("/api/login");
+                }}
+              >
+                Login
               </a>
             </li>
           </ul>
@@ -203,16 +213,23 @@ const Home = () => {
           </div>
         </section>
         <section>
-        <div class="cont">
-        <div class="money">
-          <img src="https://moneyexcel.com/wp-content/uploads/2016/08/chit-funds.jpg" alt="money"style={{height:"90%"}} />
-        </div>
-        <div class="money">
-          <img src="http://moneypotchitfunds.com/assets/system_design/images/about%20us.png" alt="money" style={{height:"90%"}}/>
-        </div>
-    
-      </div>
-      </section>
+          <div class="cont">
+            <div class="money">
+              <img
+                src="https://moneyexcel.com/wp-content/uploads/2016/08/chit-funds.jpg"
+                alt="money"
+                style={{ height: "90%" }}
+              />
+            </div>
+            <div class="money">
+              <img
+                src="http://moneypotchitfunds.com/assets/system_design/images/about%20us.png"
+                alt="money"
+                style={{ height: "90%" }}
+              />
+            </div>
+          </div>
+        </section>
         {/* <!-- ======= Team Section ======= --> */}
         <section id="team">
           <div className="container" data-aos="fade-up">
