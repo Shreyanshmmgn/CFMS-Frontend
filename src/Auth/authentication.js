@@ -1,8 +1,8 @@
 // import { useCookies } from "react-cookie";
 import axios from "axios";
-import { useState } from "react";
+// import { useState } from "react";
 
-export const useAuthServices = () => {
+const useAuthServices = () => {
   // const [cookies, setCookies] = useCookies({});
 
   //* Function to save cookies with relevent data
@@ -24,3 +24,4 @@ export const useAuthServices = () => {
 
   return { logout };
 };
+export default useAuthServices;

@@ -76,31 +76,31 @@ const SmallNav = () => {
         >
          
            
-           <Tab style={{marginRight:'40px',color:'black'}} value="one" label="Create Private Chit" {...a11yProps("one")} />
-           <Tab style={{marginRight:'60px', color:'black'}} value="two" label="Join Private Chit" {...a11yProps("two")} />
+           {/* <Tab style={{marginRight:'40px',color:'black'}} value="one" label="Create Private Chit" {...a11yProps("one")} /> */}
+           <Tab style={{marginRight:'60px', color:'black'}} value="one" label="Join Private Chit" {...a11yProps("one")} />
          
-          <Tab  style={{marginRight:'50px'}} value="three" label="Chit Details" {...a11yProps("three")} />
-          <Tab style={{marginRight:'50px'}} value="four" label="Members" {...a11yProps("four")} />
-          <Tab style={{marginRight:'50px'}} value="five" label="Rounds" {...a11yProps("five")} />
-          <Tab value="six" label="Investments" {...a11yProps("six")} />
+          <Tab  style={{marginRight:'50px'}} value="two" label="Chit Details" {...a11yProps("two")} />
+          <Tab style={{marginRight:'50px'}} value="three" label="Members" {...a11yProps("three")} />
+          <Tab style={{marginRight:'50px'}} value="four" label="Rounds" {...a11yProps("four")} />
+          <Tab value="five" label="Investments" {...a11yProps("five")} />
         </Tabs>
       </AppBar>
-      <TabPanel value={value} index="one">
+      {/* <TabPanel value={value} index="one">
       <MemberDetails/>
-      </TabPanel>
-      <TabPanel value={value} index="two">
+      </TabPanel> */}
+      <TabPanel value={value} index="one">
       <JoinPrivateChit/>
       </TabPanel>
-      <TabPanel value={value} index="three">
+      <TabPanel value={value} index="two">
       <ChitDetails/>
       </TabPanel>
-      <TabPanel value={value} index="four">
+      <TabPanel value={value} index="three">
       <Members/>
       </TabPanel>
-      <TabPanel value={value} index="five">
+      <TabPanel value={value} index="four">
        
       </TabPanel>
-      <TabPanel value={value} index="six">
+      <TabPanel value={value} index="five">
         
       </TabPanel>
 
