@@ -67,6 +67,7 @@ const Login = () => {
       email: email,
       password: password,
     };
+    // setcurrentValue(true);
     console.log(process.env.REACT_APP_BACKEND_URL + "login");
     axios
       .post(process.env.REACT_APP_BACKEND_URL + "login", givenData)
@@ -144,7 +145,7 @@ const Login = () => {
               data-toggle="modal"
               data-target="#myModal"
               className={classes.submit}
-              on
+              
             >
               Sign In
             </Button>

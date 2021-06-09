@@ -32,25 +32,25 @@ const Home = () => {
           </label>
           <ul>
             <li>
-              <a href="#">Home</a>
+              <a className = "backg" href="#">Home</a>
             </li>
             <li>
-              <a href="#about" className="btn-get-started scrollto">
+              <a  href="#about" className="btn-get-started scrollto backg">
                 About
               </a>
             </li>
             <li>
-              <a href="#team" className="btn-get-started scrollto">
+              <a href="#team" className="btn-get-started scrollto backg">
                 Stakeholders
               </a>
             </li>
             <li>
-              <a href="#contact" className="btn-get-started scrollto">
+              <a href="#contact" className="btn-get-started scrollto backg">
                 Contact
               </a>
             </li>
             <li>
-              <a href="#">Feedback</a>
+              <a className = "backg" href="#">Feedback</a>
             </li>
             <li>
               <a
@@ -318,7 +318,7 @@ const Home = () => {
             <div className="section-header">
               <h3>Contact Us</h3>
             </div>
-            <div style={{ paddingLeft: "650px" }} className="row">
+            <div style={{ paddingLeft: "590px" }} className="row">
               <div className="form">
                 <form
                   action="forms/contact.php"

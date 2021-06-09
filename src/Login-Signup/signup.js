@@ -20,7 +20,8 @@ const useStyles = makeStyles((theme) => ({
     height: "100vh",
   },
   image: {
-    backgroundImage: "url(https://www.chitmonks.com/assets/images/about.png)",
+    backgroundImage: `url(${img1})`,
+    width: "50%",
     backgroundRepeat: "no-repeat",
 
     width: "100%",
@@ -148,7 +149,7 @@ const Signup = () => {
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
-      <Grid item xs={false} sm={4} md={7} className={classes.image} />
+      <Grid item xs={false} sm={4} md={7} style={{backgroundImage: `url(${img1})`}} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>

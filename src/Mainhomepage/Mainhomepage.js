@@ -1,30 +1,48 @@
 import Navbar from "./Navbar/Navbar";
-// import SmallNav from "./Navbar/SmallNav";
-// import PublicChit from "./Chitfunds/PublicChit";
-// import PrivateChit from "./Chitfunds/PrivateChit";
+// import React, { useEffect, useState } from "react";            
 import "./../css/main-homepage.css";
-// import { useState } from "react";
+// import axios from "axios";
+// import NotAuth from "../Auth/notAuth";
 
 function Dashboard() {
-  // const [ currentValue, setcurrentValue] = useState(false);
+
   return (
     <div className="main-homepage">
       <Navbar/>
-      {/* <SmallNav/> */}
-      {/* {
-
-      currentValue ? <SmallNav/> : <PublicChit />
-       } */}
-      {/* <label className="switch">
-        <input type="checkbox" id="myCheck" onClick={() => {setcurrentValue(!currentValue)}} />
-        <span className="slider1 round1">
-          <h3>Public Chit</h3>
-          <h3 id="public">Private Chit</h3>
-        </span>
-      </label> */}
-
     </div>
   );
 }
 
 export default Dashboard;
+
+// const Dashboard = () => {
+//   const [loader, setLoader] = useState(true);
+//   const [autherized, setautherized] = useState(null);
+ 
+//   useEffect(() => {
+//     axios
+//       .post(process.env.REACT_APP_BACKEND_URL + "/dashboard")
+//       .then((res) => {
+//         console.log(" Req to authenticate user");
+//         console.log(res.data.success);
+//         setLoader(false);
+//         if (res.status === 200 || res.status === 201) {
+//           setautherized(true);
+//         }
+//       })
+//       .catch((err) => {
+//         console.log("Error Msg : ", err.response.data.msg);
+//         setLoader(false);
+//         setautherized(false);
+//       });
+//   }, []);
+ 
+//   return (
+//     <>
+//       {loader && <div class="loader"></div>}
+//       {autherized ? <MainHomepage /> : <NotAuth />}
+//     </>
+//   );
+// };
+ 
+// export default Dashboard;
