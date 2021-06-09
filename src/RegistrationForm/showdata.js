@@ -167,34 +167,35 @@ const Data = () => {
   );
 };
 
+export default Data;
 //*--------------------------------------------------------------------------------------------*
-const ShowData = () => {
-  const [loader, setLoader] = useState(true);
-  const [autherized, setautherized] = useState(null);
+// const ShowData = () => {
+//   const [loader, setLoader] = useState(true);
+//   const [autherized, setautherized] = useState(null);
  
-  useEffect(() => {
-    axios
-      .post(process.env.REACT_APP_BACKEND_URL + "/showdata")
-      .then((res) => {
-        console.log(" Req to authenticate user");
-        console.log(res.data.success);
-        setLoader(false);
-        if (res.status === 200 || res.status === 201) {
-          setautherized(true);
-        }
-      })
-      .catch((err) => {
-        console.log("Error Msg : ", err.response.data.msg);
-        setLoader(false);
-        setautherized(false);
-      });
-  }, []);
+//   useEffect(() => {
+//     axios
+//       .post(process.env.REACT_APP_BACKEND_URL + "/showdata")
+//       .then((res) => {
+//         console.log(" Req to authenticate user");
+//         console.log(res.data.success);
+//         setLoader(false);
+//         if (res.status === 200 || res.status === 201) {
+//           setautherized(true);
+//         }
+//       })
+//       .catch((err) => {
+//         console.log("Error Msg : ", err.response.data.msg);
+//         setLoader(false);
+//         setautherized(false);
+//       });
+//   }, []);
  
-  return (
-    <>
-      {loader && <div class="loader"></div>}
-      {autherized ? <Data /> : <NotAuth />}
-    </>
-  );
-};
-export default ShowData;
+//   return (
+//     <>
+//       {loader && <div class="loader"></div>}
+//       {autherized ? <Data /> : <NotAuth />}
+//     </>
+//   );
+// };
+// export default ShowData;

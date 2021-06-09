@@ -14,9 +14,6 @@ const Home = () => {
   console.log("This is latest version - 2");
   let history = useHistory();
 
-  const loginfunction = () => {
-    history.push("/api/login");
-  };
 
   return (
     <div>
@@ -53,7 +50,7 @@ const Home = () => {
               <a className = "backg" href="#">Feedback</a>
             </li>
             <li>
-              <a
+              <a className = "backg"
                 onClick={() => {
                   history.push("/api/login");
                 }}

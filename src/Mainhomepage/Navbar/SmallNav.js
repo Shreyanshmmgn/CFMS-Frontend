@@ -6,8 +6,6 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
-import MemberDetails from './../MemberDetails';
-import PublicChit from './../Chitfunds/PublicChit';
 import ChitDetails from'./../ChitDetails'
 import Members from './../Members'
 import JoinPrivateChit from './../JoinPrivateChit'
@@ -77,9 +75,9 @@ const SmallNav = () => {
          
            
            {/* <Tab style={{marginRight:'40px',color:'black'}} value="one" label="Create Private Chit" {...a11yProps("one")} /> */}
-           <Tab style={{marginRight:'60px', color:'black'}} value="one" label="Join Private Chit" {...a11yProps("one")} />
+           <Tab style={{marginRight:'60px', color:'black'}} value="one" label="Join Private Club" {...a11yProps("one")} />
          
-          <Tab  style={{marginRight:'50px'}} value="two" label="Chit Details" {...a11yProps("two")} />
+          <Tab  style={{marginRight:'50px'}} value="two" label="Club Details" {...a11yProps("two")} />
           <Tab style={{marginRight:'50px'}} value="three" label="Members" {...a11yProps("three")} />
           <Tab style={{marginRight:'50px'}} value="four" label="Rounds" {...a11yProps("four")} />
           <Tab value="five" label="Investments" {...a11yProps("five")} />
