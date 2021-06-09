@@ -162,31 +162,31 @@ const Login = () => {
             </Grid>
           </form>
         </div>
+        {currentValue ? (
+          <div class="modal-content">
+            <h3
+              style={{ paddingTop: "25px" }}
+              class="modal-body text-center text-danger"
+            >
+              <b>Login Successfully!</b>{" "}
+            </h3>
+          </div>
+        ) : (
+          <h1></h1>
+        )}
+        {currentValue2 ? (
+          <div class="modal-content">
+            <h3
+              style={{ paddingTop: "25px" }}
+              class="modal-body text-center text-danger"
+            >
+              <b>Wrong Credentials!</b>{" "}
+            </h3>
+          </div>
+        ) : (
+          <h1></h1>
+        )}
       </Grid>
-      {currentValue ? (
-        <div class="modal-content">
-          <h3
-            style={{ paddingTop: "25px" }}
-            class="modal-body text-center text-danger"
-          >
-            <b>Login Successfully!</b>{" "}
-          </h3>
-        </div>
-      ) : (
-        <h1></h1>
-      )}
-      {currentValue2 ? (
-        <div class="modal-content">
-          <h3
-            style={{ paddingTop: "25px" }}
-            class="modal-body text-center text-danger"
-          >
-            <b>Wrong Credentials!</b>{" "}
-          </h3>
-        </div>
-      ) : (
-        <h1></h1>
-      )}
     </Grid>
   );
 };

@@ -4,13 +4,13 @@ import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
-import MemberDetails from './../MemberDetails';
-import PublicChit from './../Chitfunds/PublicChit';
-import ChitDetails from'./../ChitDetails'
-import Members from './../Members'
-import JoinPrivateChit from './../JoinPrivateChit'
+import Box from "@material-ui/core/Box";
+import Typography from "@material-ui/core/Typography";
+import MemberDetails from "./../PrivateChitRegistrationForm";
+import PublicChit from "./../Chitfunds/PublicChit";
+import ChitDetails from "./../ChitDetails";
+import Members from "./../Members";
+import JoinPrivateChit from "./../JoinPrivateChit";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -47,15 +47,13 @@ function a11yProps(index) {
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    
   },
   AppBar: {
-    backgroundColor: '#607d8b',
+    backgroundColor: "#607d8b",
   },
-  Tab :{
-    fontSize: '14px',
-  }
-    
+  Tab: {
+    fontSize: "14px",
+  },
 }));
 
 const SmallNav = () => {
@@ -68,42 +66,60 @@ const SmallNav = () => {
 
   return (
     <div className={classes.root}>
-      <AppBar className={classes.AppBar} style ={{marginRight: "200px"}}position="static">
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          centered
-        >
-         
-           
-           <Tab style={{marginRight:'40px',color:'black'}} value="one" label="Create Private Chit" {...a11yProps("one")} />
-           <Tab style={{marginRight:'60px', color:'black'}} value="two" label="Join Private Chit" {...a11yProps("two")} />
-         
-          <Tab  style={{marginRight:'50px'}} value="three" label="Chit Details" {...a11yProps("three")} />
-          <Tab style={{marginRight:'50px'}} value="four" label="Members" {...a11yProps("four")} />
-          <Tab style={{marginRight:'50px'}} value="five" label="Rounds" {...a11yProps("five")} />
+      <AppBar
+        className={classes.AppBar}
+        style={{ marginRight: "200px" }}
+        position="static"
+      >
+        <Tabs value={value} onChange={handleChange} centered>
+          <Tab
+            style={{ marginRight: "40px", color: "black" }}
+            value="one"
+            label="Create Private Chit"
+            {...a11yProps("one")}
+          />
+          <Tab
+            style={{ marginRight: "60px", color: "black" }}
+            value="two"
+            label="Join Private Chit"
+            {...a11yProps("two")}
+          />
+
+          <Tab
+            style={{ marginRight: "50px" }}
+            value="three"
+            label="Chit Details"
+            {...a11yProps("three")}
+          />
+          <Tab
+            style={{ marginRight: "50px" }}
+            value="four"
+            label="Members"
+            {...a11yProps("four")}
+          />
+          <Tab
+            style={{ marginRight: "50px" }}
+            value="five"
+            label="Rounds"
+            {...a11yProps("five")}
+          />
           <Tab value="six" label="Investments" {...a11yProps("six")} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index="one">
-      <MemberDetails/>
+        <MemberDetails />
       </TabPanel>
       <TabPanel value={value} index="two">
-      <JoinPrivateChit/>
+        <JoinPrivateChit />
       </TabPanel>
       <TabPanel value={value} index="three">
-      <ChitDetails/>
+        <ChitDetails />
       </TabPanel>
       <TabPanel value={value} index="four">
-      <Members/>
+        <Members />
       </TabPanel>
-      <TabPanel value={value} index="five">
-       
-      </TabPanel>
-      <TabPanel value={value} index="six">
-        
-      </TabPanel>
-
+      <TabPanel value={value} index="five"></TabPanel>
+      <TabPanel value={value} index="six"></TabPanel>
     </div>
   );
 };

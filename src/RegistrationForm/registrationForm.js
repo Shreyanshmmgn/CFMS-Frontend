@@ -37,7 +37,6 @@ const Form = () => {
   };
 
   const submitData = async (e) => {
-    console.log("Image : ", image);
     e.preventDefault();
     // const formData = new FormData();
     const uploadTask = storage.ref(`/images/${image.name}`).put(image);

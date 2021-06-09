@@ -14,10 +14,6 @@ const Home = () => {
   console.log("This is latest version - 2");
   let history = useHistory();
 
-  const loginfunction = () => {
-    history.push("/api/login");
-  };
-
   return (
     <div>
       <header id="header" className="fixed-top">
