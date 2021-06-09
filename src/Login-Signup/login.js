@@ -77,11 +77,11 @@ const Login = () => {
         if (!res.data.userRegistered) {
           setTimeout(() => {
             window.location.href = "/api/registrationForm";
-          }, 4000);
+          }, 1000);
         } else {
           setTimeout(() => {
             window.location.href = "/api/dashBoard";
-          }, 4000);
+          }, 1000);
         }
         setcurrentValue2(false);
       })
