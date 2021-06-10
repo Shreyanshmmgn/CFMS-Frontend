@@ -22,7 +22,7 @@ let defaultValues = {
 
 const PrivateChitRegistrationForm = () => {
   const [values, setValues] = useState(defaultValues);
-  const [form, setForm] = useState(true);
+  const [form, setForm] = useState(false);
 
   const submitData = (e) => {
     e.preventDefault();
@@ -71,7 +71,7 @@ const PrivateChitRegistrationForm = () => {
                       }}
                     />
                   </div>
-                  <div className="input-box">
+                  {/* <div className="input-box">
                     <span className="details">Total Members</span>
                     <input
                       type="text"
@@ -209,7 +209,7 @@ const PrivateChitRegistrationForm = () => {
                         }));
                       }}
                     />
-                  </div>
+                  </div> */}
                   <div className="input-box">
                     <span className="details">Minimum Installment</span>
                     <input

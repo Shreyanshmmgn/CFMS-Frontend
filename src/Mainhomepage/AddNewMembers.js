@@ -3,13 +3,10 @@ import Container from "@material-ui/core/Container";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
-
 import Snackbar from "@material-ui/core/Snackbar";
-// import MuiAlert from '@material-ui/lab/Alert';
-
 import Icon from "@material-ui/core/Icon";
-
 import { makeStyles } from "@material-ui/core/styles";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,18 +20,35 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function AddNewMembers() {
+const AddNewMembers = () => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false); // This is for snackbar success message
 
   const [inputFields, setInputFields] = useState([
-    { firstName: "", emailId: "" },
+    {
+      firstName: "",
+      emailId: "",
+      Role: "Member",
+      id: new Date().getMilliseconds() * 999,
+    },
   ]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setOpen(true); // This is for snackbar success message
+
     console.log("InputFields", inputFields);
+    axios
+      .post(process.env.REACT_APP_BACKEND_URL + `addNewMembers`, inputFields)
+      .then((res) => {
+        if (res.status === 200) {
+          console.log("Data saveed successfully", res.success);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    setOpen(true); // This is for snackbar success message
   };
 
   // This is for snackbar success message
@@ -42,7 +56,6 @@ function AddNewMembers() {
     if (reason === "clickaway") {
       return;
     }
-
     setOpen(false);
   };
 
@@ -58,7 +71,15 @@ function AddNewMembers() {
   };
 
   const handleAddFields = () => {
-    setInputFields([...inputFields, { firstName: "", emailId: "" }]);
+    setInputFields([
+      ...inputFields,
+      {
+        firstName: "",
+        emailId: "",
+        id: new Date().getMilliseconds() * 999,
+        Role: "Member",
+      },
+    ]);
   };
 
   const handleRemoveFields = (id) => {
@@ -74,7 +95,7 @@ function AddNewMembers() {
     <Container style={{ marginLeft: "350px", marginTop: "50px" }}>
       <h1>Add New Members</h1>
       <form className={classes.root} onSubmit={handleSubmit}>
-        {inputFields.map((inputField) => (
+        {inputFields.map((inputField, index) => (
           <div key={inputField.id}>
             <TextField
               name="firstName"
@@ -126,14 +147,10 @@ function AddNewMembers() {
           autoHideDuration={4000}
           message="Added Successfully"
           onClose={handleClose}
-        >
-          {/* <Alert onClose={handleClose} severity="success">
-          This is a success message!
-        </Alert> */}
-        </Snackbar>
+        ></Snackbar>
       </form>
     </Container>
   );
-}
+};
 
 export default AddNewMembers;
