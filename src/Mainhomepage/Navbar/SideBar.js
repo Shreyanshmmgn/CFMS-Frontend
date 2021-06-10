@@ -12,7 +12,8 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-
+import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet';
+import DashboardIcon from '@material-ui/icons/Dashboard';
 const useStyles = makeStyles({
     list: {
       width: 250,
@@ -49,16 +50,16 @@ const useStyles = makeStyles({
         onKeyDown={toggleDrawer(anchor, false)}
       >
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          {['Dashboard', 'Account Wallet', 'Account Details', 'Biding'].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+              <ListItemIcon>{index % 2 === 0 ? <DashboardIcon/> : <AccountBalanceWalletIcon />}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
         </List>
         <Divider />
         <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
+          {['Messages', 'Send Query', 'Updates'].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
               <ListItemText primary={text} />

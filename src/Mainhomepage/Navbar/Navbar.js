@@ -138,7 +138,6 @@ export default function Navbar() {
   };
 
   const handleMenuClose = () => {
-    setRegistered(5);
     setAnchorEl(null);
     handleMobileMenuClose();
   };
@@ -157,7 +156,9 @@ export default function Navbar() {
     const { logout } = useAuthServices();
     logout();
     history.push("/");
-  };
+    setAnchorEl(null);
+    handleMobileMenuClose();
+  }
 
   const menuId = "primary-search-account-menu";
   const renderMenu = (

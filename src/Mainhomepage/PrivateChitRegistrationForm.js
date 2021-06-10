@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./../css/MemberDetails.css";
+import AddNewMembers from "./AddNewMembers"
 //*--------------------------------------------------------------------------------------------*
 
 let defaultValues = {
@@ -44,6 +45,7 @@ const PrivateChitRegistrationForm = () => {
 
   return (
     <>
+    <AddNewMembers/>
       <div className="back2">
         <div className="container2">
           <div className="title">

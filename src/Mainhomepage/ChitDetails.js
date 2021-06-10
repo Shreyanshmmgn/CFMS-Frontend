@@ -17,6 +17,10 @@ let defaultValues = {
 };
 
 const Data = () => {
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   const fetchData = async () => {
     await axios
       .post(process.env.REACT_APP_BACKEND_URL + `sendUserData`)
@@ -27,13 +31,9 @@ const Data = () => {
         }
       });
   };
-  useEffect(() => {
-    fetchData();
-  }, []);
 
   return (
     <>
-      {/* {data ? ( */}
       <div className="back1">
         <div className="container1">
           <div className="title">Chit Details</div>

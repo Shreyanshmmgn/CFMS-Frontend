@@ -12,7 +12,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 80px;
+  padding-top: 60px;
   /* background: linear-gradient(135deg, #71B7E6, #9B59B6); */
 }
 
@@ -22,7 +22,7 @@
   width: 100%;
   background-color: rgb(228, 228, 228);
   padding: 8px 8px 8px 8px;
-  overflow: scroll;
+
   border-radius: 5px;
   box-shadow: 0 5px 10px rgba(0.5, 0.5, 0.5, 0.5);
 }
