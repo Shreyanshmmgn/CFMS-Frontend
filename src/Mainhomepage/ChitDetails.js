@@ -2,6 +2,7 @@ import React, { useEffect, usecommission } from "react";
 import axios from "axios";
 import "./MemberDetails";
 
+
 let defaultValues = {
     managerName: "wcfedf",
     totalMembers: "cwscwa",
@@ -58,6 +59,7 @@ const Data = () => {
   return (
     <>
       {/* {data ? ( */}
+        
         <div className="back1">
           <div className="container1">
             <div className="title">Chit Details</div>
