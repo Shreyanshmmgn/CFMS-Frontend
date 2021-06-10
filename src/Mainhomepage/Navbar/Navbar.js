@@ -341,7 +341,7 @@ export default function Navbar() {
 
   return (
     <div className={classes.grow}>
-      <AppBar style={{ backgroundColor: "#455a64" }} position="static">
+      <AppBar style={{ backgroundColor: "#0d47a1" }} position="static">
         <Toolbar>
         {["LEFT"].map((anchor) => (
         <React.Fragment key={anchor}>

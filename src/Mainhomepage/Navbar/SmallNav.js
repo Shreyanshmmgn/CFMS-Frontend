@@ -4,11 +4,13 @@ import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
-import ChitDetails from'./../ChitDetails'
-import Members from './../Members'
-import JoinPrivateChit from './../JoinPrivateChit'
+import Box from "@material-ui/core/Box";
+import Typography from "@material-ui/core/Typography";
+import ChitDetails from "./../ChitDetails";
+import Members from "./../Members";
+import JoinPrivateChit from "./../JoinPrivateChit";
+import Investments from "./../../Mainhomepage/Investments";
+import Rounds from "./../Rounds";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -47,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   AppBar: {
-    backgroundColor: "#607d8b",
+    backgroundColor: "#90caf9",
   },
   Tab: {
     fontSize: "14px",
@@ -64,42 +66,64 @@ const SmallNav = () => {
 
   return (
     <div className={classes.root}>
-      <AppBar className={classes.AppBar} style ={{marginRight: "200px"}}position="static">
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          centered
-        >
-         
-           
-           {/* <Tab style={{marginRight:'40px',color:'black'}} value="one" label="Create Private Chit" {...a11yProps("one")} /> */}
-           <Tab style={{marginRight:'60px', color:'black'}} value="one" label="Join Private Club" {...a11yProps("one")} />
-         
-          <Tab  style={{marginRight:'50px'}} value="two" label="Club Details" {...a11yProps("two")} />
-          <Tab style={{marginRight:'50px'}} value="three" label="Members" {...a11yProps("three")} />
-          <Tab style={{marginRight:'50px'}} value="four" label="Rounds" {...a11yProps("four")} />
-          <Tab value="five" label="Investments" {...a11yProps("five")} />
+      <AppBar
+        className={classes.AppBar}
+        style={{ marginRight: "200px" }}
+        position="static"
+      >
+        <Tabs value={value} onChange={handleChange} centered>
+          {/* <Tab style={{marginRight:'40px',color:'black'}} value="one" label="Create Private Chit" {...a11yProps("one")} /> */}
+          <Tab
+            style={{ marginRight: "60px", color: "black" }}
+            value="one"
+            label="Join Private Club"
+            {...a11yProps("one")}
+          />
+
+          <Tab
+            style={{ marginRight: "50px", color: "black" }}
+            value="two"
+            label="Club Details"
+            {...a11yProps("two")}
+          />
+          <Tab
+            style={{ marginRight: "50px", color: "black" }}
+            value="three"
+            label="Members"
+            {...a11yProps("three")}
+          />
+          <Tab
+            style={{ marginRight: "50px", color: "black" }}
+            value="four"
+            label="Rounds"
+            {...a11yProps("four")}
+          />
+          <Tab
+            style={{ color: "black" }}
+            value="five"
+            label="Investments"
+            {...a11yProps("five")}
+          />
         </Tabs>
       </AppBar>
       {/* <TabPanel value={value} index="one">
       <MemberDetails/>
       </TabPanel> */}
       <TabPanel value={value} index="one">
-      <JoinPrivateChit/>
+        <JoinPrivateChit />
       </TabPanel>
       <TabPanel value={value} index="two">
-      <ChitDetails/>
+        <ChitDetails />
       </TabPanel>
       <TabPanel value={value} index="three">
-      <Members/>
+        <Members />
       </TabPanel>
       <TabPanel value={value} index="four">
-       
+        <Rounds />
       </TabPanel>
       <TabPanel value={value} index="five">
-        
+        <Investments />
       </TabPanel>
-
     </div>
   );
 };
