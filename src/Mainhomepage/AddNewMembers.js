@@ -4,12 +4,10 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 
-import Snackbar from '@material-ui/core/Snackbar';
+import Snackbar from "@material-ui/core/Snackbar";
 // import MuiAlert from '@material-ui/lab/Alert';
 
 import Icon from "@material-ui/core/Icon";
-
-
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -21,18 +19,10 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     margin: theme.spacing(1),
-    marginLeft:'25px',
+    marginLeft: "25px",
   },
-})); 
+}));
 
-
-
-
-        // This is for snackbar success message
-// function Alert(props) {
-//     return <MuiAlert elevation={6} variant="filled" {...props} />;
-//   }
-   
 function AddNewMembers() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false); // This is for snackbar success message
@@ -43,19 +33,18 @@ function AddNewMembers() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setOpen(true);  // This is for snackbar success message
+    setOpen(true); // This is for snackbar success message
     console.log("InputFields", inputFields);
   };
 
-   // This is for snackbar success message
+  // This is for snackbar success message
   const handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
+    if (reason === "clickaway") {
       return;
     }
 
     setOpen(false);
   };
-
 
   const handleChangeInput = (id, event) => {
     const newInputFields = inputFields.map((i) => {
@@ -109,17 +98,16 @@ function AddNewMembers() {
             <IconButton
               disabled={inputFields.length === 1}
               onClick={() => handleRemoveFields(inputField.id)}
-              style={{ fontSize: 50, marginTop:'25px' }}
+              style={{ fontSize: 50, marginTop: "25px" }}
             >
-              <Icon  color="secondary">
-                delete_circle
-              </Icon>
+              <Icon color="secondary">delete_circle</Icon>
             </IconButton>
-            <IconButton onClick={handleAddFields} style={{ fontSize: 50, marginTop:'25px'}}>
-              <Icon color="primary">
-                add_circle
-              </Icon>
-              </IconButton>
+            <IconButton
+              onClick={handleAddFields}
+              style={{ fontSize: 50, marginTop: "25px" }}
+            >
+              <Icon color="primary">add_circle</Icon>
+            </IconButton>
           </div>
         ))}
         <Button
@@ -133,11 +121,16 @@ function AddNewMembers() {
           Send
         </Button>
         {/* snackbar success message */}
-        <Snackbar  open={open} autoHideDuration={4000} message = "Added Successfully" onClose={handleClose}>
-        {/* <Alert onClose={handleClose} severity="success">
+        <Snackbar
+          open={open}
+          autoHideDuration={4000}
+          message="Added Successfully"
+          onClose={handleClose}
+        >
+          {/* <Alert onClose={handleClose} severity="success">
           This is a success message!
         </Alert> */}
-      </Snackbar>
+        </Snackbar>
       </form>
     </Container>
   );

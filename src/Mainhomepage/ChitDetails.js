@@ -2,18 +2,18 @@ import React, { useEffect, usecommission } from "react";
 import axios from "axios";
 
 let defaultValues = {
-  managerName: "wcfedf",
-  totalMembers: "cwscwa",
-  amount: "wfcdcwasfc",
-  timePeriod: "cwsd",
-  fundSize: "fcewscf",
-  commission: "fcwsd",
-  startDate: "wfcwa",
-  maximumBid: "wfcw",
-  minimumBid: "wcf",
-  monthlyInstallment: "qd",
-  minimumInstallment: "qwdq",
-  maximumInstallment: "qwd",
+  managerName: "",
+  totalMembers: "",
+  amount: "",
+  timePeriod: "",
+  fundSize: "",
+  commission: "",
+  startDate: "",
+  maximumBid: "",
+  minimumBid: "",
+  monthlyInstallment: "",
+  minimumInstallment: "",
+  maximumInstallment: "",
 };
 
 const Data = () => {
