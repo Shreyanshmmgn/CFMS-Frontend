@@ -13,7 +13,7 @@ let defaultValues = {
   commission: "",
   startDate: "",
   maximumBidValue: "",
-  minimumBidVaue: "",
+  minimumBidValue: "",
   monthlyInstallment: "",
   minimumInstallment: "",
   maximumInstallment: "",
