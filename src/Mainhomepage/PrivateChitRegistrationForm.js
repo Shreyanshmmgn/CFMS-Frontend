@@ -91,13 +91,13 @@ const PrivateChitRegistrationForm = () => {
                       type="text"
                       maxLength="10"
                       required
-                      // onChange={(event) => {
-                      //   event.persist();
-                      //   setValues((values) => ({
-                      //     ...values,
-                      //     phoneNumber: event.target.value,
-                      //   }));
-                      // }}
+                      onChange={(event) => {
+                        event.persist();
+                        setValues((values) => ({
+                          ...values,
+                          amount: event.target.value,
+                        }));
+                      }}
                     />
                   </div>
                   <div className="input-box">
@@ -106,13 +106,13 @@ const PrivateChitRegistrationForm = () => {
                       type="text"
                       name="Time Period"
                       required
-                      // onChange={(event) => {
-                      //   event.persist();
-                      //   setValues((values) => ({
-                      //     ...values,
-                      //     currentAddress: event.target.value,
-                      //   }));
-                      // }}
+                      onChange={(event) => {
+                        event.persist();
+                        setValues((values) => ({
+                          ...values,
+                          timePeriod: event.target.value,
+                        }));
+                      }}
                     />
                   </div>
                   <div className="input-box">
@@ -121,13 +121,13 @@ const PrivateChitRegistrationForm = () => {
                       type="text"
                       name="Fund Size"
                       required
-                      // onChange={(event) => {
-                      //   event.persist();
-                      //   setValues((values) => ({
-                      //     ...values,
-                      //     permanentAdress: event.target.value,
-                      //   }));
-                      // }}
+                      onChange={(event) => {
+                        event.persist();
+                        setValues((values) => ({
+                          ...values,
+                          fundSize: event.target.value,
+                        }));
+                      }}
                     />
                   </div>
                   <div className="input-box">
@@ -139,13 +139,13 @@ const PrivateChitRegistrationForm = () => {
                       // pattern="[0-9]{6}"
                       // title="Please enter 6 digit code"
                       required
-                      // onChange={(event) => {
-                      //   event.persist();
-                      //   setValues((values) => ({
-                      //     ...values,
-                      //     pincode: event.target.value,
-                      //   }));
-                      // }}
+                      onChange={(event) => {
+                        event.persist();
+                        setValues((values) => ({
+                          ...values,
+                          commission: event.target.value,
+                        }));
+                      }}
                     />
                   </div>
                   <div className="input-box">
@@ -155,13 +155,13 @@ const PrivateChitRegistrationForm = () => {
                       // id="birthday"
                       name="Start Date"
                       required
-                      // onChange={(event) => {
-                      //   event.persist();
-                      //   setValues((values) => ({
-                      //     ...values,
-                      //     dob: event.target.value,
-                      //   }));
-                      // }}
+                      onChange={(event) => {
+                        event.persist();
+                        setValues((values) => ({
+                          ...values,
+                          startDate: event.target.value,
+                        }));
+                      }}
                     />
                   </div>
 
@@ -171,13 +171,13 @@ const PrivateChitRegistrationForm = () => {
                       type="text"
                       name="Maximum Bid in Percentage"
                       required
-                      // onChange={(event) => {
-                      //   event.persist();
-                      //   setValues((values) => ({
-                      //     ...values,
-                      //     occupation: event.target.value,
-                      //   }));
-                      // }}
+                      onChange={(event) => {
+                        event.persist();
+                        setValues((values) => ({
+                          ...values,
+                          maximumBidValue: event.target.value,
+                        }));
+                      }}
                     />
                   </div>
                   <div className="input-box">
@@ -186,13 +186,13 @@ const PrivateChitRegistrationForm = () => {
                       type="text"
                       name="Minimum Bid in Percentage"
                       required
-                      // onChange={(event) => {
-                      //   event.persist();
-                      //   setValues((values) => ({
-                      //     ...values,
-                      //     occupation: event.target.value,
-                      //   }));
-                      // }}
+                      onChange={(event) => {
+                        event.persist();
+                        setValues((values) => ({
+                          ...values,
+                          minimumBidVaue: event.target.value,
+                        }));
+                      }}
                     />
                   </div>
                   <div className="input-box">
@@ -201,13 +201,13 @@ const PrivateChitRegistrationForm = () => {
                       type="text"
                       name="Monthly Installment"
                       required
-                      // onChange={(event) => {
-                      //   event.persist();
-                      //   setValues((values) => ({
-                      //     ...values,
-                      //     monthlyIncome: event.target.value,
-                      //   }));
-                      // }}
+                      onChange={(event) => {
+                        event.persist();
+                        setValues((values) => ({
+                          ...values,
+                          monthlyInstallment: event.target.value,
+                        }));
+                      }}
                     />
                   </div>
                   <div className="input-box">
@@ -216,13 +216,13 @@ const PrivateChitRegistrationForm = () => {
                       type="text"
                       name="Minimum Installment"
                       required
-                      // onChange={(event) => {
-                      //   event.persist();
-                      //   setValues((values) => ({
-                      //     ...values,
-                      //     monthlyIncome: event.target.value,
-                      //   }));
-                      // }}
+                      onChange={(event) => {
+                        event.persist();
+                        setValues((values) => ({
+                          ...values,
+                          minimumInstallment: event.target.value,
+                        }));
+                      }}
                     />
                   </div>
                   <div className="input-box">
@@ -231,13 +231,13 @@ const PrivateChitRegistrationForm = () => {
                       type="text"
                       name="Maximum Installment"
                       required
-                      // onChange={(event) => {
-                      //   event.persist();
-                      //   setValues((values) => ({
-                      //     ...values,
-                      //     monthlyIncome: event.target.value,
-                      //   }));
-                      // }}
+                      onChange={(event) => {
+                        event.persist();
+                        setValues((values) => ({
+                          ...values,
+                          maximumInstallment: event.target.value,
+                        }));
+                      }}
                     />
                   </div>
                 </div>
