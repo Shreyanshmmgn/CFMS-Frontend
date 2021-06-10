@@ -12,7 +12,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 // import { useGlobalContext } from './../Mainhomepage/Navbar/context';
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-
+import { useHistory } from "react-router-dom";
 axios.defaults.withCredentials = true;
 
 const useStyles = makeStyles((theme) => ({
@@ -88,6 +88,7 @@ const Message = ({ registered }) => {
 };
 
 const Signup = () => {
+  let history = useHistory();
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
@@ -227,7 +228,12 @@ const Signup = () => {
             </Grid>
             <Grid container justify="flex-end">
               <Grid item>
-                <Link href="/api/login" variant="body2">
+                <Link
+                  onClick={() => {
+                    history.push("/api/login");
+                  }}
+                  variant="body2"
+                >
                   Already have an account? Sign in
                 </Link>
               </Grid>

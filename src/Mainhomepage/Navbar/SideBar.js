@@ -25,7 +25,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function SideBar() {
+const SideBar = () => {
   const classes = useStyles();
   const [state, setState] = React.useState({
     top: false,
@@ -110,3 +110,5 @@ export default function SideBar() {
     </div>
   );
 }
+export default SideBar;
+

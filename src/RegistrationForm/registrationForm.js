@@ -3,6 +3,7 @@ import { storage } from "../Firebase/firebase";
 import axios from "axios";
 import "./register.css";
 import NotAuth from "../Auth/notAuth";
+import { useHistory } from "react-router-dom";
 //*--------------------------------------------------------------------------------------------*
 
 let defaultValues = {
@@ -23,6 +24,7 @@ let defaultValues = {
 //*--------------------------------------------------------------------------------------------*
 
 const Form = () => {
+  let history = useHistory();
   const [image, setImage] = useState(null);
   const [imageAsUrl, setImageAsUrl] = useState("");
 
@@ -91,7 +93,7 @@ const Form = () => {
           if (res.status === 200) {
             console.log("Data saveed successfully", res.success);
             setTimeout(() => {
-              window.location.href = "/api/showdata";
+              history.push("/api/showdata");
             }, 4000);
           } else {
             console.log("data not saved  !!");
