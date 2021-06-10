@@ -147,7 +147,7 @@ const Data = () => {
           </div>
         </div>
       ) : (
-        <div>
+        <div className="title">
           <div className={classes.root}>
             <LinearProgress />
           </div>

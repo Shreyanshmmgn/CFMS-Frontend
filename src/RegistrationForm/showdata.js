@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./registrationForm";
 import "../css/verified.css";
+import { makeStyles } from "@material-ui/core/styles";
+import LinearProgress from "@material-ui/core/LinearProgress";
 
 import { useHistory } from "react-router-dom";
-import { Height } from "@material-ui/icons";
 
 let defaultValues = {
   userName: "",
@@ -28,12 +29,18 @@ let defaultValues = {
     imageUrl: "",
   },
 };
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: "100%",
+    "& > * + *": {
+      marginTop: theme.spacing(2),
+    },
+  },
+}));
 
 const Data = () => {
-  // const imgstyles = () => {
-  //   height: "100px";
-  //   width: "100px";
-  // };
+  const classes = useStyles();
+
   let history = useHistory();
   const changeLoaction = (e) => {
     e.preventDefault();
@@ -41,7 +48,6 @@ const Data = () => {
     history.push("/api/registrationForm");
   };
   const [data, setData] = useState(false);
-  // const [imageSrc, setImgSrc] = useState(null);
   const fetchData = async () => {
     await axios
       .post(process.env.REACT_APP_BACKEND_URL + `sendUserData`)
@@ -172,41 +178,15 @@ const Data = () => {
           </div>
         </div>
       ) : (
-        <h3> No data for this user</h3>
+        <div className="title">
+          <div className={classes.root}>
+            <LinearProgress />
+          </div>
+          <h3> No data for this user</h3>
+        </div>
       )}
     </>
   );
 };
 
 export default Data;
-//*--------------------------------------------------------------------------------------------*
-// const ShowData = () => {
-//   const [loader, setLoader] = useState(true);
-//   const [autherized, setautherized] = useState(null);
-
-//   useEffect(() => {
-//     axios
-//       .post(process.env.REACT_APP_BACKEND_URL + "/showdata")
-//       .then((res) => {
-//         console.log(" Req to authenticate user");
-//         console.log(res.data.success);
-//         setLoader(false);
-//         if (res.status === 200 || res.status === 201) {
-//           setautherized(true);
-//         }
-//       })
-//       .catch((err) => {
-//         console.log("Error Msg : ", err.response.data.msg);
-//         setLoader(false);
-//         setautherized(false);
-//       });
-//   }, []);
-
-//   return (
-//     <>
-//       {loader && <div class="loader"></div>}
-//       {autherized ? <Data /> : <NotAuth />}
-//     </>
-//   );
-// };
-// export default ShowData;
