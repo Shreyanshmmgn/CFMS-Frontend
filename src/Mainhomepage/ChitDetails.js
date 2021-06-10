@@ -48,6 +48,9 @@ const Data = () => {
             setIsData(false);
           }
         }
+      })
+      .catch((err) => {
+        console.log(err);
       });
   };
 
@@ -148,7 +151,7 @@ const Data = () => {
           <div className={classes.root}>
             <LinearProgress />
           </div>
-          <h2>No Data Found</h2>
+          <h2>No data found please create new private club</h2>
         </div>
       )}
     </>

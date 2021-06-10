@@ -85,6 +85,7 @@ const Form = () => {
     }));
 
     console.log("Form Data : ", values.imageUrl);
+    console.log(values);
 
     try {
       await axios
@@ -94,15 +95,13 @@ const Form = () => {
             console.log("Data saveed successfully", res.success);
             setTimeout(() => {
               history.push("/api/showdata");
-            }, 4000);
-          } else {
-            console.log("data not saved  !!");
-            // window.location.href = "/registrationForm";
+            }, 1000);
           }
         });
       setSubmited(true);
     } catch (error) {
       // error.send("Some Error occured please try again");
+      console.log(error);
     }
   };
   //*--------------------------------------------------------------------------------------------*
@@ -374,7 +373,7 @@ const RegistrationForm = () => {
 
   return (
     <>
-      {loader && <div class="loader"></div>}
+      {loader && <div className="loader"></div>}
       {autherized ? <Form /> : <NotAuth />}
     </>
   );

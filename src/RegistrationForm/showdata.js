@@ -4,6 +4,8 @@ import "./registrationForm";
 import "../css/verified.css";
 
 import { useHistory } from "react-router-dom";
+import { Height } from "@material-ui/icons";
+
 let defaultValues = {
   userName: "",
   email: "",
@@ -28,6 +30,10 @@ let defaultValues = {
 };
 
 const Data = () => {
+  // const imgstyles = () => {
+  //   height: "100px";
+  //   width: "100px";
+  // };
   let history = useHistory();
   const changeLoaction = (e) => {
     e.preventDefault();
@@ -76,6 +82,10 @@ const Data = () => {
                   </div>
                   <div>
                     <img
+                      style={{
+                        height: "100px",
+                        width: "100px",
+                      }}
                       src={defaultValues.userData.imageUrl}
                       alt="User Image"
                     />
