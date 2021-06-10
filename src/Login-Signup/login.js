@@ -15,6 +15,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 
+import { useHistory } from "react-router-dom";
 axios.defaults.withCredentials = true;
 
 const useStyles = makeStyles((theme) => ({
@@ -54,6 +55,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Login = () => {
+  let history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [currentValue, setcurrentValue] = useState(false);
@@ -63,6 +65,7 @@ const Login = () => {
 
   const submitData = (event) => {
     event.preventDefault();
+
     const givenData = {
       email: email,
       password: password,
@@ -76,11 +79,11 @@ const Login = () => {
         // console.log(res.data);
         if (!res.data.userRegistered) {
           setTimeout(() => {
-            window.location.href = "/api/registrationForm";
+            history.push("/api/registrationForm");
           }, 1000);
         } else {
           setTimeout(() => {
-            window.location.href = "/api/dashBoard";
+            history.push("/api/dashBoard");
           }, 1000);
         }
         setcurrentValue2(false);
@@ -145,18 +148,27 @@ const Login = () => {
               data-toggle="modal"
               data-target="#myModal"
               className={classes.submit}
-              
             >
               Sign In
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="/api/forgotPassword" variant="body2">
+                <Link
+                  onClick={() => {
+                    history.push("/api/forgotPassword");
+                  }}
+                  variant="body2"
+                >
                   Forgot password?
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="/api/signUp" variant="body2">
+                <Link
+                  onClick={() => {
+                    history.push("/api/signUp");
+                  }}
+                  variant="body2"
+                >
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
@@ -164,10 +176,10 @@ const Login = () => {
           </form>
         </div>
         {currentValue ? (
-          <div class="modal-content">
+          <div className="modal-content">
             <h3
               style={{ paddingTop: "25px" }}
-              class="modal-body text-center text-danger"
+              class="modal-body text-center text-success"
             >
               <b>Login Successfully!</b>{" "}
             </h3>
@@ -176,7 +188,7 @@ const Login = () => {
           <h1></h1>
         )}
         {currentValue2 ? (
-          <div class="modal-content">
+          <div style={{ paddingTop: "-40px" }} className="modal-content">
             <h3
               style={{ paddingTop: "25px" }}
               class="modal-body text-center text-danger"

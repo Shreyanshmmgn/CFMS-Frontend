@@ -12,7 +12,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 // import { useGlobalContext } from './../Mainhomepage/Navbar/context';
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-
+import { useHistory } from "react-router-dom";
 axios.defaults.withCredentials = true;
 
 const useStyles = makeStyles((theme) => ({
@@ -57,10 +57,10 @@ const Message = ({ registered }) => {
   switch (registered) {
     case 1: {
       return (
-        <div class="modal-content">
+        <div className="modal-content">
           <h3
             style={{ paddingTop: "25px" }}
-            class="modal-body text-center text-danger"
+            className="modal-body text-center text-success"
           >
             <b>Signup Successfully😋</b> <h4> Please verify your email now!</h4>
           </h3>
@@ -70,10 +70,10 @@ const Message = ({ registered }) => {
     case 2: {
       console.log("case 2 reached");
       return (
-        <div class="modal-content">
+        <div className="modal-content">
           <h3
             style={{ paddingTop: "25px" }}
-            class="modal-body text-center text-danger"
+            className="modal-body text-center text-danger"
           >
             <b>
               Someting wrong please check details again / or already registered
@@ -88,6 +88,7 @@ const Message = ({ registered }) => {
 };
 
 const Signup = () => {
+  let history = useHistory();
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
@@ -227,7 +228,12 @@ const Signup = () => {
             </Grid>
             <Grid container justify="flex-end">
               <Grid item>
-                <Link href="/api/login" variant="body2">
+                <Link
+                  onClick={() => {
+                    history.push("/api/login");
+                  }}
+                  variant="body2"
+                >
                   Already have an account? Sign in
                 </Link>
               </Grid>

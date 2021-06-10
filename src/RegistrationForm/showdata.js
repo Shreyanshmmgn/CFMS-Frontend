@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./registrationForm";
 import "../css/verified.css";
-import NotAuth from "../Auth/notAuth";
 
+import { useHistory } from "react-router-dom";
 let defaultValues = {
   userName: "",
   email: "",
@@ -28,9 +28,11 @@ let defaultValues = {
 };
 
 const Data = () => {
+  let history = useHistory();
   const changeLoaction = (e) => {
     e.preventDefault();
-    window.location.href = "/registrationForm";
+
+    history.push("/api/registrationForm");
   };
   const [data, setData] = useState(false);
   // const [imageSrc, setImgSrc] = useState(null);
@@ -150,7 +152,7 @@ const Data = () => {
                       type="button"
                       value="Register"
                       onClick={() => {
-                        window.location.href = "/mainHomePage";
+                        history.push("/api/dashboard");
                       }}
                     />
                   </div>
