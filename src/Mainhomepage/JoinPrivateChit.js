@@ -82,7 +82,7 @@ function App() {
   };
 
   return (
-    <Container style={{ marginLeft: "400px", marginTop: "50px" }}>
+    <Container style={{ marginLeft: "350px", marginTop: "50px" }}>
       <h1>Add New Member</h1>
       <form className={classes.root} onSubmit={handleSubmit}>
         {inputFields.map((inputField) => (
@@ -109,13 +109,14 @@ function App() {
             <IconButton
               disabled={inputFields.length === 1}
               onClick={() => handleRemoveFields(inputField.id)}
+              style={{ fontSize: 50, marginTop:'25px' }}
             >
-              <Icon style={{ fontSize: 40, marginTop:'25px' }} color="secondary">
+              <Icon  color="secondary">
                 delete_circle
               </Icon>
             </IconButton>
-            <IconButton onClick={handleAddFields}>
-              <Icon style={{ fontSize: 40, marginTop:'25px'}} color="primary">
+            <IconButton onClick={handleAddFields} style={{ fontSize: 50, marginTop:'25px'}}>
+              <Icon color="primary">
                 add_circle
               </Icon>
               </IconButton>
@@ -132,7 +133,7 @@ function App() {
           Send
         </Button>
         {/* snackbar success message */}
-        <Snackbar open={open} autoHideDuration={4000} message = "This is success message" onClose={handleClose}>
+        <Snackbar  open={open} autoHideDuration={4000} message = "Added Successfully" onClose={handleClose}>
         {/* <Alert onClose={handleClose} severity="success">
           This is a success message!
         </Alert> */}

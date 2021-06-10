@@ -372,7 +372,7 @@ const RegistrationForm = () => {
 
   return (
     <>
-      {loader && <h3>Loading ......</h3>}
+      {loader && <div class="loader"></div>}
       {autherized ? <Form /> : <NotAuth />}
     </>
   );

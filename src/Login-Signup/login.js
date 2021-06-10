@@ -67,6 +67,7 @@ const Login = () => {
       email: email,
       password: password,
     };
+    // setcurrentValue(true);
     console.log(process.env.REACT_APP_BACKEND_URL + "login");
     axios
       .post(process.env.REACT_APP_BACKEND_URL + "login", givenData)
@@ -76,11 +77,11 @@ const Login = () => {
         if (!res.data.userRegistered) {
           setTimeout(() => {
             window.location.href = "/api/registrationForm";
-          }, 4000);
+          }, 1000);
         } else {
           setTimeout(() => {
             window.location.href = "/api/dashBoard";
-          }, 4000);
+          }, 1000);
         }
         setcurrentValue2(false);
       })
@@ -144,7 +145,7 @@ const Login = () => {
               data-toggle="modal"
               data-target="#myModal"
               className={classes.submit}
-              on
+              
             >
               Sign In
             </Button>

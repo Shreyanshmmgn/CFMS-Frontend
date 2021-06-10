@@ -8,18 +8,22 @@ import InputBase from "@material-ui/core/InputBase";
 import Badge from "@material-ui/core/Badge";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
-import MenuIcon from "@material-ui/icons/Menu";
+
 import SearchIcon from "@material-ui/icons/Search";
 import AccountCircle from "@material-ui/icons/AccountCircle";
-import MailIcon from "@material-ui/icons/Mail";
+
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import SideBar from "./SideBar";
 import { useState } from "react";
 import Button from "@material-ui/core/Button";
 
+import useAuthServices from "./../../Auth/authentication";
 import SmallNav from "./SmallNav";
-import PublicChit from './../Chitfunds/PublicChit';
+import PublicChit from "./../Chitfunds/PublicChit";
+import PrivateChitRegistrationForm from "./../PrivateChitRegistrationForm";
+import ShowData from "../../RegistrationForm/showdata";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -46,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     [theme.breakpoints.up("sm")]: {
       marginLeft: theme.spacing(3),
-      width: "500px",
+      width: "400px",
     },
   },
   searchIcon: {
@@ -83,14 +87,44 @@ const useStyles = makeStyles((theme) => ({
       display: "none",
     },
   },
- 
 }));
+
+const Message = ({ registered }) => {
+  console.log("MEssaged called : ", registered);
+  switch (registered) {
+    case 1: {
+      return <></>;
+    }
+    case 2: {
+      console.log("case 2 reached");
+      return <PrivateChitRegistrationForm />;
+    }
+    case 3: {
+      console.log("case 3 reached");
+      return <PublicChit />;
+    }
+    case 4: {
+      console.log("case 4 reached");
+      return <SmallNav />;
+    }
+    case 5: {
+      console.log("case 4 reached");
+      return <ShowData />;
+    }
+    default:
+      return <PublicChit />;
+  }
+};
 
 export default function Navbar() {
   const classes = useStyles();
-  const [ currentValue, setcurrentValue] = useState(false);
+
+  let history = useHistory();
+  // const [ currentValue, setcurrentValue] = useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorE2, setAnchorE2] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const [registered, setRegistered] = useState(0);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -104,12 +138,25 @@ export default function Navbar() {
   };
 
   const handleMenuClose = () => {
+    setRegistered(5);
     setAnchorEl(null);
     handleMobileMenuClose();
   };
-
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
+  };
+  const handleClick = (event) => {
+    setAnchorE2(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorE2(null);
+  };
+
+  const Logout = () => {
+    const { logout } = useAuthServices();
+    logout();
+    history.push("/");
   };
 
   const menuId = "primary-search-account-menu";
@@ -123,8 +170,16 @@ export default function Navbar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem
+        onClick={() => {
+          setRegistered(5);
+          handleMenuClose();
+        }}
+      >
+        {" "}
+        MyProfile
+      </MenuItem>
+      <MenuItem onClick={Logout}>Logout</MenuItem>
     </Menu>
   );
 
@@ -139,14 +194,6 @@ export default function Navbar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
-        <IconButton aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="secondary">
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem>
       <MenuItem>
         <IconButton aria-label="show 11 new notifications" color="inherit">
           <Badge badgeContent={11} color="secondary">
@@ -191,24 +238,76 @@ export default function Navbar() {
               inputProps={{ "aria-label": "search" }}
             />
           </div>
-          <div className = "spacing">
-            <Button style={{marginLeft: '40px'}}  variant="contained" color="#fafafa" onClick={() => {setcurrentValue(false)}} disableElevation>
-              Public Chit
+          <div className="spacing">
+            <Button
+              style={{ marginLeft: "20px" }}
+              variant="contained"
+              color="#fafafa"
+              onClick={() => {
+                setRegistered(3);
+              }}
+              disableElevation
+            >
+              Public Club
             </Button>
-            <Button style={{marginLeft: '20px'}} variant="contained" color="secondary" onClick={() => {setcurrentValue(true)}} disableElevation>
-              Private Chit
+            <Button
+              style={{ marginLeft: "20px" }}
+              variant="contained"
+              color="secondary"
+              onClick={() => {
+                setRegistered(4);
+              }}
+              disableElevation
+            >
+              Private Club
             </Button>
-      
+          </div>
+          <div>
+            <Button
+              style={{ marginLeft: "20px" }}
+              aria-controls="simple-menu"
+              aria-haspopup="true"
+              variant="contained"
+              onClick={handleClick}
+              color="primary"
+              disableElevation
+            >
+              Create Club
+            </Button>
+            <Menu
+              id="simple-menu"
+              anchorEl={anchorE2}
+              keepMounted
+              open={Boolean(anchorE2)}
+              onClose={handleClose}
+            >
+              <MenuItem
+                onClick={() => {
+                  setRegistered(1);
+                  handleClose();
+                }}
+              >
+                Public
+              </MenuItem>
+              <MenuItem
+                onClick={() => {
+                  setRegistered(2);
+                  handleClose();
+                }}
+              >
+                Private
+              </MenuItem>
+            </Menu>
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton aria-label="show 4 new mails" color="inherit">
+            {/* <IconButton aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={4} color="secondary">
                 <MailIcon />
               </Badge>
-            </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
-              <Badge badgeContent={17} color="secondary">
+            </IconButton> */}
+            <IconButton aria-label="show 1 new notifications" color="inherit">
+              <Badge badgeContent={1} color="secondary">
                 <NotificationsIcon />
               </Badge>
             </IconButton>
@@ -238,12 +337,12 @@ export default function Navbar() {
       </AppBar>
       {renderMobileMenu}
       {renderMenu}
-      {
+      <Message registered={registered} />
+      {/* {
 
        currentValue ? <SmallNav/> : <PublicChit />
- }
+ } */}
     </div>
-     
   );
 }
 

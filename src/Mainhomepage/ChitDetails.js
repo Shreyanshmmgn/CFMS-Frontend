@@ -14,44 +14,26 @@ let defaultValues = {
   monthlyInstallment: "qd",
   minimumInstallment: "qwdq",
   maximumInstallment: "qwd",
-  // image: null,
 };
 
-// const fetchData = async () => {
-//   await axios.post(`http://localhost:5000/sendUserData`).then((res) => {
-//     if (res.status === 200) {
-//       defaultValues = res.data;
-// console.log(res.data);
-// Redirect to dashboard
-//     } else {
-// Somthing went wrong try again
-//     }
-//   });
-// };
-
 const Data = () => {
-  //   const changeLoaction = (e) => {
-  //     e.preventDefault();
-  //     window.location.href = "/registrationForm";
-  //     console.log(window.location.href + "/registrationForm");
-  //   };
-  //   const [data, setData] = usecommission(false);
-  //   const [imageSrc, setImgSrc] = usecommission(null);
-  //   const fetchData = async () => {
-  //     await axios.post(`http://localhost:5000/sendUserData`).then((res) => {
-  //       if (res.status === 200) {
-  //         defaultValues = res.data;
-  //         let img = `http://localhost:5000/${res.data.userData.image}`;
-  //         setImgSrc(img);
-  //         setData(true);
-  //       } else {
-  //         // Somthing went wrong try again
-  //       }
-  //     });
-  //   };
-  //   useEffect(() => {
-  //     fetchData();
-  //   }, []);
+  // const [data, setData] = usecommission(false);
+  const fetchData = async () => {
+    await axios
+      .post(process.env.REACT_APP_BACKEND_URL + `sendUserData`)
+      .then((res) => {
+        console.log(res.data);
+        // if (res.status === 200) {
+        //   defaultValues = res.data;
+        //   setData(true);
+        // } else {
+        //   // Somthing went wrong try again
+        // }
+      });
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <>
@@ -138,7 +120,7 @@ const Data = () => {
                   </h5>
                   <span> {defaultValues.maximumInstallment}</span>
                 </div>
-                <div className="button">
+                {/* <div className="button">
                   <input
                     type="submit"
                     value="Edit"
@@ -153,7 +135,7 @@ const Data = () => {
                     //     window.location.href = "/mainHomePage";
                     //   }}
                   />
-                </div>
+                </div> */}
               </div>
             </form>
           </div>

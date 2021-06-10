@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
   image: {
     backgroundImage: "url(https://www.chitmonks.com/assets/images/about.png)",
+    width: "50%",
     backgroundRepeat: "no-repeat",
 
     width: "100%",
