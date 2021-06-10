@@ -14,7 +14,6 @@ import AccountCircle from "@material-ui/icons/AccountCircle";
 
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
-import SideBar from "./SideBar";
 import { useState } from "react";
 import Button from "@material-ui/core/Button";
 
@@ -24,6 +23,33 @@ import PublicChit from "./../Chitfunds/PublicChit";
 import PrivateChitRegistrationForm from "./../PrivateChitRegistrationForm";
 import ShowData from "../../RegistrationForm/showdata";
 import { useHistory } from "react-router-dom";
+
+
+import clsx from "clsx";
+
+import Drawer from "@material-ui/core/Drawer";
+
+import List from "@material-ui/core/List";
+import Divider from "@material-ui/core/Divider";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import InboxIcon from "@material-ui/icons/MoveToInbox";
+import MailIcon from "@material-ui/icons/Mail";
+
+import MenuIcon from "@material-ui/icons/Menu";
+import AccountBalanceWalletIcon from "@material-ui/icons/AccountBalanceWallet";
+import DashboardIcon from "@material-ui/icons/Dashboard";
+import AccountBoxIcon from "@material-ui/icons/AccountBox";
+import GavelIcon from "@material-ui/icons/Gavel";
+import AccountDetails from "./Menu/AccountDetails"
+import AccountWallet from "./Menu/AccountWallet"
+import Biding from "./Menu/Biding"
+import Messages from "./Menu/Messages"
+import SendQuery from "./Menu/SendQuery"
+import Updates from "./Menu/Updates"
+
+  //*--------------------------------------------------------------------------------------------*
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -87,8 +113,14 @@ const useStyles = makeStyles((theme) => ({
       display: "none",
     },
   },
+  list: {
+    width: 250,
+  },
+  fullList: {
+    width: "auto",
+  },
 }));
-
+  //*--------------------------------------------------------------------------------------------*
 const Message = ({ registered }) => {
   console.log("MEssaged called : ", registered);
   switch (registered) {
@@ -108,17 +140,44 @@ const Message = ({ registered }) => {
       return <SmallNav />;
     }
     case 5: {
-      console.log("case 4 reached");
+      console.log("case 5 reached");
       return <ShowData />;
+    }
+    case 6: {
+      console.log("case 6 reached");
+      return <PublicChit />;
+    }
+    case 7: {
+      console.log("case 7 reached");
+      return <AccountWallet/>;
+    }
+    case 8: {
+      console.log("case 8 reached");
+      return <AccountDetails />;
+    }
+    case 9: {
+      console.log("case 9 reached");
+      return <Biding/>;
+    }
+    case 10: {
+      console.log("case 10 reached");
+      return <Messages/>;
+    }
+    case 11: {
+      console.log("case 11 reached");
+      return <SendQuery/>;
+    }
+    case 12: {
+      console.log("case 12 reached");
+      return <Updates/>;
     }
     default:
       return <PublicChit />;
   }
 };
-
+  //*--------------------------------------------------------------------------------------------*
 export default function Navbar() {
   const classes = useStyles();
-
   let history = useHistory();
   // const [ currentValue, setcurrentValue] = useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -216,12 +275,95 @@ export default function Navbar() {
       </MenuItem>
     </Menu>
   );
+   
+    //*--------------------------------------------------------------------------------------------*
+  
+  //  Functions for SideBar
+  const [state, setState] = React.useState({
+    top: false,
+    left: false,
+    bottom: false,
+    right: false,
+  });
+
+  const toggleDrawer = (anchor, open) => (event) => {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+
+    setState({ ...state, [anchor]: open });
+  };
+  const arr = [
+    <DashboardIcon />,
+    <AccountBalanceWalletIcon />,
+    <AccountBoxIcon />,
+    <GavelIcon />,
+  ];
+
+  const list = (anchor) => (
+    <div
+      className={clsx(classes.list, {
+        [classes.fullList]: anchor === "top" || anchor === "bottom",
+      })}
+      role="presentation"
+      onClick={toggleDrawer(anchor, false)}
+      onKeyDown={toggleDrawer(anchor, false)}
+    >
+      <List>
+        {["Dashboard", "Account Wallet", "Account Details", "Biding"].map(
+          (text, index) => (
+            <ListItem button onClick={() => {setRegistered(index+6)} } key={text}>
+              {/* {index % 2 === 0 ? <DashboardIcon/> : <AccountBalanceWalletIcon />} */}
+              <ListItemIcon>{arr[index]}</ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItem>
+          )
+        )}
+      </List>
+      <Divider />
+      <List>
+        {["Messages", "Send Query", "Updates"].map((text, index) => (
+          <ListItem button onClick={() => {setRegistered(index+10)} } key={text}>
+            <ListItemIcon>
+              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+            </ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+      </List>
+    </div>
+  );
+  //*--------------------------------------------------------------------------------------------*
+
 
   return (
     <div className={classes.grow}>
       <AppBar style={{ backgroundColor: "#455a64" }} position="static">
         <Toolbar>
-          <SideBar />
+        {["LEFT"].map((anchor) => (
+        <React.Fragment key={anchor}>
+          <Button onClick={toggleDrawer(anchor, true)}>
+            <IconButton
+              edge="start"
+              // className={classes.menuButton}
+              color="secondary"
+              aria-label="menu"
+            >
+              <MenuIcon />
+            </IconButton>
+          </Button>
+          <Drawer
+            anchor={anchor}
+            open={state[anchor]}
+            onClose={toggleDrawer(anchor, false)}
+          >
+            {list(anchor)}
+          </Drawer>
+        </React.Fragment>
+      ))}
 
           <Typography className={classes.title} variant="h6" noWrap>
             Commiittee Kro
