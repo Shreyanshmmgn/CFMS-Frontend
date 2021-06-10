@@ -30,7 +30,7 @@ let defaultValues = {
 const Data = () => {
   const changeLoaction = (e) => {
     e.preventDefault();
-    window.location.href = "/registrationForm";
+    window.location.href = "/api/registrationForm";
   };
   const [data, setData] = useState(false);
   // const [imageSrc, setImgSrc] = useState(null);
@@ -150,7 +150,7 @@ const Data = () => {
                       type="button"
                       value="Register"
                       onClick={() => {
-                        window.location.href = "/mainHomePage";
+                        window.location.href = "/api/dashboard";
                       }}
                     />
                   </div>

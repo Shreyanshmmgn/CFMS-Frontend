@@ -164,10 +164,10 @@ const Login = () => {
           </form>
         </div>
         {currentValue ? (
-          <div class="modal-content">
+          <div  className="modal-content">
             <h3
-              style={{ paddingTop: "25px" }}
-              class="modal-body text-center text-danger"
+              style={{ paddingTop: "25px"}}
+              class="modal-body text-center text-success"
             >
               <b>Login Successfully!</b>{" "}
             </h3>
@@ -176,7 +176,7 @@ const Login = () => {
           <h1></h1>
         )}
         {currentValue2 ? (
-          <div class="modal-content">
+          <div style={{ paddingTop: "-40px"}}  className="modal-content">
             <h3
               style={{ paddingTop: "25px" }}
               class="modal-body text-center text-danger"

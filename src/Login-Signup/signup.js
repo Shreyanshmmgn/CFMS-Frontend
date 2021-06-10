@@ -57,10 +57,10 @@ const Message = ({ registered }) => {
   switch (registered) {
     case 1: {
       return (
-        <div class="modal-content">
+        <div className="modal-content">
           <h3
             style={{ paddingTop: "25px" }}
-            class="modal-body text-center text-danger"
+            className="modal-body text-center text-success"
           >
             <b>Signup Successfully😋</b> <h4> Please verify your email now!</h4>
           </h3>
@@ -70,10 +70,10 @@ const Message = ({ registered }) => {
     case 2: {
       console.log("case 2 reached");
       return (
-        <div class="modal-content">
+        <div className="modal-content">
           <h3
             style={{ paddingTop: "25px" }}
-            class="modal-body text-center text-danger"
+            className="modal-body text-center text-danger"
           >
             <b>
               Someting wrong please check details again / or already registered
