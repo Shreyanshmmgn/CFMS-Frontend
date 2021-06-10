@@ -41,8 +41,12 @@ const Data = () => {
       .then((res) => {
         console.log(res.data.privateChitData);
         if (res.status === 200) {
-          defaultValues = res.data.privateChitData[0];
-          setIsData(true);
+          if (res.data.privateChitData.length > 0) {
+            defaultValues = res.data.privateChitData[0];
+            setIsData(true);
+          } else {
+            setIsData(false);
+          }
         }
       });
   };
