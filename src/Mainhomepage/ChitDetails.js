@@ -17,18 +17,14 @@ let defaultValues = {
 };
 
 const Data = () => {
-  // const [data, setData] = usecommission(false);
   const fetchData = async () => {
     await axios
       .post(process.env.REACT_APP_BACKEND_URL + `sendUserData`)
       .then((res) => {
-        console.log(res.data);
-        // if (res.status === 200) {
-        //   defaultValues = res.data;
-        //   setData(true);
-        // } else {
-        //   // Somthing went wrong try again
-        // }
+        console.log(res.data.privateChitData);
+        if (res.status === 200) {
+          defaultValues = res.data.privateChitData[0];
+        }
       });
   };
   useEffect(() => {
