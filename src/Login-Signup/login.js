@@ -80,18 +80,16 @@ const Login = () => {
         if (!res.data.userRegistered) {
           setTimeout(() => {
             history.push("/api/registrationForm");
-          }, 1000);
+          }, 500);
         } else {
           setTimeout(() => {
             history.push("/api/dashBoard");
-          }, 1000);
+          }, 500);
         }
         setcurrentValue2(false);
       })
       .catch((err) => {
         setcurrentValue2(true);
-        // document.getElementById("wrong-password").innerHTML =
-        //   "Wrong Credentials !!";
         console.log(" Error was there : ", err);
       });
 
