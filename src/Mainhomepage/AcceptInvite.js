@@ -7,11 +7,11 @@ import "../css/verified.css";
 
 const AcceptInvite = () => {
   let history = useHistory();
-  const { email } = useParams();
+  const { uid } = useParams();
   const [loading, setLoding] = useState(false);
   useEffect(() => {
     axios
-      .post(process.env.REACT_APP_BACKEND_URL + `inviteAccepted/${email}`)
+      .post(process.env.REACT_APP_BACKEND_URL + `inviteAccepted/${uid}`)
       .then((res) => {
         console.log("data saved suceessfull");
         if (res.status === 200) {

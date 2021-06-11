@@ -51,7 +51,7 @@ const AllRouter = () => {
         <Route exact path="/api/protected">
           <ForgotPassword />
         </Route>
-        <Route exact path="/api/acceptInvite/:email">
+        <Route exact path="/api/acceptInvite/:uid">
           <AcceptInvite />
         </Route>
         <Route path="*">
