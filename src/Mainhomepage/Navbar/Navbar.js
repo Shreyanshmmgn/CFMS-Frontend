@@ -47,7 +47,9 @@ import AccountWallet from "./Menu/AccountWallet"
 import Biding from "./Menu/Biding"
 import Messages from "./Menu/Messages"
 import SendQuery from "./Menu/SendQuery"
-import Updates from "./Menu/Updates"
+import TermsConditions from "./Menu/TermsConditions"
+import Profile from "./Profile";
+import PublicClub from "./PublicClub";
 
   //*--------------------------------------------------------------------------------------------*
 
@@ -125,7 +127,7 @@ const Message = ({ registered }) => {
   console.log("MEssaged called : ", registered);
   switch (registered) {
     case 1: {
-      return <></>;
+      return <PublicClub/>;
     }
     case 2: {
       console.log("case 2 reached");
@@ -141,7 +143,7 @@ const Message = ({ registered }) => {
     }
     case 5: {
       console.log("case 5 reached");
-      return <ShowData />;
+      return <Profile />;
     }
     case 6: {
       console.log("case 6 reached");
@@ -169,7 +171,7 @@ const Message = ({ registered }) => {
     }
     case 12: {
       console.log("case 12 reached");
-      return <Updates/>;
+      return <TermsConditions/>;
     }
     default:
       return <PublicChit />;

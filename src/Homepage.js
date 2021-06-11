@@ -379,9 +379,10 @@ const Home = () => {
                     </div>
                   </div>
                   <div className="text-center">
-                    <button title="Send Message">
-                      <a href="mailto: shyam.yadav@gmail.com">Send Message</a>
+                    <button style={{backgroundColor:"#2196f3"}}title="Send Message">
+                      <a style={{color:"black"}} href="mailto: shyam.yadav@gmail.com">Send Message</a>
                     </button>
+                    
                   </div>
                 </form>
               </div>
