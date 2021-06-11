@@ -71,7 +71,7 @@ const PrivateChitRegistrationForm = () => {
                       }}
                     />
                   </div>
-                  {/* <div className="input-box">
+                  <div className="input-box">
                     <span className="details">Total Members</span>
                     <input
                       type="text"
@@ -190,7 +190,7 @@ const PrivateChitRegistrationForm = () => {
                         event.persist();
                         setValues((values) => ({
                           ...values,
-                          minimumBidVaue: event.target.value,
+                          minimumBidValue: event.target.value,
                         }));
                       }}
                     />
@@ -209,7 +209,7 @@ const PrivateChitRegistrationForm = () => {
                         }));
                       }}
                     />
-                  </div> */}
+                  </div>
                   <div className="input-box">
                     <span className="details">Minimum Installment</span>
                     <input

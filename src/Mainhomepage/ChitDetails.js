@@ -39,8 +39,8 @@ const Data = () => {
     await axios
       .post(process.env.REACT_APP_BACKEND_URL + `sendUserData`)
       .then((res) => {
-        console.log(res.data.privateChitData);
-        if (res.status === 200) {
+        // console.log(res.data.privateChitData);
+        if (res.status === 200 && res.data.privateChitData) {
           defaultValues = res.data.privateChitData;
           setIsData(true);
         } else {

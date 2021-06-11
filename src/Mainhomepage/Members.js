@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Row(props) {
   const { row } = props;
-  console.log(row);
+  console.log("row", row);
   const [open, setOpen] = React.useState(false);
   const classes = useRowStyles();
   return (
@@ -75,17 +75,20 @@ function Row(props) {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {row.history.map((historyRow) => (
-                    <TableRow key={historyRow.location}>
-                      <TableCell component="th" scope="row">
-                        {historyRow.location}
-                      </TableCell>
-                      <TableCell>{historyRow.no}</TableCell>
-                      <TableCell>{historyRow.dob}</TableCell>
-                      <TableCell>{historyRow.occupation}</TableCell>
-                      <TableCell>{historyRow.gender}</TableCell>
-                    </TableRow>
-                  ))}
+                  <TableRow>
+                    <TableCell component="th" scope="row">
+                      {row.location}
+                    </TableCell>
+                    <TableCell>{row.no}</TableCell>
+                    <TableCell>{row.dob}</TableCell>
+                    <TableCell>{row.occupation}</TableCell>
+                    <TableCell>{row.gender}</TableCell>
+                    <img
+                      src={row.img}
+                      alt="User image"
+                      style={{ height: "100px", width: "100px" }}
+                    />
+                  </TableRow>
                 </TableBody>
               </Table>
             </Box>
@@ -118,20 +121,12 @@ export default function CollapsibleTable() {
   const [memberDetails, setMemDetails] = useState({});
   const [r, setR] = useState(false);
   const classes = useStyles();
-  // let history = [
-  //   {
-  //     location: member.currentAddress,
-  //     no: member.phoneNumber,
-  //     dob: member.dob,
-  //     occupation: member.occupation,
-  //     gender: member.gender,
-  //   },
-  // ];
+
   useEffect(() => {
     axios
       .post(process.env.REACT_APP_BACKEND_URL + `sendUserData`)
       .then((res) => {
-        if (res.status === 200) {
+        if (res.status === 200 && res.data.memberDetails.length !== 0) {
           let member = res.data;
           let memberdata = member.memberDetails[0];
           console.log("memberdata : ", memberDetails);
@@ -146,23 +141,21 @@ export default function CollapsibleTable() {
               .then((res) => {
                 if (res.status === 200) {
                   let member = res.data.userData;
-                  let history = [
-                    {
-                      location: member.currentAddress,
-                      no: member.phoneNumber,
-                      dob: member.dob,
-                      occupation: member.occupation,
-                      gender: member.gender,
-                    },
-                  ];
-                  memberdata[index].history = history;
-                  setMemDetails(memberdata);
+                  memberdata[index].location = member.currentAddress;
+                  memberdata[index].no = member.phoneNumber;
+                  memberdata[index].occupation = member.occupation;
+                  memberdata[index].dob = member.dob;
+                  memberdata[index].gender = member.gender;
+                  memberdata[index].img = member.imageUrl;
 
-                  setR(true);
+                  setMemDetails(memberdata);
                 }
               })
               .catch((err) => {
                 console.log("Error : ", err);
+              })
+              .finally(() => {
+                setR(true);
               });
           });
           //!
@@ -195,12 +188,19 @@ export default function CollapsibleTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {/* {memberDetails.map((row) => {
-            <Row key={row.firstName} row={row} />;
-          })} */}
-          {memberDetails.map((row) => (
-            <Row key={row.firstName} row={row} />
-          ))}
+          {memberDetails.map((row) => {
+            return <Row key={row.firstName} row={row} />;
+          })}
+          {/* {
+            // memberDetails.forEach((row, index) => {
+            //   console.log(" Element : ", index, " : ", row);
+            //   return <Row key={row.firstName} row={row} />;
+            // })
+            memberDetails.map((row, index) => {
+              console.log(" Element : ", index, " : ", row);
+              return <Row key={row.firstName} row={row} />;
+            })
+          } */}
         </TableBody>
       </Table>
     </TableContainer>
