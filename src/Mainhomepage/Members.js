@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
@@ -15,6 +15,7 @@ import Paper from "@material-ui/core/Paper";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import axios from "axios";
+import LinearProgress from "@material-ui/core/LinearProgress";
 
 const useRowStyles = makeStyles({
   root: {
@@ -23,31 +24,20 @@ const useRowStyles = makeStyles({
     },
   },
 });
-
-function createData(name, Role, memberSince, email) {
-  return {
-    name,
-    Role,
-    memberSince,
-    email,
-    // watt,
-    history: [
-      {
-        location: "Gurgaon",
-        amountTransacted: 31000,
-        age: 21,
-        activeGroups: 4,
-        hasReferred: 3,
-      },
-    ],
-  };
-}
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: "100%",
+    "& > * + *": {
+      marginTop: theme.spacing(2),
+    },
+  },
+}));
 
 function Row(props) {
   const { row } = props;
+  console.log(row);
   const [open, setOpen] = React.useState(false);
   const classes = useRowStyles();
-  console.log("Row : ", row);
   return (
     <React.Fragment>
       <TableRow className={classes.root}>
@@ -78,10 +68,10 @@ function Row(props) {
                 <TableHead>
                   <TableRow>
                     <TableCell>Location</TableCell>
-                    <TableCell>Amount Transacted So Far</TableCell>
-                    <TableCell>Age</TableCell>
-                    <TableCell>Active Groups</TableCell>
-                    <TableCell>Has referred</TableCell>
+                    <TableCell>Phone No</TableCell>
+                    <TableCell>Dob</TableCell>
+                    <TableCell>Occupation</TableCell>
+                    <TableCell>Gender</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -90,10 +80,10 @@ function Row(props) {
                       <TableCell component="th" scope="row">
                         {historyRow.location}
                       </TableCell>
-                      <TableCell>{historyRow.amountTransacted}</TableCell>
-                      <TableCell>{historyRow.age}</TableCell>
-                      <TableCell>{historyRow.activeGroups}</TableCell>
-                      <TableCell>{historyRow.hasReferred}</TableCell>
+                      <TableCell>{historyRow.no}</TableCell>
+                      <TableCell>{historyRow.dob}</TableCell>
+                      <TableCell>{historyRow.occupation}</TableCell>
+                      <TableCell>{historyRow.gender}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
@@ -124,26 +114,69 @@ Row.propTypes = {
   }).isRequired,
 };
 
-const rows = [
-  createData("Shreyansh", "Creater", 6.0),
-  createData("Rohan", "Creater", 6.0),
-];
-
 export default function CollapsibleTable() {
-  let members = [];
+  const [memberDetails, setMemDetails] = useState({});
+  const [r, setR] = useState(false);
+  const classes = useStyles();
+  // let history = [
+  //   {
+  //     location: member.currentAddress,
+  //     no: member.phoneNumber,
+  //     dob: member.dob,
+  //     occupation: member.occupation,
+  //     gender: member.gender,
+  //   },
+  // ];
   useEffect(() => {
     axios
       .post(process.env.REACT_APP_BACKEND_URL + `sendUserData`)
       .then((res) => {
         if (res.status === 200) {
-          members = res.data;
-          console.log("Members : ", members);
+          let member = res.data;
+          let memberdata = member.memberDetails[0];
+          console.log("memberdata : ", memberDetails);
+          //! Request to get member details
+
+          member.memberDetails[0].map((mem, index) => {
+            let email = mem.emailId;
+            axios
+              .post(
+                process.env.REACT_APP_BACKEND_URL + `sendMemberData/${email}`
+              )
+              .then((res) => {
+                if (res.status === 200) {
+                  let member = res.data.userData;
+                  let history = [
+                    {
+                      location: member.currentAddress,
+                      no: member.phoneNumber,
+                      dob: member.dob,
+                      occupation: member.occupation,
+                      gender: member.gender,
+                    },
+                  ];
+                  memberdata[index].history = history;
+                  setMemDetails(memberdata);
+
+                  setR(true);
+                }
+              })
+              .catch((err) => {
+                console.log("Error : ", err);
+              });
+          });
+          //!
         }
       }).catch = (error) => {
       console.log("Member not found  !!", error);
     };
   }, []);
-  return (
+
+  // const getMemberData = () => {
+
+  // };
+
+  return r ? (
     <TableContainer component={Paper}>
       <Table aria-label="collapsible table">
         <TableHead style={{ backgroundColor: "#424242" }}>
@@ -154,7 +187,7 @@ export default function CollapsibleTable() {
               Role
             </TableCell>
             <TableCell style={{ color: "white" }} align="right">
-              Member Since
+              Id Number
             </TableCell>
             <TableCell style={{ color: "white" }} align="right">
               Email
@@ -162,11 +195,21 @@ export default function CollapsibleTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {/* {memberDetails.map((row) => {
+            <Row key={row.firstName} row={row} />;
+          })} */}
+          {memberDetails.map((row) => (
             <Row key={row.firstName} row={row} />
           ))}
         </TableBody>
       </Table>
     </TableContainer>
+  ) : (
+    <div className="title">
+      <div className={classes.root}>
+        <LinearProgress />
+      </div>
+      <h2>No data found please create new private club</h2>
+    </div>
   );
 }
