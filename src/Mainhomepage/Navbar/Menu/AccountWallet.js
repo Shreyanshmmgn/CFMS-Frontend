@@ -59,10 +59,10 @@ const AccountDetails = () => {
                     </Typography>
                   </Grid>
                   <div className={classes.root}>
-                    <Button variant="contained" style={{backgroundColor:"#448aff"}}>
+                    <Button variant="contained" style={{backgroundColor:"#90caf9"}}>
                       Withdraw
                     </Button>
-                    <Button variant="contained" style={{backgroundColor:"#1565c0"}}>
+                    <Button variant="contained" style={{backgroundColor:"#90caf9"}}>
                       Add Money
                     </Button>
                   </div>

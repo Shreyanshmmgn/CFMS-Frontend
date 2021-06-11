@@ -315,7 +315,7 @@ export default function Navbar() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {["Dashboard", "Account Wallet", "Account Details", "Biding"].map(
+        {["Dashboard", "Account Wallet", "Bank Account Details", "Biding"].map(
           (text, index) => (
             <ListItem button onClick={() => {setRegistered(index+6)} } key={text}>
               {/* {index % 2 === 0 ? <DashboardIcon/> : <AccountBalanceWalletIcon />} */}
@@ -327,7 +327,7 @@ export default function Navbar() {
       </List>
       <Divider />
       <List>
-        {["Messages", "Send Query", "Updates"].map((text, index) => (
+        {["Messages", "Send Query", "Terms & Conditions"].map((text, index) => (
           <ListItem button onClick={() => {setRegistered(index+10)} } key={text}>
             <ListItemIcon>
               {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
