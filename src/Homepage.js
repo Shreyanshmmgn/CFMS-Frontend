@@ -313,8 +313,9 @@ const Home = () => {
           <div className="container-fluid" data-aos="fade-up">
             <div className="section-header">
               <h3>Contact Us</h3>
+              <h5><center>Get in touch and we’ll get back to you as soon as we can.  We look forward to hearing from you!</center></h5>
             </div>
-            <div style={{ paddingLeft: "590px" }} className="row">
+            <div style={{ marginLeft: "36%" }} className="row">
               <div className="form">
                 <form
                   action="forms/contact.php"

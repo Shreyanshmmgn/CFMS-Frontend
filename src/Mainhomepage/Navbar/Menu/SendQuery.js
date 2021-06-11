@@ -11,7 +11,8 @@ const SendQuery = () => {
       </div>
       
       <form >
-        <h3>Drop Us a Message</h3>
+        <h3>Drop Us a Query <br></br><h4>Get in touch and we’ll get back to you as soon as we can.  We look forward to hearing from you!</h4></h3>
+        
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">

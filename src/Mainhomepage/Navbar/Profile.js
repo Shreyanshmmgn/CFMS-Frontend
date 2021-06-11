@@ -68,7 +68,7 @@ const Profile = () => {
   return (
     <>
       {/* {data ? ( */}
-        <div style={{marginTop:"0px"}}className="back1">
+        <div style={{marginTop:"90px"}}className="back1">
           <div className="container1">
             <div style={{fontWeight:"bold"}}className="title">Profile</div>
             <div className="content">
