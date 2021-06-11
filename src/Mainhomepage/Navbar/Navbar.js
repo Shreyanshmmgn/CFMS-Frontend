@@ -47,7 +47,9 @@ import AccountWallet from "./Menu/AccountWallet"
 import Biding from "./Menu/Biding"
 import Messages from "./Menu/Messages"
 import SendQuery from "./Menu/SendQuery"
-import Updates from "./Menu/Updates"
+import TermsConditions from "./Menu/TermsConditions"
+import Profile from "./Profile";
+import PublicClub from "./PublicClub";
 
   //*--------------------------------------------------------------------------------------------*
 
@@ -125,7 +127,7 @@ const Message = ({ registered }) => {
   console.log("MEssaged called : ", registered);
   switch (registered) {
     case 1: {
-      return <></>;
+      return <PublicClub/>;
     }
     case 2: {
       console.log("case 2 reached");
@@ -141,7 +143,7 @@ const Message = ({ registered }) => {
     }
     case 5: {
       console.log("case 5 reached");
-      return <ShowData />;
+      return <Profile />;
     }
     case 6: {
       console.log("case 6 reached");
@@ -169,7 +171,7 @@ const Message = ({ registered }) => {
     }
     case 12: {
       console.log("case 12 reached");
-      return <Updates/>;
+      return <TermsConditions/>;
     }
     default:
       return <PublicChit />;
@@ -313,7 +315,7 @@ export default function Navbar() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {["Dashboard", "Account Wallet", "Account Details", "Biding"].map(
+        {["Dashboard", "Account Wallet", "Bank Account Details", "Biding"].map(
           (text, index) => (
             <ListItem button onClick={() => {setRegistered(index+6)} } key={text}>
               {/* {index % 2 === 0 ? <DashboardIcon/> : <AccountBalanceWalletIcon />} */}
@@ -325,7 +327,7 @@ export default function Navbar() {
       </List>
       <Divider />
       <List>
-        {["Messages", "Send Query", "Updates"].map((text, index) => (
+        {["Messages", "Send Query", "Terms & Conditions"].map((text, index) => (
           <ListItem button onClick={() => {setRegistered(index+10)} } key={text}>
             <ListItemIcon>
               {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
@@ -341,7 +343,7 @@ export default function Navbar() {
 
   return (
     <div className={classes.grow}>
-      <AppBar style={{ backgroundColor: "#455a64" }} position="static">
+      <AppBar style={{ backgroundColor: "#0d47a1" }} position="static">
         <Toolbar>
         {["LEFT"].map((anchor) => (
         <React.Fragment key={anchor}>
