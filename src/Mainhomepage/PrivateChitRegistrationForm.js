@@ -61,6 +61,7 @@ const PrivateChitRegistrationForm = () => {
                     <span className="details">Manager Name</span>
                     <input
                       type="text"
+                      name = "Manager Name"
                       required
                       onChange={(event) => {
                         event.persist();

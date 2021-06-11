@@ -14,10 +14,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 let defaultValues = {
-  totalMoneyInvested: "ADCSACASDADCSAV ",
-  netInvestEarned: "SDCVSCVSZDCZSCV ",
-  cyclesRemaining: "SVDSCSZCD",
-  nextBidDate: "SDVCSDC DSC SZV ",
+  totalMoneyInvested: 33000,
+  netInterestEarned: 50000,
+  cyclesRemaining: "4",
+  nextBidDate: "23-10-2021 ",
 };
 
 const Data = () => {
@@ -56,12 +56,12 @@ const Data = () => {
   return (
     <div >
       {/* {isData ? ( */}
-      <div>
-          <div style={{display:"inline",marginLeft:"500px",fontSize:"30px",fontWeight:"bold",textDecoration:"underline"}}className="title">Your Investments</div>
-          <div style={{marginLeft:"250px"}}className="content">
+        <div  style={{marginTop:"15px"}} class="container contact-form">
+          <div style={{marginLeft:"-15px",marginRight:"-15px",fontSize:"30px",fontWeight:"bold",}}className="title">Your Investments</div>
+          <div style={{marginLeft:"20px"}}className="content">
              
             <form action="#">
-              <div className="user-details">
+              <div style={{marginTop:"-50px"}} className="user-details">
                 <div className="input-box">
                   <h5>
                     <span className="details"> Total Money Invested: </span>
@@ -70,9 +70,9 @@ const Data = () => {
                 </div>
                 <div className="input-box">
                   <h5>
-                    <span className="details"> Net Invest Earned:</span>
+                    <span className="details"> Net Interest Earned:</span>
                   </h5>
-                  <span> {defaultValues.netInvestEarned}</span>
+                  <span> {defaultValues.netInterestEarned}</span>
                 </div>
                 <br></br>
                 <br></br>
@@ -89,7 +89,7 @@ const Data = () => {
                   </h5>
                   <span> {defaultValues.nextBidDate}</span>
                 </div>
-                <div style={{marginLeft:"280px"}}className="button">
+                <div style={{marginLeft:"5px",marginTop:"30px"}}className="button">
                   <input type="submit" value="Edit" onClick={changeLoaction} />
                 </div>
               </div>
