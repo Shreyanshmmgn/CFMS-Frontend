@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
 
 const AddNewMembers = () => {
   const classes = useStyles();
+  const [success, setSuccess] = useState(false);
   const [open, setOpen] = React.useState(false); // This is for snackbar success message
 
   const [inputFields, setInputFields] = useState([
@@ -42,6 +43,7 @@ const AddNewMembers = () => {
       .then((res) => {
         if (res.status === 200) {
           console.log("Data saveed successfully", res.success);
+          setSuccess(true);
         }
       })
       .catch((err) => {
@@ -92,64 +94,73 @@ const AddNewMembers = () => {
   };
 
   return (
-    <Container style={{ marginLeft: "350px", marginTop: "50px" }}>
-      <h1>Add New Members</h1>
-      <form className={classes.root} onSubmit={handleSubmit}>
-        {inputFields.map((inputField, index) => (
-          <div key={inputField.id}>
-            <TextField
-              name="firstName"
-              label="Name"
-              variant="filled"
-              required
-              value={inputField.firstName}
-              autofocus
-              onChange={(event) => handleChangeInput(inputField.id, event)}
-            />
-            <TextField
-              name="emailId"
-              label="Email ID"
-              variant="filled"
-              required
-              value={inputField.emailId}
-              autofocus
-              onChange={(event) => handleChangeInput(inputField.id, event)}
-              //   helperText="This field is mandatory"
-            />
-            <IconButton
-              disabled={inputFields.length === 1}
-              onClick={() => handleRemoveFields(inputField.id)}
-              style={{ fontSize: 50, marginTop: "25px" }}
+    <>
+      {success ? (
+        <div>
+          <h2>"New Club created success!! Mail send to all members"</h2>
+        </div>
+      ) : (
+        <Container style={{ marginLeft: "350px", marginTop: "50px" }}>
+          <h1 className="successMsg"></h1>
+          <h1>Add New Members</h1>
+          <form className={classes.root} onSubmit={handleSubmit}>
+            {inputFields.map((inputField, index) => (
+              <div key={inputField.id}>
+                <TextField
+                  name="firstName"
+                  label="Name"
+                  variant="filled"
+                  required
+                  value={inputField.firstName}
+                  autofocus
+                  onChange={(event) => handleChangeInput(inputField.id, event)}
+                />
+                <TextField
+                  name="emailId"
+                  label="Email ID"
+                  variant="filled"
+                  required
+                  value={inputField.emailId}
+                  autofocus
+                  onChange={(event) => handleChangeInput(inputField.id, event)}
+                  //   helperText="This field is mandatory"
+                />
+                <IconButton
+                  disabled={inputFields.length === 1}
+                  onClick={() => handleRemoveFields(inputField.id)}
+                  style={{ fontSize: 50, marginTop: "25px" }}
+                >
+                  <Icon color="secondary">delete_circle</Icon>
+                </IconButton>
+                <IconButton
+                  onClick={handleAddFields}
+                  style={{ fontSize: 50, marginTop: "25px" }}
+                >
+                  <Icon color="primary">add_circle</Icon>
+                </IconButton>
+              </div>
+            ))}
+            <Button
+              className={classes.button}
+              variant="contained"
+              color="primary"
+              type="submit"
+              endIcon={<Icon>send</Icon>}
+              onClick={handleSubmit}
             >
-              <Icon color="secondary">delete_circle</Icon>
-            </IconButton>
-            <IconButton
-              onClick={handleAddFields}
-              style={{ fontSize: 50, marginTop: "25px" }}
-            >
-              <Icon color="primary">add_circle</Icon>
-            </IconButton>
-          </div>
-        ))}
-        <Button
-          className={classes.button}
-          variant="contained"
-          color="primary"
-          type="submit"
-          endIcon={<Icon>send</Icon>}
-          onClick={handleSubmit}
-        >
-          Send
-        </Button>
-        {/* snackbar success message */}
-        <Snackbar
-          open={open}
-          autoHideDuration={4000}
-          message="Added Successfully"
-          onClose={handleClose}
-        ></Snackbar>
-      </form>
-    </Container>
+              Send
+            </Button>
+            {/* snackbar success message */}
+            <Snackbar
+              open={open}
+              autoHideDuration={4000}
+              message="Added Successfully"
+              onClose={handleClose}
+            ></Snackbar>
+          </form>
+        </Container>
+      )}
+    </>
   );
 };
 

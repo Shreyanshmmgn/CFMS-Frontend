@@ -40,10 +40,12 @@ const ForgotPassword = () => {
       .post(process.env.REACT_APP_BACKEND_URL + "forgotPassword", data)
       .then((res) => {
         if (res.status === 200) {
-          // setLinkSent(true);
-        } else {
-          // setIdCorrect(true);
+          document.getElementById("pp").innerText = "Password link Sent!!";
         }
+      })
+      .catch(() => {
+        document.getElementById("pp").innerText =
+          "Something wrong occured please check your Email!!";
       });
   };
   const classes = useStyles();
@@ -83,7 +85,11 @@ const ForgotPassword = () => {
           </Button>
         </form>
 
-        <h2 id="pp"></h2>
+        <ul>
+          <b>
+            <h2 id="pp"></h2>
+          </b>
+        </ul>
       </div>
     </Container>
   );

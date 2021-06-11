@@ -22,7 +22,7 @@ let defaultValues = {
 
 const PrivateChitRegistrationForm = () => {
   const [values, setValues] = useState(defaultValues);
-  const [form, setForm] = useState(false);
+  const [form, setForm] = useState(true);
 
   const submitData = (e) => {
     e.preventDefault();

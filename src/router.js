@@ -13,7 +13,7 @@ import RegistrationForm from "./RegistrationForm/registrationForm.js";
 import ChangePassword from "./Login-Signup/changePassword";
 import ShowData from "./RegistrationForm/showdata";
 import MainHomePage from "./Mainhomepage/Mainhomepage";
-
+import AcceptInvite from "./Mainhomepage/AcceptInvite";
 const AllRouter = () => {
   return (
     <Router>
@@ -50,6 +50,9 @@ const AllRouter = () => {
         </Route>
         <Route exact path="/api/protected">
           <ForgotPassword />
+        </Route>
+        <Route exact path="/api/acceptInvite/:email">
+          <AcceptInvite />
         </Route>
         <Route path="*">
           <Error />
