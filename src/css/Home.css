@@ -5,6 +5,9 @@
   list-style: none;
   box-sizing: border-box;
 }
+body{
+  background-color: #f0f5f9;
+}
 
 nav{
   background: #ffffff;
