@@ -82,6 +82,9 @@ const AccountDetails = () => {
                       Withdraw
                     </Button>
                     <Button
+                      onClick={() => {
+                        window.location.href = "https://rzp.io/l/1XDDFkgvY";
+                      }}
                       variant="contained"
                       style={{ backgroundColor: "#90caf9" }}
                     >
