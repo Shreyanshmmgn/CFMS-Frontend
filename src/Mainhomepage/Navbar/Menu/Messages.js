@@ -1,9 +1,13 @@
-
+import React from "react";
+import SignIn from "./Chat/Chat";
 const Messages = () => {
-    return (
-      <h1> See your Messages</h1>
-      
-    );
-  };
-  
-  export default Messages;
+  return (
+    <>
+      <div>
+        <SignIn />
+      </div>
+    </>
+  );
+};
+
+export default Messages;

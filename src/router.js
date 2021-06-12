@@ -54,6 +54,7 @@ const AllRouter = () => {
         <Route exact path="/api/acceptInvite/:uid">
           <AcceptInvite />
         </Route>
+
         <Route path="*">
           <Error />
         </Route>
