@@ -1,14 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-// import List from '@material-ui/core/List';
-// import ListItem from '@material-ui/core/ListItem';
-// import ListItemText from '@material-ui/core/ListItemText';
+import axios from "axios";
+
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
-import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet';
-const payments = [{ name: "Available Balance:", detail: "33000" }];
-
+import AccountBalanceWalletIcon from "@material-ui/icons/AccountBalanceWallet";
+const payments = [{ name: "Available Balance:", detail: "" }];
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,13 +18,31 @@ const useStyles = makeStyles((theme) => ({
 
 const AccountDetails = () => {
   const classes = useStyles();
+  useEffect(() => {
+    fetchData();
+  }, []);
 
+  const fetchData = async () => {
+    await axios
+      .post(process.env.REACT_APP_BACKEND_URL + `sendUserData`)
+      .then((res) => {
+        if (res.status === 200) {
+          console.log("Data saved successfully");
+          payments[0].detail = res.data.wallet.balance;
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <div className="back1">
       <div style={{ maxWidth: "800px" }} className="container1">
         <div className="title">
           <b>
-            <h3>Account Wallet <AccountBalanceWalletIcon/></h3>
+            <h3>
+              Account Wallet <AccountBalanceWalletIcon />
+            </h3>
           </b>
         </div>
         <div className="content">
@@ -59,10 +75,16 @@ const AccountDetails = () => {
                     </Typography>
                   </Grid>
                   <div className={classes.root}>
-                    <Button variant="contained" style={{backgroundColor:"#90caf9"}}>
+                    <Button
+                      variant="contained"
+                      style={{ backgroundColor: "#90caf9" }}
+                    >
                       Withdraw
                     </Button>
-                    <Button variant="contained" style={{backgroundColor:"#90caf9"}}>
+                    <Button
+                      variant="contained"
+                      style={{ backgroundColor: "#90caf9" }}
+                    >
                       Add Money
                     </Button>
                   </div>

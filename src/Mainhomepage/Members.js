@@ -147,7 +147,6 @@ export default function CollapsibleTable() {
                   memberdata[index].dob = member.dob;
                   memberdata[index].gender = member.gender;
                   memberdata[index].img = member.imageUrl;
-
                   setMemDetails(memberdata);
                 }
               })
