@@ -19,7 +19,7 @@ const Dashboard = () => {
   return (
     <div style={{backgroundColor:"#f0f5f9"}}>
       <Navbar />
-      {/* <div style={{height:"500px"}}></div>
+      <div style={{height:"500px"}}></div>
       <footer id="footer">
         <div className="footer-top">
           <div className="container">
@@ -96,7 +96,7 @@ const Dashboard = () => {
             <h4>Designed by कमिटी करो</h4>
           </div>
         </div>
-      </footer> */}
+      </footer>
     </div>
   );
 };
