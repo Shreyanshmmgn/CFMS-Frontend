@@ -141,12 +141,10 @@ form .button input {
   letter-spacing: 1px;
   cursor: pointer;
   transition: all 0.3s ease;
-  background: linear-gradient(135deg, #cacaca, #747475);
+  
 }
 
-form .button input:hover {
-  background: linear-gradient(-135deg, #a5a7a8, #5b5b5e);
-}
+
 
 /* @media(max-width: 584px){
  .container1{

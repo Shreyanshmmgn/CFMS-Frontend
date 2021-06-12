@@ -55,7 +55,7 @@ const Data = () => {
   return (
     <>
       {isData ? (
-        <div className="back1">
+        <div style = {{marginTop:"30px"}} className="back1">
           <div className="container1">
             <div className="title">Chit Details</div>
             <div className="content">
