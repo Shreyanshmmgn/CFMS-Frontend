@@ -1,25 +1,36 @@
 import Navbar from "./Navbar/Navbar";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
+import NotAuth from "../Auth/notAuth";
+
+const ifAuthenticatedOrNot = async (setAuth) => {
+  await axios
+    .post(process.env.REACT_APP_BACKEND_URL + `dashboard`)
+    .then((res) => {
+      if (res.status == 401) {
+        console.log("Not Authnticated : ", res.status);
+      }
+      setAuth(true);
+    })
+    .catch((err) => {
+      console.log("Error recived : ", err);
+    });
+};
 
 const Dashboard = () => {
-  // useEffect(() => {
-  //   pendingRequestChecker();
-  // }, []);
-  // const pendingRequestChecker = async () => {
-  //   await axios
-  //     .post(process.env.REACT_APP_BACKEND_URL + `dashboard`)
-  //     .then((res) => {
-  //       console.log("Res recived ");
-  //     })
-  //     .catch((err) => {
-  //       console.log("Error recived : ", err);
-  //     });
-  // };
+  const [isAuthticated, setisAuthticated] = useState(false);
+  useEffect(() => {
+    ifAuthenticatedOrNot(setisAuthticated);
+  }, []);
+
+  return <>{isAuthticated ? <DashboardData /> : <NotAuth />}</>;
+};
+
+const DashboardData = () => {
   return (
-    <div style={{backgroundColor:"#f0f5f9"}}>
+    <div style={{ backgroundColor: "#f0f5f9" }}>
       <Navbar />
-      <div style={{height:"500px"}}></div>
+      <div style={{ height: "500px" }}></div>
       <footer id="footer">
         <div className="footer-top">
           <div className="container">
